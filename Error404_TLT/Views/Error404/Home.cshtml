@@ -1,0 +1,208 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+}
+
+@{
+    var db = new Error404_TLT.Models.BUS.ProductBUS();
+    string user = "";
+    if (Session["user"] != null)
+    {
+        user = Session["user"].ToString();
+    }
+}
+
+<!-- MAIN-CONTENT-SECTION START -->
+<section class="main-content-section">
+    <div class="container">
+        <div class="row">
+            <!-- MAIN-SLIDER-AREA START -->
+            <div class="main-slider-area">
+                <!-- SLIDER-AREA START -->
+                <div class="headerslider">
+                    <div class="slider-left">
+                        <div class="slider-area">
+                            <div id="wrapper">
+                                <div class="slider-wrapper">
+                                    <div id="mainSlider" class="nivoSlider">
+                                        <a href="@Url.Action("Category", "Error404", new { id = "IPAD" })"><img src="~/Assets/img/slider/pc-.jpg" alt="main slider"></a>
+                                        <a href="@Url.Action("Category", "Error404", new { id = "IP" })"><img src="~/Assets/img/slider/pc-1.jpg" alt="main slider"></a>
+                                        <a href="@Url.Action("Category", "Error404", new { id = "MAC" })"><img src="~/Assets/img/slider/pc-2-1.jpg" alt="main slider"></a>
+                                        <a href="@Url.Action("Category", "Error404", new { id = "IP" })"><img src="~/Assets/img/slider/pc-ip11-1.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page-main">
+                            <div class="homepage-cat">
+                                <div class="box">
+                                    <a class="cat-iphone" href="@Url.Action("Category", "Error404", new { id = "IP" })">
+                                        <i><img src="~/Assets/img/homepagecat/iphone12.svg" alt=""></i>
+                                        <span>iPhone 12<br>Pro Max</span>
+                                    </a>
+                                    <a class="cat-mac" href="@Url.Action("Category", "Error404", new { id = "MAC" })">
+                                        <i><img src="~/Assets/img/homepagecat/macbook.svg" alt=""></i>
+                                        <span>
+                                            Macbook M1 2020<br>
+                                            from 19**$
+                                        </span>
+                                    </a>
+                                    <a class="cat-pkapple" href="">
+                                        <i><img src="~/Assets/img/homepagecat/apple.svg" alt=""></i>
+                                        <span>
+                                            Apple<br>
+                                            Accessories
+                                        </span>
+                                    </a>
+                                    <a class="cat-aw" href="@Url.Action("Category", "Error404", new { id = "AW" })">
+                                        <i><img src="~/Assets/img/homepagecat/aw.svg" alt=""></i>
+                                        <span>
+                                            Apple Watch S6<br>
+                                            from 5**$
+                                        </span>
+                                    </a>
+                                    <a class="cat-ipad" href="@Url.Action("Category", "Error404", new { id = "IPAD" })">
+                                        <i><img src="~/Assets/img/homepagecat/icon_ipad.png" alt=""></i>
+                                        <span>
+                                            Ipad Gen<br>
+                                            from 6**$
+                                        </span>
+                                    </a>
+                                    <a class="cat-airpod" href="@Url.Action("Category", "Error404", new { id = "PK" })">
+                                        <i><img src="~/Assets/img/homepagecat/airpod.jpg" alt=""></i>
+                                        <span>
+                                            Airpods 2<br>
+                                            Flashsale in July
+                                        </span>
+                                    </a>
+                                    <a class="cat-airtag" href="@Url.Action("Category", "Error404", new { id = "PK" })">
+                                        <i><img src="~/Assets/img/homepagecat/airtag.jpg" alt=""></i>
+                                        <span>
+                                            New Airtag<br>
+                                            Arrives
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="static-banner">
+
+                        <ul>
+                            <li class="iqc1">
+                                <div class="ibn">
+
+                                    <a href="">
+
+                                        <img alt="Phụ kiện  - AirPods" src="~/Assets/img/480x255-airpods_2.png">
+                                    </a>
+
+                                </div>
+                            </li>
+                            <li class="iqc2">
+                                <div class="ibn">
+
+                                    <a href="">
+
+                                        <img alt="" src="~/Assets/img/chuong-trinh-apple-watch-2020-didongviet-480x255.jpg">
+                                    </a>
+
+                                </div>
+                            </li>
+                            <li class="iqc3">
+                                <div class="ibn">
+
+                                    <a href="">
+
+                                        <img alt="" src="~/Assets/img/chuong-trinh-ipad-2020-didongviet-480x255.jpg">
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- SLIDER-AREA END -->
+            <!-- MAIN-SLIDER-AREA END -->
+
+        </div>
+        <!-- TOW-COLUMN-PRODUCT START -->
+        <div class="row tow-column-product">
+            @{
+                var loadNewProduct = Html.Partial("Home_LoadProductNew", db.loadProductNew());
+                loadNewProduct = new MvcHtmlString(loadNewProduct.ToString());
+            }
+            @loadNewProduct
+            @{
+                var loadSaleProduct = Html.Partial("Home_LoadProductSale", db.loadProductSale());
+                loadSaleProduct = new MvcHtmlString(loadSaleProduct.ToString());
+            }
+            @loadSaleProduct
+        </div>
+        <!-- TOW-COLUMN-PRODUCT END -->
+        <div class="row">
+            <div class="midbanner">
+                <div class="col">
+                    <img src="~/Assets/img/product/Watch/AW6/apple-watch-series-6-40mm-4g-vien-nhom-xam-day-cao-su-full-vat_3_1.jpg" alt="">
+                </div>
+                <div class="col">
+                    <p>Only Available in This Store</p>
+                    <h1>Apple Watch Series 6</h1>
+                    <small>
+                        Measure your blood oxygen level with a revolutionary sensor and app. Take an ECG anytime, anywhere. See your fitness metrics at a glance with the enhanced Always-On Retina display. With Apple Watch Series 6 on your wrist, a healthier, more active, more connected life is within reach.
+                    </small>
+                    <div class="button">
+                        <a href="@Url.Action("Category", "Error404", new { id = "AW" })" class="btn">Buy Now &#10132;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @{
+            var productNoiBat = Html.Partial("Home_LoadProductNoiBat", db.loadProductNoiBat());
+            productNoiBat = new MvcHtmlString(productNoiBat.ToString());
+        }
+        @productNoiBat
+        <div class="headerbanner">
+            <a href=""><img src="~/Assets/img/1200x100.png" alt=""></a>
+        </div>
+    </div>
+</section>
+<!-- MAIN-CONTENT-SECTION END -->
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $('.cart-adction .add-to-cart').click(function () {
+        var modal = document.getElementById('login_form');
+        var parent = $(this).parent().parent();
+        var id = $(parent).children(".productId").val();
+        alert(id);
+        var user = '@user';
+        if (user == null || user == "") {
+            modal.style.display = "block";
+        } else {
+            $.ajax({
+                url: '@Url.Action("insertCart", "Product")',
+                type: 'POST',
+                async: false,
+                cache: false,
+                data: {
+                    id: id,
+                    user: user,
+                },
+                success: function (result) {
+                    alert("Thành công");
+                },
+                error: function () {
+                    alert('Fail');
+                }
+            });
+        }
+
+    });
+
+</script>

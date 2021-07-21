@@ -1,0 +1,295 @@
+﻿@model Error404_TLT.Models.Error404Entity.SanPham
+@{
+    ViewBag.Title = Session["ProductName"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    Error404_TLT.Controllers.ProductController productController = new Error404_TLT.Controllers.ProductController();
+    var db = new Error404_TLT.Models.BUS.ProductBUS();
+    var fullName = Session["fullname"];
+    var user = Session["user"];
+
+}
+
+<!-- MAIN-CONTENT-SECTION START -->
+<section class="main-content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- BSTORE-BREADCRUMB START -->
+                <div class="bstore-breadcrumb">
+                    <ol class="breadcrumb">
+                        @*@ActionLink(text, action, controller, id)*@
+                        <li class="breadcrumb-item">@Html.ActionLink("Trang chủ", "Home", "Error404")</li>
+                        <li class="breadcrumb-item"><a href="@Url.Action("Category", "Error404", new { id = Model.LoaiSP.MaDM })">@Model.LoaiSP.DanhMuc.TenDM</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@Model.TenSP</li>
+                    </ol>
+                </div>
+                <!-- BSTORE-BREADCRUMB END -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <!-- SINGLE-PRODUCT-DESCRIPTION START -->
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+                        <div class="single-product-view">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="thumbnail_1">
+                                    <div class="single-product-image">
+                                        <img src="~/Assets/@Model.img" alt="single-product-image">
+                                        <a class="new-mark-box" href="#">new</a>
+                                        <a class="fancybox" href="~/Assets/@Model.img" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="thumbnail_2">
+                                    <div class="single-product-image">
+                                        <img src="~/Assets/@Model.img2" alt="single-product-image" />
+                                        <a class="new-mark-box" href="#">new</a>
+                                        <a class="fancybox" href="~/Assets/@Model.img2" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="thumbnail_3">
+                                    <div class="single-product-image">
+                                        <img src="~/Assets/@Model.img3" alt="single-product-image" />
+                                        <a class="new-mark-box" href="#">new</a>
+                                        <a class="fancybox" href="~/Assets/@Model.img3" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="thumbnail_4">
+                                    <div class="single-product-image">
+                                        <img src="~/Assets/@Model.img4" alt="single-product-image" />
+                                        <a class="new-mark-box" href="#">new</a>
+                                        <a class="fancybox" href="~/Assets/@Model.img4" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="select-product">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs select-product-tab bxslider">
+                                <li class="active">
+                                    <a href="#thumbnail_1" data-toggle="tab"><img src="~/Assets/@Model.img" alt="pro-thumbnail" /></a>
+                                </li>
+                                <li>
+                                    <a href="#thumbnail_2" data-toggle="tab"><img src="~/Assets/@Model.img2" alt="pro-thumbnail" /></a>
+                                </li>
+                                <li>
+                                    <a href="#thumbnail_3" data-toggle="tab"><img src="~/Assets/@Model.img3" alt="pro-thumbnail" /></a>
+                                </li>
+                                <li>
+                                    <a href="#thumbnail_4" data-toggle="tab"><img src="~/Assets/@Model.img4" alt="pro-thumbnail" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
+                        <div class="single-product-descirption">
+                            <h2 class="product_name">@Model.TenSP</h2>
+
+                            <div class="single-product-social-share">
+                                <ul>
+                                    <li><a href="https://twitter.com/" class="twi-link"><i class="fa fa-twitter"></i>Tweet</a></li>
+                                    <li><a href="https://facebook.com/" class="fb-link"><i class="fa fa-facebook"></i>Share</a></li>
+                                    <li><a href="https://google.com/" class="g-plus-link"><i class="fa fa-google-plus"></i>Google+</a></li>
+                                    <li><a href="https://instagram.com/" class="ins-link"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="single-product-review-box">
+                                <div class="rating-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <div class="read-reviews">
+                                    <a href="#">Read reviews (1)</a>
+                                </div>
+                                <div class="write-review">
+                                    <a href="#">Write a review</a>
+                                </div>
+                            </div>
+                            <div class="single-product-condition">
+                                <p>Reference: <span>demo_1</span></p>
+                                <p>Condition: <span>New product</span></p>
+                            </div>
+                            <div class="single-product-price">
+                                <h2 class="product_price">$ @Model.DonGia</h2>
+                            </div>
+
+                            <div class="single-product-desc">
+                                <p> Mô tả: @Model.Description</p>
+                            </div>
+
+                            <div class="single-product-quantity">
+                                <p class="small-title">Số lượng</p>
+                                <div class="cart-quantity">
+                                    <div class="cart-plus-minus-button single-qty-btn">
+                                        <input class="cart-plus-minus sing-pro-qty product_quantity" id="quantityP" type="text" name="qtybutton" value="1" min="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-product-add-cart">
+                                <button class="add-cart-text" id="addToCartWithSL" title="Add to cart">Thêm giỏ hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SINGLE-PRODUCT-DESCRIPTION END -->
+                <!-- SINGLE-PRODUCT INFO TAB START -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="product-more-info-tab">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs more-info-tab">
+                                <li class="active"><a href="#moreinfo" data-toggle="tab">Thông tin thêm</a></li>
+                                <li><a href="#datasheet" data-toggle="tab">Cấu hình chi tiết</a></li>
+                                <li><a href="#review" data-toggle="tab">Bình luận</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="moreinfo">
+                                    <div class="tab-description">
+                                        <p>@Model.MoreInfo</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="datasheet">
+                                    <div class="deta-sheet">
+                                        @Model.Description
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="review">
+                                    <div class="row tab-review-row">
+                                        <div class="col-xs-5 col-sm-4 col-md-4 col-lg-3 padding-5">
+                                            <div class="tab-rating-box">
+                                                <span>Grade</span>
+                                                <div class="rating-box">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-empty"></i>
+                                                </div>
+                                                <div class="review-author-info">
+                                                    <strong>bình luận ở đây</strong>
+                                                    <span>06/22/2015</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-7 col-sm-8 col-md-8 col-lg-9 padding-5">
+                                            <div class="write-your-review">
+                                                <p><strong>bình luận ở đây</strong></p>
+                                                <p>write A REVIEW</p>
+                                                <span class="usefull-comment">Was this comment useful to you?</span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="write-review-btn">Write your review!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SINGLE-PRODUCT INFO TAB END -->
+                <!-- RELATED-PRODUCTS-AREA START -->
+                @{
+                    var productOther = Html.Partial("Details_LoadProductOther", db.loadProductOther(@Model.MaLSP));
+                    productOther = new MvcHtmlString(productOther.ToString());
+                }
+                @productOther
+                <!-- RELATED-PRODUCTS-AREA END -->
+            </div>
+            <!-- RIGHT SIDE BAR START -->
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <!-- SINGLE SIDE BAR START -->
+                <div class="single-product-right-sidebar">
+                    <h2 class="left-title">Viewed products</h2>
+                    <ul>
+                        <li>
+                            <a href="#"><img src="~/Assets/img/product/sidebar_product/2.jpg" alt="" /></a>
+                            <div class="r-sidebar-pro-content">
+                                <h5><a href="#">Faded Short ...</a></h5>
+                                <p>Faded short sleeves t-shirt with high...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><img src="~/Assets/img/product/sidebar_product/4.jpg" alt="" /></a>
+                            <div class="r-sidebar-pro-content">
+                                <h5><a href="#">Printed Chif ..</a></h5>
+                                <p>Printed chiffon knee length dress...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><img src="~/Assets/img/product/sidebar_product/6.jpg" alt="" /></a>
+                            <div class="r-sidebar-pro-content">
+                                <h5><a href="#">Printed Sum ...</a></h5>
+                                <p>Long printed dress with thin...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><img src="~/Assets/img/product/sidebar_product/1.jpg" alt="" /></a>
+                            <div class="r-sidebar-pro-content">
+                                <h5><a href="#">Printed Dress </a></h5>
+                                <p>100% cotton double printed dress....</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- SINGLE SIDE BAR END -->
+            </div>
+            <!-- SINGLE SIDE BAR END -->
+        </div>
+    </div>
+</section>
+<!-- MAIN-CONTENT-SECTION END -->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    var modal = document.getElementById('login_form');
+    var user = "@user";
+
+    $("#addToCartWithSL").click(function () {
+        var Amount = $('.cart-plus-minus-button #quantityP').val();
+        if (user == null || user == "") {
+            modal.style.display = "block";
+        } else {
+            $.ajax({
+                url: '@Url.Action("insertCartWithSL", "Product")',
+                type: 'POST',
+                async: false,
+                cache: false,
+                data: {
+                    id: '@Model.MaSP',
+                    user: user,
+                    sl: Amount,
+                },
+                success: function (result) {
+                    alert("Add sảm phẩm thành công!");
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    alert(msg);
+                },
+            });
+        }
+    });
+
+</script>

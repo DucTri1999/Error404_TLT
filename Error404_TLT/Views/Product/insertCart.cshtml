@@ -1,0 +1,49 @@
+﻿@{ 
+    Error404_TLT.Models.BUS.ProductBUS productBUS = new Error404_TLT.Models.BUS.ProductBUS();
+    IEnumerable<Error404_TLT.Models.Error404Entity.Cart> listCart = productBUS.loadCart(Session["user"].ToString());
+}
+
+<!-- SHOPPING-CART START -->
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-right shopingcartarea">
+    <div class="shopping-cart-out pull-right">
+        <div class="shopping-cart">
+            <a class="shop-link" href="@Url.Action("Cart","Error404",new { user = Session["user"]})" title="View my shopping cart">
+                <i class="fa fa-shopping-cart cart-icon"></i>
+                <b>Giỏ hàng</b>
+                <span class="ajax-cart-quantity">@listCart.Count()</span>
+            </a>
+            <div class="shipping-cart-overly">
+                @foreach (var item in listCart)
+                {<!--SHIPPING ITEM START-->
+                    <div class="shipping-item">
+                        <span class="remove"><i class="fa fa-remove" aria-hidden="true"></i></span>
+                        <div class="shipping-item-image">
+                            <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.SanPham.img" alt="@item.SanPham.TenSP" width="80" height="80"></a>
+                        </div>
+                        <div class="shipping-item-text">
+                            <span>
+                                <span class="so-luong">@item.SL</span>
+                                <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})" class="pro-cat">@item.SanPham.TenSP</a>
+                            </span>
+                            <p class="giaSP">$@item.SanPham.DonGia</p>
+                        </div>
+                    </div> <!--SHIPPING ITEM END-->}
+
+                <div class="shipping-total-bill">
+                    <div class="cart-prices">
+                        <span class="shipping-cost">Free Shipping</span>
+                        <span>Shipping</span>
+                    </div>
+                    <div class="total-shipping-prices">
+                        <span class="shipping-total"></span>
+                        <span>Total</span>
+                    </div>
+                </div>
+                <div class="shipping-checkout-btn">
+                    <a href="@Url.Action("Cart","Error404",new { user = Session["user"]})">Thanh Toán<i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SHOPPING-CART END -->

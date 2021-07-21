@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Error404_TLT.Models.Error404Entity.SanPham>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <!-- SẢN PHẨM MỚI -->
+    <div class="new-product-area">
+        <div class="left-title-area">
+            <h2 class="left-title">sản phẩm mới về</h2>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <!-- NEW-PRO-CAROUSEL START -->
+                    <div class="new-pro-carousel">
+                        <!-- NEW-PRODUCT-SINGLE-ITEM START -->
+                        @foreach(var item in Model)
+                        {
+
+            
+                        <div class="item">
+                            <div class="new-product">
+                                <div class="single-product-item">
+                                    <div class="product-image">
+                                        <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.img" alt="product-image" /></a>
+                                        <a href="#" class="new-mark-box">new</a>
+                                        <div class="overlay-content">
+                                            <div class="cart-action">
+                                                <div class="takeProductId" style="display:none">@item.MaSP</div>
+                                                <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="customar-comments-box">
+                                            <div class="rating-box">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-empty"></i>
+                                                <i class="fa fa-star-half-empty"></i>
+                                            </div>
+                                        </div>
+                                        <a href="single-product.html">@item.TenSP</a>
+                                        <div class="price-box">
+                                            <span class="price">$ @item.DonGia</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                        <!-- NEW-PRODUCT-SINGLE-ITEM END -->
+                    </div>
+                    <!-- NEW-PRO-CAROUSEL END -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- NEW-PRODUCT-AREA END -->
+</div>

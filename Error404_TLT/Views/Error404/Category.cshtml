@@ -1,0 +1,308 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Error404_TLT.Models.Error404Entity.SanPham>
+@{
+    ViewBag.Title = Session["CategoryName"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@{ string user = "";
+    if (Session["user"] != null)
+    {
+        user = Session["user"].ToString();
+    } }
+
+
+<!-- MAIN-CONTENT-SECTION START -->
+<section class="main-content-section" style="background:#fff">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- BSTORE-BREADCRUMB START -->
+                <div class="bstore-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">@Html.ActionLink("Trang chủ", "Home", "Error404")</li>
+
+                        @if (Session["CategoryId"].ToString() == "IP")
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">
+                                iPhone
+                            </li>
+                        }
+                        else if (Session["CategoryId"].ToString() == "IPAD")
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">
+                                iPad
+                            </li>
+                        }
+                        else if (Session["CategoryId"].ToString() == "MAC")
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">
+                                MAC
+                            </li>
+                        }
+                        else if (Session["CategoryId"].ToString() == "AW")
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Apple Watch
+                            </li>
+                        }
+                        else if (Session["CategoryId"].ToString() == "PK")
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Phụ Kiện
+                            </li>
+                        }
+
+                    </ol>
+                </div>
+                <!-- BSTORE-BREADCRUMB END -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <!-- PRODUCT-LEFT-SIDEBAR START -->
+                <div class="product-left-sidebar">
+                    <h2 class="left-title pro-g-page-title">Danh Mục</h2>
+
+                    <!-- IPHONE START -->
+                    <div class="product-single-sidebar">
+                        <article class="filter-group">
+                            <header class="card-header">
+                                <a href="#" data-toggle="collapse" data-target="#cate_iphone" data-abc="true" aria-expanded="false" class="collapsed">
+                                    <i class="icon-control fa fa-chevron-down"></i>
+                                    <span class="sidebar-title">IPHONE</span>
+                                </a>
+                            </header>
+                            <div class="filter-content collapse" id="cate_iphone">
+                                <div class="card-body">
+                                    <ul class="list-menu">
+                                        <li><a href="shop-gird.html" data-abc="true">iPhone 12 </a></li>
+                                        <li><a href="shop-gird.html" data-abc="true">iPhone 11 </a></li>
+                                        <li><a href="shop-gird.html" data-abc="true">iPhone X </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- IPHONE END -->
+                    <!-- IPAD START -->
+                    <div class="product-single-sidebar">
+                        <article class="filter-group">
+                            <header class="card-header">
+                                <a href="#" data-toggle="collapse" data-target="#cate_ipad" data-abc="true" aria-expanded="false" class="collapsed">
+                                    <i class="icon-control fa fa-chevron-down"></i>
+                                    <span class="sidebar-title">IPAD</span>
+                                </a>
+                            </header>
+                            <div class="filter-content collapse" id="cate_ipad">
+                                <div class="card-body">
+                                    <ul class="list-menu">
+                                        <li><a href="#" data-abc="true">iPad Pro </a></li>
+                                        <li><a href="#" data-abc="true">iPad Air </a></li>
+                                        <li><a href="#" data-abc="true">iPad Gen </a></li>
+                                        <li><a href="#" data-abc="true">iPad Mini </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- IPAD END -->
+                    <!-- MAC START -->
+                    <div class="product-single-sidebar">
+                        <article class="filter-group">
+                            <header class="card-header">
+                                <a href="#" data-toggle="collapse" data-target="#cate_mac" data-abc="true" aria-expanded="false" class="collapsed">
+                                    <i class="icon-control fa fa-chevron-down"></i>
+                                    <span class="sidebar-title">MAC</span>
+                                </a>
+                            </header>
+                            <div class="filter-content collapse" id="cate_mac">
+                                <div class="card-body">
+                                    <ul class="list-menu">
+                                        <li><a href="#" data-abc="true">Macbook Pro </a></li>
+                                        <li><a href="#" data-abc="true">Macbook Air </a></li>
+                                        <li><a href="#" data-abc="true">iMac </a></li>
+                                        <li><a href="#" data-abc="true">Mac Mini </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- MAC END -->
+                    <!-- WATCH START -->
+                    <div class="product-single-sidebar">
+                        <article class="filter-group">
+                            <header class="card-header">
+                                <a href="#" data-toggle="collapse" data-target="#cate-watch" data-abc="true" aria-expanded="false" class="collapsed">
+                                    <i class="icon-control fa fa-chevron-down"></i>
+                                    <span class="sidebar-title">WATCH</span>
+                                </a>
+                            </header>
+                            <div class="filter-content collapse" id="cate-watch">
+                                <div class="card-body">
+                                    <ul class="list-menu">
+                                        <li><a href="#" data-abc="true">Apple Watch Series 6 </a></li>
+                                        <li><a href="#" data-abc="true">Apple Watch Series SE </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- WATCH END -->
+                    <!-- PHỤ KIỆN START -->
+                    <div class="product-single-sidebar">
+                        <article class="filter-group">
+                            <header class="card-header">
+                                <a href="#" data-toggle="collapse" data-target="#cate-pk" data-abc="true" aria-expanded="false" class="collapsed">
+                                    <i class="icon-control fa fa-chevron-down"></i>
+                                    <span class="sidebar-title">PHỤ KIỆN</span>
+                                </a>
+                            </header>
+                            <div class="filter-content collapse" id="cate-pk">
+                                <div class="card-body">
+                                    <ul class="list-menu">
+                                        <li><a href="#" data-abc="true">AirPod </a></li>
+                                        <li><a href="#" data-abc="true">AirTag </a></li>
+                                        <li><a href="#" data-abc="true">Phụ Kiện iPhone chính hãng </a></li>
+                                        <li><a href="#" data-abc="true">Phụ Kiện iPad chính hãng </a></li>
+                                        <li><a href="#" data-abc="true">Phụ Kiện Mac chính hãng </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- PHỤ KIỆN END -->
+                </div>
+                <!-- PRODUCT-LEFT-SIDEBAR END -->
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="right-all-product">
+                    <div class="product-category-title">
+                        <!-- PRODUCT-CATEGORY-TITLE START -->
+                        <h1>
+                            <span class="count-product">Hiện có<span class="num_product_shopgird"></span>sản phẩm.</span>
+                        </h1>
+                        <!-- PRODUCT-CATEGORY-TITLE END -->
+                    </div>
+                    <div class="product-shooting-area">
+                        <div class="product-shooting-bar">
+                            <!-- SHOORT-BY START -->
+                            <div class="shoort-by">
+                                <label for="productShort">Sắp xếp theo:</label>
+                                <div class="short-select-option">
+                                    <select name="sortby" id="productShort">
+                                        <option value="">--</option>
+                                        <option value="">Giá: Tăng dần</option>
+                                        <option value="">Giá: Giảm dần</option>
+                                        <option value="">Tên sản phẩm: A to Z</option>
+                                        <option value="">Tên sản phẩm: Z to A</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- SHOORT-BY END -->
+                            <!-- VIEW-SYSTEAM START -->
+                            <div class="view-systeam">
+                                <label for="perPage">View:</label>
+                                <ul>
+                                    <li class="active"><a href="shop-gird.html"><i class="fa fa-th-large"></i></a><br />Grid</li>
+                                    <li><a href="shop-list.html"><i class="fa fa-th-list"></i></a><br />List</li>
+                                </ul>
+                            </div>
+                            <!-- VIEW-SYSTEAM END -->
+                        </div>
+                    </div>
+                </div>
+                <!-- ALL GATEGORY-PRODUCT START -->
+                <div class="all-gategory-product">
+                    <div class="row">
+                        <ul class="gategory-product">
+                            @foreach (var item in Model)
+                            {
+                                <!-- SINGLE ITEM START -->
+                                <li class="gategory-product-list col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="single-product-item">
+                                        <div class="product-image">
+                                            <a href="@Url.Action("Details", "Error404", new { id=item.MaSP })"><img src="~/Assets/@item.img" alt="product-image" /></a>
+                                            <a href="@Url.Action("Details", "Error404", new { id=item.MaSP })" class="new-mark-box">new</a>
+                                            <div class="overlay-content">
+                                                <div class="cart-action">
+                                                    <div class="takeProductId" style="display:none">@item.MaSP</div>
+                                                    <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="customar-comments-box">
+                                                <div class="rating-box">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-empty"></i>
+                                                </div>
+
+                                            </div>
+                                            <a href="@Url.Action("Details", "Error404",new { id=item.MaSP })">@item.TenSP</a>
+                                            <div class="price-box">
+                                                <span class="price">$ @item.DonGia</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- SINGLE ITEM END -->
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <!-- ALL GATEGORY-PRODUCT END -->
+                <!-- PRODUCT-SHOOTING-RESULT START -->
+                <div class="product-shooting-result product-shooting-result-border">
+                    <div class="showing-next-prev">
+                        <ul class="pagination">
+                            @Html.PagedListPager(Model, page => Url.Action("Category", new { page = page }))
+                        </ul>
+                    </div>
+                </div>
+                <!-- PRODUCT-SHOOTING-RESULT END -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- MAIN-CONTENT-SECTION END -->
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $('.cart-adction .add-to-cart').click(function () {
+        var modal = document.getElementById('login_form');
+        var parent = $(this).parent().parent();
+        var id = $(parent).children(".productId").val();
+        alert(id);
+        var user = '@user';
+        if (user == null || user == "") {
+            modal.style.display = "block";
+        } else {
+            $.ajax({
+                url: '@Url.Action("insertCart", "Product")',
+                type: 'POST',
+                async: false,
+                cache: false,
+                data: {
+                    id: id,
+                    user: user,
+                },
+                success: function (result) {
+                    alert("Thành công");
+                },
+                error: function () {
+                    alert('Fail');
+                }
+            });
+        }
+
+    });
+
+</script>

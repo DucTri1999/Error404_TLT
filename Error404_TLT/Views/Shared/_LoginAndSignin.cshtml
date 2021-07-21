@@ -1,0 +1,284 @@
+﻿<!-- LOGIN START -->
+<div id="login_form" class="modal">
+    <form class="modal-content animate" action="" method="post">
+        <div id="form_login" class="container_login">
+            <div class="text-center">
+                <h1 class="login_content" style="font-weight: bold;">ĐĂNG NHẬP</h1>
+            </div>
+
+            <label for="uname"><b>Username</b></label>
+            <input class="login-user" id="user_login" type="text" placeholder="Nhập tài khoản" name="uname" required>
+
+            <label for="psw"><b>Mật khẩu</b></label>
+            <input class="login-pass" id="pass_login" type="password" placeholder="Nhập mật khẩu" name="psw" required>
+
+            <label class="rmb-pass">
+                <button class="btn btn-outline-secondary" type="button" id="btnPassword">
+                    <span class="fa fa-eye"></span>
+                </button>
+            </label>
+
+            <button class="btn_login" id="submit_login" type="button">Đăng nhập</button>
+
+            <span class="psw"><a href="#" onclick="quenmk()">Quên mật khẩu</a></span>
+            <span class="create-account"><a href="#" onclick="dangky()">Bạn chưa có tài khoản?</a></span>
+        </div>
+        <div class="container_login">
+            <div class="login-or">
+                <hr class="hr-or">
+                <span class="span-or">or</span>
+            </div>
+            <p class="text-center">
+                <a href="#" class="google btn mybtn"><i class="fa fa-google"></i> Login with Google</a>
+            </p>
+            <p class="text-center">
+                <a href="#" class="facebook btn mybtn"><i class="fa fa-facebook"></i> Login with Facebook</a>
+            </p>
+        </div>
+    </form>
+</div>
+<!-- LOGIN END -->
+<!-- SIGN-UP START -->
+<div id="signup_form" class="modal1">
+    <form class="modal-content animate" action="" method="post">
+        <div class="container_login">
+            <div class="text-center">
+                <h1 class="login_content" style="font-weight: bold;">ĐĂNG KÝ</h1>
+            </div>
+            <label for="user"><b>Username</b></label>
+            <input class="login-user" id="signin-user" type="text" placeholder="Nhập user" name="user" required>
+
+            <label for="pass"><b>Mật khẩu</b></label>
+            <input class="login-pass" id="signin-pass" type="password" placeholder="Nhập mật khẩu" name="pass" required>
+
+            <label for="repass"><b>Nhập lại mật khẩu</b></label>
+            <input class="login-pass" id="signin-repass" type="password" placeholder="Nhập lại mật khẩu" name="repass" required>
+
+            <label for="name"><b>Họ tên</b></label>
+            <input class="login-pass" id="signin-name" type="text" placeholder="Nhập họ tên" name="name" required>
+
+            <label for="name"><b>Email</b></label>
+            <input class="login-pass" id="signin-mail" type="text" placeholder="Nhập email" name="email" required>
+
+            <label for="sdt"><b>Số điện thoại</b></label>
+            <input class="login-pass" id="signin-sdt" type="text" placeholder="Nhập số điện thoại" name="sdt" required>
+
+            <button class="btn_signin" type="submit">Đăng Ký</button>
+        </div>
+    </form>
+</div>
+<!-- SIGN-UP END -->
+<!-- RECOVERY-PASSWORD START -->
+<div id="recover_password-form" class="modal2">
+    <form class="modal-content animate" action="" method="post">
+        <div class="container_login">
+            <div class="text-center">
+                <h1 class="login_content" style="font-weight: bold;">LẤY LẠI MẬT KHẨU</h1>
+
+                <label id="user" for="uname"><b>User</b></label>
+                <input id="user" class="login-user" type="text" placeholder="Nhập user" name="user" required>
+
+                <label id="old_pass" for="psw"><b>Mật khẩu cũ</b></label>
+                <input id="old_pass" class="login-pass" type="password" placeholder="Nhập mật khẩu cũ" name="psw" required>
+
+                <label id="new_pass" for="psw"><b>Mật khẩu mới</b></label>
+                <input id="new_pass" class="login-pass" type="password" placeholder="Nhập mật khẩu mới" name="psw" required>
+
+                <label id="new_pass" for="psw"><b>Nhập lại mật khẩu mới</b></label>
+                <input id="new_pass" class="login-pass" type="password" placeholder="Nhập lại mật khẩu mới" name="psw" required>
+
+                <button class="btn_login" type="submit" onclick="window.location.href=@Url.Action("Index", "Home")">Cập nhật</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+<!-- RECOVERY-PASSWORD END -->
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<!-- LOGIN START -->
+<script>
+
+    $('#submit_login').click(function () {
+        var user = $("#user_login").val();
+        var pass = $('#pass_login').val();
+
+        if (user != "" && pass != "") {
+            $.ajax({
+                url: '@Url.Action("Login", "Account")',
+                type: 'POST',
+                data: {
+                    user: user,
+                    pass: pass,
+                },
+                success: function (result) {
+                    if (result == 'True') {
+                        location.reload();
+                    } else {
+                        alert("Tài khoản hoặc mật khẩu không đúng!");
+                    }
+                },
+
+            });
+
+        }else {
+            alert("Tài khoản hoặc mật khẩu không được để trống!");
+        }
+    });
+    //Hiển thị/ẩn password
+    const ipnElement = document.querySelector('#pass_login')
+    const btnElement = document.querySelector('#btnPassword')
+
+    btnElement.addEventListener('click', function () {
+
+        const currentType = ipnElement.getAttribute('type')
+
+        ipnElement.setAttribute(
+            'type',
+            currentType === 'password' ? 'text' : 'password'
+        )
+    })
+
+</script>
+<!-- LOGIN END -->
+<!-- SIGNIN START -->
+<script>
+    $(".btn_signin").click(function () {
+
+        var user = $("#signin-user").val();
+        var pass = $("#signin-pass").val();
+        var fullname = $("#signin-name").val();
+        var phone = $("#signin-sdt").val();
+
+        if (user != "" && pass != "" && fullname != "" && phone != "" && pass.length >= 8) {
+            $.ajax({
+                url: '@Url.Action("Signup","Account")',
+                type: 'POST',
+                data: {
+                    user: user,
+                    pass: pass,
+                    fullname: fullname,
+                    sdt: phone,
+                },
+                success: function (result) {
+                    if (result == 'True') {
+                        location.reload();
+                    }
+                },
+                error: function () {
+                    alert("CC");
+                }
+            });
+        } else {
+            if (user == "") {
+                alert("User không được để trống.");
+            }
+
+            if (pass == "") {
+                alert("Password không được để trống.");
+            }
+
+            if (phone == "") {
+                alert("Số điện thoại không được để trống.");
+            }
+
+            if (fullname == "") {
+                alert("Họ tên không được để trống.");
+            }
+        }
+    });
+</script>
+<!-- SIGNIN END -->
+<!-- Kiểm tra user đã tồn tại chưa-->
+<script>
+    var inputUser_signup = document.getElementById('signin-user');
+
+    // When click outside inputUser
+    inputUser_signup.onblur = function () {
+        var user = $('#signin-user').val();
+        $.ajax({
+            url: '@Url.Action("checkUser", "Account")',
+            type: 'POST',
+            data: {
+                user: user,
+            },
+            success: function (result) {
+                if (result == 'True') {
+                    alert("User này đã tồn tại.")
+                }
+            }
+        });
+    }
+</script>
+
+<!--kiểm tra sđt có tài khoản chưa-->
+<script>
+    var inputPhone_signup = document.getElementById('signin-sdt');
+
+    // When click outside inputPhone_signup
+    inputPhone_signup.onblur = function () {
+        if (inputPhone_signup.value.length == 10) {
+            var phone = $('#signin-sdt').val();
+            $.ajax({
+                url: '@Url.Action("checkSDT", "Account")',
+                type: 'POST',
+                data: {
+                    sdt: phone,
+                },
+                success: function (result) {
+                    if (result == 'True') {
+                        alert("Số điện thoại này đã được sử dụng.")
+                    }
+                }
+            });
+        } else {
+            alert("Số điện thoại không đúng định dạng.")
+        }
+    }
+</script>
+
+<!-- Kiểm tra số lượng pass-->
+<script>
+    var inputPass = document.getElementById("signin-pass");
+
+    inputPass.onblur = function () {
+        var Pass = $('#signin-pass').val();
+
+        if (Pass.length < 8) {
+            alert("Password dưới 8 ký tự. Mời nhập lại.")
+        }
+    }
+</script>
+
+<!--kiểm tra xác nhận mật khẩu-->
+<script>
+    var inputConfirmPass = document.getElementById("signin-repass");
+
+    inputConfirmPass.onblur = function () {
+        var Pass = $('#signin-pass').val();
+        var ConfirmPass = $('#signin-repass').val();
+
+        if (Pass != ConfirmPass) {
+            alert("Password không trùng nhau.");
+        }
+    }
+</script>
+
+
+<!-- Đăng xuất-->
+
+<script>
+    function refresh() {
+        $.ajax({
+            url: '@Url.Action("Logout", "Account")',
+            type: 'POST',
+            async: false,
+            cache: false,
+            success: function () {
+                location.reload();
+            }
+        });
+    }
+</script>

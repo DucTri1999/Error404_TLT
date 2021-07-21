@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Error404_TLT.Models.Error404Entity.SanPham>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="left-title-area">
+            <h2 class="left-title">Các sản phẩm tương tự</h2>
+        </div>
+    </div>
+    <div class="related-product-area featured-products-area">
+        <div class="col-sm-12">
+            <div class=" row">
+                <!-- RELATED-CAROUSEL START -->
+                <div class="related-product">
+                    @foreach (var item in Model)
+                    {
+                        <!-- SINGLE-PRODUCT-ITEM START -->
+                        <div class="item">
+                            <div class="single-product-item">
+                                <div class="product-image">
+                                    <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.img" alt="product-image" /></a>
+                                </div>
+                                <div class="product-info">
+                                    <div class="customar-comments-box">
+                                        <div class="rating-box">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-empty"></i>
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})">@item.TenSP</a>
+                                    <div class="price-box">
+                                        <span class="price">$ @item.DonGia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SINGLE-PRODUCT-ITEM END -->
+                    }
+
+
+                </div>
+                <!-- RELATED-CAROUSEL END -->
+            </div>
+        </div>
+    </div>
+</div>

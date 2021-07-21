@@ -1,0 +1,185 @@
+﻿@model IEnumerable<Error404_TLT.Models.ViewsModel.ProductOfCartModel>
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Error404_TLT.Controllers.ProductController productController = new Error404_TLT.Controllers.ProductController();
+    var user = Session["user"];
+}
+
+<!-- MAIN-CONTENT-SECTION START -->
+<section class="main-content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- SHOPPING-CART SUMMARY START -->
+                <h2 class="page-title">
+                    Giỏ hàng
+                    <span class="shop-pro-item">
+                        Có
+                        <span class="num-products"></span> sản phẩm trong giỏ hàng
+                    </span>
+                </h2>
+                <!-- SHOPPING-CART SUMMARY END -->
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="discount">
+                    <form action="" method="post">
+                        <label for="discount-code">Bạn có mã giảm giá?</label>
+                        <input type="text" id="discount-code" name="discount-code" placeholder="Nhập mã code tại đây...">
+                        <button class="apply-discount" type="submit">Áp dụng</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- CART TABLE_BLOCK START -->
+                <div class="table-responsive">
+                    <!-- TABLE START -->
+                    <table class="table table-bordered" id="cart-summary">
+                        <!-- TABLE HEADER START -->
+                        <thead>
+                            <tr>
+                                <th class="cart-product" style="text-align: center;">Sản phẩm</th>
+                                <th class="cart-description" style="text-align: center;">Mô tả</th>
+                                <th class="cart-unit text-right" style="text-align: center;">Giá</th>
+                                <th class="cart_quantity text-center" style="text-align: center;">Số lượng</th>
+                                <th class="cart-delete">&nbsp;</th>
+                                <th class="cart-total text-right" style="text-align: center;">Tổng tiền</th>
+                            </tr>
+                        </thead>
+                        <!-- TABLE HEADER END -->
+                        <!-- TABLE BODY START -->
+                        <tbody class="cart-row-product">
+                            @foreach (var item in Model)
+                            {
+                                <!-- SINGLE CART_ITEM START -->
+                                <tr>
+                                    <td class="takeProductId" style="display: none">
+                                        <a href="#">@item.ProductId</a>
+                                    </td>
+                                    <td class="cart-product">
+                                        <a href="@Url.Action("Details", "Error404", new { id = item.ProductId})"><img alt="@item.ProductName" src="~/Assets/@item.ProductImage"></a>
+                                    </td>
+                                    <td class="cart-description">
+                                        <p class="product-name"><a href="@Url.Action("Details", "Error404", new { id = item.ProductId})">@item.ProductName</a></p>
+                                    </td>
+                                    <td class="cart-unit">
+                                        <ul class="price text-right">
+                                            <li class="price">$@item.ProductPrice</li>
+                                        </ul>
+                                    </td>
+                                    <td class="cart_quantity text-center">
+                                        <div class="cart-plus-minus-button">
+                                            <input class="cart-plus-minus" type="text" name="qtybutton" value="@item.ProductAmount" min="1">
+                                        </div>
+                                    </td>
+                                    <td class="cart-delete text-center">
+                                        <a href="#" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                    <td class="cart-total">
+                                        <span class="price"></span>
+                                    </td>
+                                </tr>
+                                <!-- SINGLE CART_ITEM END -->
+                            }
+
+                        </tbody>
+                        <!-- TABLE BODY END -->
+                        <!-- TABLE FOOTER START -->
+                        <tfoot>
+                            <tr class="cart-total-price">
+                                <td class="cart_voucher" colspan="2" rowspan="4"></td>
+                                <td class="text-right" colspan="3">Total products (tax excl.)</td>
+                                <td id="total_product" class="price" colspan="1">     </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="3">Total shipping</td>
+                                <td id="total_shipping" class="price" colspan="1">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="3">Total vouchers (tax excl.)</td>
+                                <td id="voucher" class="price" colspan="1">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td class="total-price-container text-right" colspan="3">
+                                    <span>Total</span>
+                                </td>
+                                <td id="total-price-container" class="price" colspan="1">
+                                    <span id="total-price">    </span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                        <!-- TABLE FOOTER END -->
+                    </table>
+                    <!-- TABLE END -->
+                </div>
+                <!-- CART TABLE_BLOCK END -->
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- RETURNE-CONTINUE-SHOP START -->
+                <div class="returne-continue-shop">
+                    <a href="@Url.Action("Home", "Error404")" class="continueshoping"><i class="fa fa-chevron-left"></i>Tiếp tục mua sắm</a>
+                    <a href="checkout-address.html" class="procedtoCheckOut">Tiến hành đặt hàng</a>
+                </div>
+                <!-- RETURNE-CONTINUE-SHOP END -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- MAIN-CONTENT-SECTION END -->
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    // Khi thay đổi số lượng
+    $(".cart-plus-minus").change(function () {
+
+        var quantity = $(this).val();
+        var productRow = $(this).parent().parent();
+        var productId = productRow.children(".takeProductId").children().text();
+
+        $.ajax({
+            url: '@Url.Action("change_Cart", "Product")',
+            type: 'POST',
+            data: {
+                id: productId,
+                sl: quantity,
+            },
+            success: function () {
+            },
+            error: function () {
+                alert('Click Slow! Please');
+            }
+        });
+        
+    });
+
+
+
+    // Xóa sản phẩm trong cart
+    $(".cart_quantity_delete").click(function () {
+        var parent = $(this).parent().parent();
+        var id = $(parent).children(".takeProductId").children().text();
+        $.ajax({
+            url: '@Url.Action("delProduct_Cart", "Product")',
+            type: 'POST',
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                alert("Xóa sản phẩm thành công.")
+            }
+        });
+    });
+</script>

@@ -1,0 +1,23 @@
+.order table{
+    margin: auto;
+    width: 1200px;
+
+}
+.order table thead{
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.order table thead tr th{
+    text-align: center;
+    color:#555454;
+}
+
+.order table tbody{
+    text-align: left;
+}
+.order table tbody tr th{
+    text-align: center;
+    border-bottom: 1px solid black;
+    color: black;
+    font-weight: normal;
+}

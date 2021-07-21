@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Error404_TLT.Models.Error404Entity.KhachHang
+@{
+    Error404_TLT.Models.BUS.AccountBUS accountBUS = new Error404_TLT.Models.BUS.AccountBUS();
+    string user = "";
+    if (Session["user"] != null)
+    {
+        user = Session["user"].ToString();
+    }
+}
+
+<!-- MAIN-CONTENT-SECTION START -->
+<section class="main-content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- BSTORE-BREADCRUMB START -->
+                <div class="bstore-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">@Html.ActionLink("Trang chủ", "Home", "Error404")</li>
+                        <li class="breadcrumb-item active" aria-current="page">Tài Khoản</li>
+                    </ol>
+                </div>
+                <!-- BSTORE-BREADCRUMB END -->
+            </div>
+        </div>
+        <div class="row">
+            <!-- ACCOUNT-INFO-TEXT START -->
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="account-info">
+                    <div class="single-account-info">
+                        <ul>
+                            <li><a href="checkout-registration.html"><i class="fa fa-user"></i><span>Thông tin tài khoản</span>	</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="account-info">
+                    <div class="single-account-info">
+                        <ul>
+                            <li><a href="manage-order.html"><i class="fa fa-list-ol"></i><span>Quản lý đơn hàng</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ACCOUNT-INFO-TEXT END -->
+            <!-- TEXT START-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- PERSONAL-INFOMATION START -->
+                <div class="personal-infomation">
+                    <form class="primari-box personal-info-box" id="personalinfo" method="post" action="#">
+                        <h3 class="box-subheading">Thông tin tài khoản của bạn</h3>
+                        <div class="personal-info-content">
+                            <div class="form-group primary-form-group p-info-group">
+                                <label for="firstname">Họ tên<sup>*</sup></label>
+                                <input type="text" value="@Model.FullName" name="name" id="name" class="form-control input-feild" placeholder="Nhập họ tên">
+                            </div>
+                            <div class="form-group primary-form-group p-info-group">
+                                <label for="phonenumber">Số điện thoại<sup>*</sup></label>
+                                <input type="phonenumber" value="@Model.SDT" name="phonenumber" id="phonenumber" class="form-control input-feild" placeholder="Tối thiểu 10 số">
+                            </div>
+                            <div class="form-group primary-form-group p-info-group">
+                                <div class="province">
+                                    <label for="province">Tỉnh/Thành<sup>*</sup></label>
+                                    <select class="form control" id="province" none="province" onchange="changeFunc();">
+                                        <option value="@Model.ThanhPho" selected>Chọn Tỉnh/Thành</option>
+                                    </select>
+                                </div>
+                                <div class="district">
+                                    <label for="district">Quận Huyện<sup>*</sup></label>
+                                    <select class="form control" id="district" none="district" onchange="changeFuncDistrict();">
+                                        <option value="@Model.Quan" selected>Chọn Quận/Huyện</option>
+                                    </select>
+                                </div>
+                                <div class="ward">
+                                    <label for="ward">Phường/Xã<sup>*</sup></label>
+                                    <select class="form control" id="ward" none="ward" aria-placeholder="Quận Huyện;">
+                                        <option value="@Model.Phuong" selected>Chọn Phường/Xã</option>
+                                    </select>
+                                </div>
+                                <div class="address">
+                                    <label for="address">Địa chỉ<sup>*</sup></label>
+                                    <textarea type="text" value="@Model.Address" name="address" rows="5" id="address" placeholder="Nhập địa chỉ"></textarea>
+                                </div>
+                            </div>
+                            <div class="submit-button p-info-submit-button">
+                                <a href="checkout-registration.html" id="SubmitCreate" class="btn main-btn">
+                                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                </a>
+                                <span class="required-field"><sup>*</sup>Phần bắt buộc</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- PERSONAL-INFOMATION END -->
+            </div>
+            <!-- TEXT END-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- BACK TO HOME START -->
+                <div class="home-link-menu">
+                    <ul>
+                        <li><a href="@Url.Action("Home", "Error404")"><i class="fa fa-chevron-left"></i> Trở về</a></li>
+                    </ul>
+                </div>
+                <!-- BACK TO HOME END -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- MAIN-CONTENT-SECTION END -->

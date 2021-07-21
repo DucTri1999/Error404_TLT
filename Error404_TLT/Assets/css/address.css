@@ -1,0 +1,30 @@
+.address{
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 2;
+    border-radius: 2px;
+}
+    .address .p-info-group{
+        margin-bottom:0;
+        overflow:hidden;
+    }
+    .address .p-info-group textarea{
+        display: block;
+        line-height: 18px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        text-transform: capitalize;
+        width: 350px;
+        height: 150px;
+    }
+    .address .p-info-group select {
+        display: block;
+        line-height: 18px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        text-transform: capitalize;
+        width: 250px;
+        height: 35px;
+    }
+
+    
