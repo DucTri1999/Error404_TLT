@@ -1,0 +1,302 @@
+﻿@{ Error404_TLT.Areas.Areas.Controllers.ProductManagerController PMC = new Error404_TLT.Areas.Areas.Controllers.ProductManagerController(); }
+
+@model Error404_TLT.Models.Error404Entity.SanPham
+
+<style>
+    .table-wrapper {
+        position: relative;
+    }
+
+    #table-scroll {
+        height: 550px;
+        overflow: auto;
+    }
+
+    #table-wrapper table {
+        width: 70%;
+        background: white;
+        margin-left: 23.8%;
+    }
+
+    .tb_config th {
+        position: sticky;
+        top: 0px;
+        background: #CCCCCC;
+        z-index: 10;
+        text-align: center;
+    }
+
+    .textarea {
+        text-align: left;
+    }
+
+    .btn_Edit {
+        border: none;
+        color: white;
+        background: #D10024;
+        font-size: 20px;
+    }
+
+        .btn_Edit:hover {
+            background: #FF0000;
+        }
+</style>
+<div class="modal1-content" style="width: 43%; margin-left: 28.5%">
+    <table class="cus2">
+        <tr>
+            <th colspan="2" style="background: rgb(58, 86, 119);">
+                Sửa thông tin
+            </th>
+        </tr>
+        <tr>
+            <th style="width:150px;">
+                <label>Tên sản phẩm</label>
+            </th>
+            <td>
+                <input type="text" name="ProductsName" id="edit_productName" value="@Model.TenSP">
+            </td>
+        </tr>
+        @{ IEnumerable<Error404_TLT.Models.Error404Entity.LoaiSP> listLSP = PMC.loadLoaiSP(); }
+        <tr>
+            <th>
+                <label>Loại</label>
+            </th>
+            <td>
+                <select id="edit_productType">
+                    @foreach (var item in listLSP)
+                    {
+                        if (item.MaLSP == Model.LoaiSP.MaLSP)
+                        {
+                            <option value="@item.MaLSP" selected>@item.TenLSP</option>
+                        }
+                        else
+                        {
+                            <option value="@item.MaLSP">@item.TenLSP</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="picture">Hình</label>
+            </th>
+            <td>
+                <div style="float: none;">
+                    <label for="filebutton" id="upload-btn">
+                        <span>
+                            <i class="fas fa-folder-open " style="color:#fad859;"></i>
+                            Open file
+                        </span>
+                    </label>
+                    <input id="Mainpic" name="Pic2" class="input-file" type="file" multiple accept="image/*"
+                           style="display: none" />
+                </div>
+                <div class="card-deck" id="appearMainPic" style="float: left;">
+                    <div>
+                        <div class="card mb-4 pictureProductMain" style="width: 104px;float: left;">
+                            <figure class="snip0068 yellow">
+                                <input type="text" value="@Model.img" style="display: none" class="takePath" />
+                                <img src="~/@Model.img" alt="sample12" />
+                                <figcaption>
+                                    <div>
+                                        <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck" id="appearMainPic" style="float: left;">
+                    <div>
+                        <div class="card mb-4 pictureProductMain" style="width: 104px;float: left;">
+                            <figure class="snip0068 yellow">
+                                <input type="text" value="@Model.img2" style="display: none" class="takePath" />
+                                <img src="~/@Model.img2" alt="sample12" />
+                                <figcaption>
+                                    <div>
+                                        <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck" id="appearMainPic" style="float: left;">
+                    <div>
+                        <div class="card mb-4 pictureProductMain" style="width: 104px;float: left;">
+                            <figure class="snip0068 yellow">
+                                <input type="text" value="@Model.img3" style="display: none" class="takePath" />
+                                <img src="~/@Model.img3" alt="sample12" />
+                                <figcaption>
+                                    <div>
+                                        <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck" id="appearMainPic" style="float: left;">
+                    <div>
+                        <div class="card mb-4 pictureProductMain" style="width: 104px;float: left;">
+                            <figure class="snip0068 yellow">
+                                <input type="text" value="@Model.img4" style="display: none" class="takePath" />
+                                <img src="~/@Model.img4" alt="sample12" />
+                                <figcaption>
+                                    <div>
+                                        <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label>Số lượng</label> <br>
+            </th>
+            <td>
+                <input id="edit_productAmount" class="numberrit" type="number" value="@Model.SLTon" min="1">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label>Mô tả</label>
+            </th>
+            <td>
+                <textarea class="textarea" id="edit_productDescription" name="Config">@Model.Description</textarea>
+            </td>
+
+        </tr>
+        <tr>
+            <th>
+                <label>Thông tin khác</label>
+            </th>
+            <td>
+                <textarea class="textarea" id="edit_productMoreInfo" name="Config">@Model.MoreInfo</textarea>
+            </td>
+
+        </tr>
+        <tr>
+            <th style="width:150px;">
+                <label>Giá Sản Phẩm</label>
+            </th>
+            <td>
+                <input type="text" name="ProductPrice" id="edit_productPrice" value="@Model.DonGia">
+            </td>
+        </tr>
+        <tr>
+            <th style="width:150px;">
+                <label>Giá Khuyến Mãi</label>
+            </th>
+            <td>
+                <input type="text" name="ProductPrice" id="edit_productPriceSale" value="@Model.GiaKM">
+            </td>
+        </tr>
+        <tr>
+            <th style="width:150px;">
+                <label>Views</label>
+            </th>
+            <td>
+                <input type="text" name="ProductPrice" id="edit_productViews" value="@Model.Views">
+            </td>
+        </tr>
+        <tr>
+            <th style="width:150px;">
+                <label>LoaiHang</label>
+            </th>
+            <td>
+                <input type="text" name="ProductPrice" id="edit_productLoaiHang" value="@Model.LoaiHang">
+            </td>
+        </tr>
+    </table>
+
+</div>
+<input class="btn_Edit" type="button" value="Cập Nhật" style="margin-left: 61.5%; width: 10%" />
+
+<script>
+    // Chỉnh sửa thông tin sản phẩm
+    $(".btn_Edit").click(function () {
+        var pic = document.getElementsByClassName("takePath");
+        if (pic.length < 4) {
+            alert("Vui lòng thêm đủ hình");
+        } else {
+            //thông tin sản phẩm
+            var LoaiSP = document.getElementById("edit_productType").value;
+            var img = pic[0].value;
+            var img2 = pic[1].value;
+            var TenSP = document.getElementById("edit_productName").value;
+            var SoLuong = document.getElementById("edit_productAmount").value;
+            var Description = document.getElementById("edit_productDescription").value;
+            var DonGia = document.getElementById("edit_productPrice").value;
+            var GiaKM = document.getElementById("edit_productPriceSale").value;
+            var moreInfo = document.getElementById("edit_productMoreInfo").value;
+            var img3 = pic[2].value;
+            var img4 = pic[3].value;
+            var Views = document.getElementById("edit_productViews").value;
+            var LoaiHang = document.getElementById("edit_productLoaiHang").value;
+            $.ajax({
+                url: '@Url.Action("upSanPham", "ProductManager")',
+                type: 'POST',
+                data: {
+                    MaSP: '@Model.MaSP',
+                    MaLSP: LoaiSP,
+                    img: img,
+                    img2: img2,
+                    img3: img3,
+                    img4: img4,
+                    TenSP: TenSP,
+                    DonGia: DonGia,
+                    GiaKM: GiaKM,
+                    SLTon: SoLuong,
+                    description: Description,
+                    moreInfo: moreInfo,
+                    Views: Views,
+                    LoaiHang: LoaiHang
+                },
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                    alert("fail");
+                },
+            });
+        }
+    });
+</script>
+<script>
+    $("body").on("click", ".removePic", function () {
+        $(this).parent().parent().parent().parent().parent().remove();
+    });
+
+    //Up ảnh
+    $("#filebutton").change(function (event) {
+
+        var dem = document.getElementsByClassName("pictureProduct").length;
+
+        var files = event.target.files;
+
+        for (var i = 0; i < files.length && i < 4 - dem; i++) {
+            var file = files[i];
+            var create = document.createElement("div");
+
+            create.innerHTML = '<div class="card mb-4 pictureProduct" style="width: 104px; float: left;">' +
+                '<figure class="snip0068 yellow">' +
+                '<input type="text" value="Asset/images/' + file.name + '" style="display: none" class="takePath" />' +
+                '<img src="/Assets/img/' + file.name + '"/>' +
+                '<figcaption> ' +
+                '<div>' +
+                '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
+                '</div>' +
+                '</figcaption>' +
+                '</figure>' +
+                '</div>';
+
+            $("#appearPic").prepend(create);
+        }
+    });
+</script>
+

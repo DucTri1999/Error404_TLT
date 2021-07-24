@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Areas/Areas/Views/Shared/MainLayoutAdmin.cshtml";
+    Error404_TLT.Areas.Areas.Controllers.StatisticController SC = new Error404_TLT.Areas.Areas.Controllers.StatisticController();
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white" style="margin-top:10px">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Thống kê</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
+        <div class="row justify-content-center" style="margin-top:10px">
+            <div class="col-lg-4 col-md-12" style="float:right">
+                <div class="white-box analytics-info">
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <h3 class="box-title">Tổng Doanh Thu</h3>
+                        </li>
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        @{
+                            var temp = SC.Revenue();
+                        }
+                        <li class="ms-auto"><span class="counter text-success">@temp</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12" style="float:right">
+                <div class="white-box analytics-info">
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <h3 class="box-title">Tổng Tiền Discount</h3>
+                        </li>
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        @{
+                            var temp1 = SC.totalDiscount();
+                        }
+                        <li class="ms-auto"><span class="counter text-success">@temp1</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-12" style="float:right">
+                <div class="white-box analytics-info">
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <h3 class="box-title">Tổng Số Lượng Sản Phẩm</h3>
+                        </li>
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        @{
+                            var temp3 = SC.totalProduct();
+                        }
+                        <li class="ms-auto"><span class="counter text-success">@temp3</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12" style="float:right">
+                <div class="white-box analytics-info">
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <h3 class="box-title">Tổng Số Lượng Khách Hàng</h3>
+                        </li>
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        @{
+                            var temp4 = SC.totalCustomer();
+                        }
+                        <li class="ms-auto"><span class="counter text-success">@temp4</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12" style="float:right">
+                <div class="white-box analytics-info">
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <h3 class="box-title">Tổng Số Lượng Discount</h3>
+                        </li>
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        @{
+                            var temp5 = SC.sumDiscount();
+                        }
+                        <li class="ms-auto"><span class="counter text-success">@temp5</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+

@@ -1,0 +1,57 @@
+﻿@model Error404_TLT.Models.Error404Entity.CTOrder
+@{
+    ViewBag.Title = "Chi Tiết Sản Phẩm";
+}
+
+
+
+<style>
+</style>
+<div class="modal1-content" style="width: 43%; margin-left: 28.5%">
+    <table class="cus2">
+        <tr>
+            <th colspan="2" style="font-size: 20px;">Thông Tin Hóa Đơn</th>
+        </tr>
+        <tr>
+            <th>Mã Đơn Hàng</th>
+            <td>@Model.MaDH</td>
+        </tr>
+        <tr>
+            <th>Mã Sản Phẩm</th>
+            <td>@Model.MaSP</td>
+        </tr>
+        <tr>
+            <th>Tên Sản Phẩm</th>
+            <td>
+                @Model.TenSP
+            </td>
+        </tr>
+        <tr>
+            <th>Decription</th>
+            <td>
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <th>Số Lượng</th>
+            <td>
+                @Model.SL
+            </td>
+        </tr>
+        <tr>
+            <th>Giá Bán</th>
+            <td>
+                @Model.GiaBan
+            </td>
+        </tr>
+        <tr>
+            <th>Tổng</th>
+            <td>
+                @Model.Tong
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+

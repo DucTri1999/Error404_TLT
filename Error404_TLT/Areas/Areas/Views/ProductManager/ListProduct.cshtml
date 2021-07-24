@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "ListProduct";
+    Layout = "~/Areas/Areas/Views/Shared/MainLayoutAdmin.cshtml";
+}
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper" style="min-height: 250px;" id="productManager">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <h2 style="padding-top:15px">
+                DANH SÁCH SẢN PHẨM
+            </h2>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12 container white-box">
+                <div class="add_Product">
+                    <a href="#">Thêm Sản Phẩm</a>
+                </div>
+                <table id="example" class="table  table-bordered table-hover" style="width:100%">
+                    <thead>
+                        <tr style="text-align: center; ">
+                            <th style="font-size:15px;">Mã Sản Phẩm</th>
+                            <th style="font-size:15px;">Loại Sản Phẩm</th>
+                            <th style="font-size:15px;">Hình 1</th>
+                            <th style="font-size:15px;">Hình 2</th>
+                            <th style="font-size:15px;">Hình 3</th>
+                            <th style="font-size:15px;">Hình 4</th>
+                            <th style="font-size:15px;">Tên Sản Phẩm</th>
+                            <th style="font-size:15px;">Giá Sản Phẩm</th>
+                            <th style="font-size:15px;">Giá Khuyến Mãi</th>
+                            <th style="font-size:15px;">Số lượng</th>
+                            <th style="font-size:15px;">Miêu Tả</th>
+                            <th style="font-size:15px;">Thông Tin Khác</th>
+                            <th style="font-size:15px;" class="edit_Product">
+                                <a>
+                                    <i class="fas fa-edit" style="color: #bcd451;"></i>
+                                </a>
+                            </th>
+                            <th style="font-size:15px;" class="delete_product">
+                                <a>
+                                    <i class="fas fa-trash-alt" style="color: #bcd451;"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    @{
+                        Error404_TLT.Areas.Areas.Controllers.ProductManagerController HC = new Error404_TLT.Areas.Areas.Controllers.ProductManagerController();
+
+                        IEnumerable<Error404_TLT.Models.Error404Entity.SanPham> listProduct = HC.loadProduct();
+
+                    }
+
+                    <tbody>
+                        @foreach (var item in listProduct)
+                        {
+                            <tr style="text-align: center;font-size: 13px;">
+                                <td class="click_Product productId">@item.MaSP</td>
+                                <td class="click_Product">@item.LoaiSP.TenLSP</td>
+                                <td class="click_Product">
+                                    <img src="~/@item.img" style="width: 50px; height: 50px; object-fit:contain" />
+                                </td>
+                                <td class="click_Product">
+                                    <img src="~/@item.img2" style="width: 50px; height: 50px; object-fit:contain" />
+                                </td>
+                                <td class="click_Product">
+                                    <img src="~/@item.img3" style="width: 50px; height: 50px; object-fit:contain" />
+                                </td>
+                                <td class="click_Product">
+                                    <img src="~/@item.img4" style="width: 50px; height: 50px; object-fit:contain" />
+                                </td>
+                                <td class="click_Product">@item.TenSP</td>
+                                <td class="click_Product">@item.DonGia</td>
+                                <td class="click_Product">@item.GiaKM</td>
+                                <td class="click_Product">@item.SLTon</td>
+                                <td class="click_Product">@item.Description</td>
+                                <td class="click_Product">@item.MoreInfo</td>
+                                <td class="edit_Product">
+                                    <i class="fas fa-edit" style="color: red;"></i>
+                                </td>
+                                <td class="delete_product">
+                                    <i class="fas fa-trash-alt" style="color: red;"></i>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <!-- them san pham-->
+
+                <div id="AddProduct" class="modal" style="z-index: 50;">
+
+
+                </div>
+            </div>
+            <div id="EditProduct" class="modal" style="z-index: 50;">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+
+@{ var user = "temp";
+    if (@Session["userAdmin"] != null)
+    {
+        user = Session["userAdmin"].ToString();
+    } }
+<script>
+    $(".delete_product").click(function () {
+        var parent = $(this).parent();
+        var id = $(parent).children(".productId").text();
+        $.ajax({
+            url: '@Url.Action("delProduct", "ProductManager")',
+            type: 'POST',
+            data: {
+                id: id,
+            },
+            success: function () {
+                alert("Xóa thành công")
+                location.reload();
+            },
+            error: function () {
+                alert("Xóa thất bại");
+            },
+        });
+    });
+
+    $(".edit_Product").click(function () {
+        var parent = $(this).parent();
+        var id = $(parent).children(".productId").text();
+        $.ajax({
+            url: '@Url.Action("editProduct", "ProductManager")',
+            type: 'POST',
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                $("#EditProduct").css({ "display": "block" });
+                $("#EditProduct").html(result);
+            }
+        });
+    });
+
+    $(".add_Product").click(function () {
+        $.ajax({
+            url: '@Url.Action("addProduct", "ProductManager")',
+            type: 'POST',
+            success: function (result) {
+                $("#AddProduct").css({ "display": "block" });
+                $("#AddProduct").html(result);
+            }
+        });
+    });
+</script>
+
+

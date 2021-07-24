@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "ListDiscount";
+    Layout = "~/Areas/Areas/Views/Shared/MainLayoutAdmin.cshtml";
+}
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper" style="min-height: 250px;" id="productManager">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <h2 style="padding-top:15px">
+                DANH SÁCH DISCOUNT
+            </h2>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12 container white-box">
+                <div class="add_Discount">
+                    <a href="#">Thêm Discount</a>
+                </div>
+                <table id="example" class="table  table-bordered table-hover" style="width:100%">
+                    <thead>
+                        <tr style="text-align: center; ">
+                            <th style="font-size:15px;">Mã Discount</th>
+                            <th style="font-size:15px;">Tên Discount</th>
+                            <th style="font-size:15px;">Mô Tả</th>
+                            <th style="font-size:15px;">Giảm</th>
+                            <th style="font-size:15px;" class="edit_Discount">
+                                <a>
+                                    <i class="fas fa-edit" style="color: #bcd451;"></i>
+                                </a>
+                            </th>
+                            <th style="font-size:15px;" class="delete_Discount">
+                                <a>
+                                    <i class="fas fa-trash-alt" style="color: #bcd451;"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    @{
+                        Error404_TLT.Areas.Areas.Controllers.DiscountManagerController HC = new Error404_TLT.Areas.Areas.Controllers.DiscountManagerController();
+
+                        IEnumerable<Error404_TLT.Models.Error404Entity.Discount> listDiscount = HC.loadDiscount();
+
+                    }
+
+                    <tbody>
+                        @foreach (var item in listDiscount)
+                        {
+                            <tr style="text-align: center;font-size: 13px;">
+                                <td class="click_Product productId">@item.DCID</td>
+                                <td class="click_Product">@item.TenDC</td>
+                                <td class="click_Product">@item.MoTa</td>
+                                <td class="click_Product">@item.Giam</td>
+                                <td class="edit_Discount">
+                                    <i class="fas fa-edit" style="color: red;"></i>
+                                </td>
+                                <td class="delete_Discount">
+                                    <i class="fas fa-trash-alt" style="color: red;"></i>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <!-- them san pham-->
+                <div id="AddDiscount" class="modal" style="z-index: 50;">
+
+                </div>
+            </div>
+            <div id="EditDiscount" class="modal" style="z-index: 50;">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+
+@*@{ var user = "temp";
+    if (@Session["userAdmin"] != null)
+    {
+        user = Session["userAdmin"].ToString();
+    } }*@
+<script>
+    $(".delete_Discount").click(function () {
+        var parent = $(this).parent();
+        var id = $(parent).children(".productId").text();
+        $.ajax({
+            url: '@Url.Action("delDiscount", "DiscountManager")',
+            type: 'POST',
+            data: {
+                id: id,
+            },
+            success: function () {
+                alert("Xóa thành công")
+                location.reload();
+            },
+            error: function () {
+                alert("Xóa thất bại");
+            },
+        });
+    });
+
+    $(".edit_Discount").click(function () {
+        var parent = $(this).parent();
+        var id = $(parent).children(".productId").text();
+        $.ajax({
+            url: '@Url.Action("editDiscount", "DiscountManager")',
+            type: 'POST',
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                $("#EditDiscount").css({ "display": "block" });
+                $("#EditDiscount").html(result);
+            }
+        });
+    });
+
+    $(".add_Discount").click(function () {
+        $.ajax({
+            url: '@Url.Action("addDiscount", "DiscountManager")',
+            type: 'POST',
+            success: function (result) {
+                $("#AddDiscount").css({ "display": "block" });
+                $("#AddDiscount").html(result);
+            }
+        });
+    });
+</script>
+

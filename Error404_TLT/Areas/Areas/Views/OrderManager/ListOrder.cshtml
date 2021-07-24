@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "ListOrder";
+    Layout = "~/Areas/Areas/Views/Shared/MainLayoutAdmin.cshtml";
+}
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper" style="min-height: 250px;" id="productManager">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <h2 style="padding-top:15px">
+                DANH SÁCH ĐƠN HÀNG
+            </h2>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12 container white-box">
+                <table id="example" class="table  table-bordered table-hover" style="width:100%">
+                    <thead>
+                        <tr style="text-align: center; ">
+                            <th style="font-size:15px;">Mã Đơn Hàng</th>
+                            <th style="font-size:15px;">Tổng Đơn Hàng</th>
+                            <th style="font-size:15px;">Tổng Ship</th>
+                            <th style="font-size:15px;">Tổng Sản Phẩm</th>
+                            <th style="font-size:15px;">Tổng Discount</th>
+                            <th style="font-size:15px;">Email</th>
+                            <th style="font-size:15px;">Discount ID</th>
+                        </tr>
+                    </thead>
+                    @{
+                        Error404_TLT.Areas.Areas.Controllers.OrderManagerController HC = new Error404_TLT.Areas.Areas.Controllers.OrderManagerController();
+
+                        IEnumerable<Error404_TLT.Models.Error404Entity.Order> listOrder = HC.loadOrder();
+
+                    }
+
+                    <tbody>
+                        @foreach (var item in listOrder)
+                        {
+                            <tr style="text-align: center;font-size: 13px;">
+                                <td class="click_Product productId">@item.MaDH</td>
+                                <td class="click_Product">@item.TongDH</td>
+                                <td class="click_Product">@item.TongShip</td>
+                                <td class="click_Product">@item.TongSP</td>
+                                <td class="click_Product">@item.TongDC</td>
+                                <td class="click_Product">@item.User</td>
+                                <td class="click_Product">@item.DCID</td>
+                                <td class="click_Product">@item.Address</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <div id="CTOrder" class="modal" style="z-index: 50;">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<script>
+        $(".click_Product").click(function () {
+            var parent = $(this).parent();
+            var id = $(parent).children(".productId").text();
+            alert(id);
+            $.ajax({
+                url: '@Url.Action("CTOrder", "OrderManager")',
+                type: 'POST',
+                data: {
+                    id: id,
+                },
+                success: function (result) {
+                    $("#CTOrder").css({ "display": "block" });
+                    $("#CTOrder").html(result);
+                },
+                error: function () {
+                    alert("fail");
+                }
+            });
+        });
+</script>
+
+
