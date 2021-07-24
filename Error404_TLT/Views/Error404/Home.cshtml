@@ -176,11 +176,10 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script>
-    $('.cart-adction .add-to-cart').click(function () {
+    $('.overlay-content .add-to-cart').click(function () {
         var modal = document.getElementById('login_form');
-        var parent = $(this).parent().parent();
-        var id = $(parent).children(".productId").val();
-        alert(id);
+        var parent = $(this).parent();
+        var id = $(parent).children(".takeProductId").text();
         var user = '@user';
         if (user == null || user == "") {
             modal.style.display = "block";
