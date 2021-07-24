@@ -870,10 +870,6 @@ span.mobile-menu-title {
 		display: block;
 	}
 
-.test {
-	/* float: left; */
-}
-
 h1.title-logo {
 	margin-top: 35px;
 	font-size: 70px;
@@ -928,7 +924,7 @@ h1.title-logo {
 }
 
 .cat-search {
-	background: #fff url("~/Assets/img/caret.png") no-repeat scroll 92% 45%;
+	background: #fff url("img/caret.png") no-repeat scroll 92% 45%;
 	border: medium none;
 	color: #464646;
 	cursor: pointer;
@@ -1408,7 +1404,7 @@ span.pro-quality {
 .shipping-checkout-btn {
 	padding: 20px;
 	background: #F6F6F6;
-	position: relative;
+	position: sticky;
 	bottom: 0;
 }
 
@@ -1518,7 +1514,7 @@ div.nivo-controlNav {
 	bottom: 0;
 	position: absolute;
 	right: 20px;
-	z-index: 98;
+	z-index: 999999;
 }
 
 	div.nivo-controlNav a.nivo-control:hover {
@@ -1644,6 +1640,11 @@ div.nivo-controlNav {
 	z-index: 10;
 }
 
+.single-product-item:hover .overlay-content {
+	right: 0;
+	opacity: 1;
+}
+
 .overlay-content {
 	height: 100%;
 	position: absolute;
@@ -1652,23 +1653,7 @@ div.nivo-controlNav {
 	transition: all 800ms ease 0s;
 	opacity: 0;
 }
-
-.single-product-item:hover .overlay-content {
-	right: 0;
-	opacity: 1;
-}
-
-
-.overlay-content .cart-action {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-	height: 100%;
-}
-
-	.overlay-content .cart-action:last-child {
-		border-bottom: 0px solid #555;
-	}
-
-	.overlay-content .cart-action a {
+	.overlay-content button {
 		background: rgba(70, 70, 70, 0.5) none repeat scroll 0 0;
 		color: #fff;
 		display: block;
@@ -1679,8 +1664,7 @@ div.nivo-controlNav {
 		transition: all 0.3s ease 0s;
 		position: relative;
 	}
-
-		.overlay-content .cart-action a i {
+		.overlay-content button i {
 			bottom: 0;
 			display: block;
 			height: 25px;
@@ -1691,8 +1675,7 @@ div.nivo-controlNav {
 			top: 0;
 			width: 25px;
 		}
-
-		.overlay-content .cart-action a:hover {
+		.overlay-content button:hover {
 			color: #fff;
 			background: #FF5858;
 		}
@@ -2484,444 +2467,6 @@ div.client-carousel .owl-item img {
 
 
 /*-----------------------
-10. home page 2	
--------------------------*/
-
-body.index-2 .welcome-info span,
-body.index-2 .current-currency strong,
-body.index-2 .current-lang strong,
-body.index-2 .languages-choose li a:hover,
-body.index-2 .currency-list li a:hover,
-body.index-2 .header-right-menu nav ul li a:hover,
-body.index-2 span.remove:hover,
-body.index-2 .shipping-item-text span a.pro-cat:hover,
-body.index-2 span.pro-quality a:hover,
-body.index-2 .product-info a:hover,
-body.index-2 h2.left-title a:hover,
-body.index-2 .latest-news-area .left-title-area h2.left-title a:hover,
-body.index-2 .single-latest-post h2 a:hover,
-body.index-2 .read-more a:hover,
-body.index-2 .single-facality:hover .facality-text h3,
-body.index-2 .info-text p a:hover,
-body.index-2 .single-f-widget ul li a:hover,
-body.index-2 .copy-right address a,
-body.index-2 .latest-news-row h2.center-title a:hover,
-body.index-2 .drodown-mega-menu .mega-menu-list a:hover {
-	color: #C1A300;
-}
-
-body.index-2 .search-button,
-body.index-2 .header-right-callus::before,
-body.index-2 .ajax-cart-quantity,
-body.index-2 a.shop-link:hover span.ajax-cart-quantity,
-body.index-2 .ajax-cart-quantity:hover,
-body.index-2 .shipping-checkout-btn a:hover,
-body.index-2 .nivo-caption a:hover,
-body.index-2 div.nivo-controlNav a.active,
-body.index-2 .slider-bolut:hover,
-body.index-2 div.nivo-controlNav a.nivo-control:hover,
-body.index-2 .new-mark-box,
-body.index-2 .overlay-content ul li a:hover,
-body.index-2 .single-facality:hover .facality-icon,
-body.index-2 .newsletter-area,
-body.index-2 .flow-us-link li a:hover,
-body.index-2 .bstore-scrollertop:hover {
-	background: #C1A300;
-}
-
-	body.index-2 .search-button:hover {
-		background: #3A3D42;
-	}
-
-body.index-2 .drodown-mega-menu {
-	border-bottom: 3px solid #C1A300;
-}
-
-body.index-2 .new-product-area {
-	margin-top: 50px;
-}
-
-body.index-2 .main-slider-area {
-	margin-top: 15px;
-}
-
-
-/*-----------------------
-10.1 left sidebar	
--------------------------*/
-
-body.index-2 .single-left-sidebar {
-	margin-top: 50px;
-}
-
-	body.index-2 .single-left-sidebar h2.left-title {
-		font-size: 17px;
-	}
-
-
-/*-----------------------
-10.2 category menu
--------------------------*/
-
-body.index-2 .left-category-menu {
-	margin-top: 15px;
-}
-
-body.index-2 .left-product-cat {
-}
-
-body.index-2 .category-heading {
-}
-
-	body.index-2 .category-heading h2 {
-		background: #c1a300 none repeat scroll 0 0;
-		color: #fff;
-		cursor: pointer;
-		font-size: 14px;
-		line-height: 55px;
-		margin: 0;
-		overflow: hidden;
-		padding: 0;
-		position: relative;
-		text-overflow: ellipsis;
-		text-transform: uppercase;
-		white-space: nowrap;
-		word-wrap: break-word;
-	}
-
-		body.index-2 .category-heading h2:before {
-			background: #a08803 none repeat scroll 0 0;
-			content: "";
-			display: block;
-			float: left;
-			font-family: "FontAwesome";
-			font-size: 15px;
-			font-weight: normal;
-			height: 55px;
-			line-height: 55px;
-			margin-right: 20px;
-			text-align: center;
-			width: 55px;
-		}
-
-body.index-2 .category-menu-list {
-	border: 1px solid #ebebeb;
-	border-top: 0px solid #000;
-	position: relative;
-	width: 100%;
-	z-index: 1000;
-}
-
-	body.index-2 .category-menu-list ul {
-	}
-
-		body.index-2 .category-menu-list ul li {
-			background: #fff none repeat scroll 0 0;
-			border-bottom: 1px solid #ebebeb;
-			position: relative;
-		}
-
-			body.index-2 .category-menu-list ul li:last-child {
-				border-bottom: 0px solid #ebebeb;
-			}
-
-			body.index-2 .category-menu-list ul li a {
-				position: relative;
-				color: #000;
-				display: block;
-				font-size: 14px;
-				line-height: 45px;
-				font-weight: normal;
-				overflow: hidden;
-				padding: 0 15px;
-				transition: background 300ms ease 0s;
-				text-decoration: none;
-				text-overflow: ellipsis;
-				text-transform: uppercase;
-				white-space: nowrap;
-				word-wrap: break-word;
-			}
-
-			body.index-2 .category-menu-list ul li span.cat-thumb {
-				display: block;
-				float: left;
-				height: 25px;
-				margin: 0 15px 0 0;
-				width: 25px;
-			}
-
-			body.index-2 .category-menu-list ul li a i {
-				line-height: 45px;
-				position: absolute;
-				top: 0;
-				right: 25px;
-			}
-
-			body.index-2 .category-menu-list ul li a:hover {
-				color: #fff;
-				background: #CCCCCC;
-			}
-
-
-			/*-----------------------
-10.3 category mega menu
--------------------------*/
-
-			body.index-2 .category-menu-list ul li .cat-left-drop-menu {
-				background: #fff none repeat scroll 0 0;
-				border: 1px solid #ebebeb;
-				left: 120%;
-				padding: 25px 20px 20px;
-				position: absolute;
-				text-align: left;
-				top: 0;
-				width: 486px;
-				z-index: 999999;
-				opacity: 0;
-				visibility: hidden;
-				overflow: hidden;
-				transition: all 0.3s ease 0s;
-			}
-
-			body.index-2 .category-menu-list ul li .cat-left-drop-menu-left {
-				float: left;
-				margin-right: 2%;
-				margin-left: 2%;
-				width: 46%;
-			}
-
-				body.index-2 .category-menu-list ul li .cat-left-drop-menu-left ul {
-					margin-bottom: 15px;
-				}
-
-					body.index-2 .category-menu-list ul li .cat-left-drop-menu-left ul li {
-						border: none;
-					}
-
-			body.index-2 .category-menu-list ul li:hover .cat-left-drop-menu {
-				visibility: visible;
-				opacity: 1;
-				left: 100%;
-			}
-
-			body.index-2 .category-menu-list ul li .cat-left-drop-menu-left ul li a {
-				display: block;
-				padding: 0;
-				background: none;
-				text-transform: capitalize;
-				font-size: 13px;
-				line-height: 28px;
-				color: #333;
-			}
-
-				body.index-2 .category-menu-list ul li .cat-left-drop-menu-left ul li a:hover {
-					color: #C1A300;
-				}
-
-			body.index-2 .category-menu-list ul li a.menu-item-heading {
-				background: transparent none repeat scroll 0 0;
-				border-bottom: 1px solid #ebebeb;
-				color: #000;
-				display: block;
-				font-size: 15px;
-				line-height: 20px;
-				padding-bottom: 5px;
-				position: relative;
-				padding-left: 0;
-				margin-bottom: 8px;
-			}
-
-				body.index-2 .category-menu-list ul li a.menu-item-heading:hover {
-					background: none;
-					color: #C1A300;
-				}
-
-			body.index-2 .category-menu-list ul li .cat-left-drop-menu-single {
-				width: 215px;
-				background: #fff none repeat scroll 0 0;
-				border: 1px solid #ebebeb;
-				left: 120%;
-				padding: 25px 20px;
-				position: absolute;
-				text-align: left;
-				top: 0;
-				z-index: 999999;
-				opacity: 0;
-				visibility: hidden;
-				overflow: hidden;
-				transition: all 0.3s ease 0s;
-			}
-
-				body.index-2 .category-menu-list ul li .cat-left-drop-menu-single ul {
-				}
-
-					body.index-2 .category-menu-list ul li .cat-left-drop-menu-single ul li {
-						border: none;
-					}
-
-						body.index-2 .category-menu-list ul li .cat-left-drop-menu-single ul li a {
-							display: block;
-							padding: 0;
-							background: none;
-							text-transform: capitalize !important;
-							font-size: 13px;
-							line-height: 28px;
-							color: #333;
-						}
-
-							body.index-2 .category-menu-list ul li .cat-left-drop-menu-single ul li a:hover {
-								color: #C1A300;
-							}
-
-			body.index-2 .category-menu-list ul li:hover .cat-left-drop-menu-single {
-				visibility: visible;
-				opacity: 1;
-				left: 100%;
-			}
-
-
-/*-----------------------
-10.4 best-seller
--------------------------*/
-
-body.index-2 .sidebar-best-seller {
-	margin-bottom: 4px;
-	padding-bottom: 0;
-}
-
-	body.index-2 .sidebar-best-seller div.owl-stage-outer {
-	}
-
-body.index-2 div.sidebar-best-seller div.owl-stage {
-}
-
-body.index-2 .sidebar-best-seller div.owl-item {
-}
-
-body.index-2 .sidebar-best-seller .single-product-item {
-	margin-bottom: 15px;
-	margin-top: 2px;
-	overflow: hidden;
-}
-
-body.index-2 .sidebar-best-seller .sidebar-product-image {
-	float: left;
-}
-
-body.index-2 .sidebar-best-seller .product-info {
-	float: right;
-	width: 63%;
-}
-
-	body.index-2 .sidebar-best-seller .product-info a {
-		font-size: 13px;
-		margin-bottom: 3px;
-	}
-
-body.index-2 .sidebar-best-seller .customar-comments-box {
-	margin-top: 0;
-}
-
-body.index-2 .sidebar-best-seller .rating-box {
-	width: 100%;
-}
-
-body.index-2 .rating-box i {
-	font-size: 12px;
-	width: 10.222px;
-}
-
-body.index-2 .product-info .price-box {
-	padding-top: 2px;
-}
-
-body.index-2 .sidebar-best-seller .product-info span.price {
-	font-size: 15px;
-	line-height: 20px;
-	margin-right: 11px;
-}
-
-body.index-2 .sidebar-best-seller .product-info span.old-price {
-}
-
-
-/*-----------------------
-10.5 right product
--------------------------*/
-
-body.index-2 .home2-new-pro-carousel .owl-wrapper .owl-item,
-body.index-2 .home2-sale-carousel .owl-wrapper .owl-item,
-body.index-2 .sidebar-best-seller-carousel .owl-wrapper .owl-item,
-body.index-2 .feartured-carousel .owl-wrapper .owl-item {
-	padding: 0 15px;
-}
-
-body.index-2 i.owl-prev-icon:hover,
-body.index-2 i.owl-next-icon:hover {
-	border: 2px solid #C1A300;
-	color: #C1A300;
-}
-
-body.index-2 .overlay-content ul li a {
-	width: 65px;
-}
-
-body.index-2 .rating-box i.fa-star {
-	color: #f8c806;
-}
-
-body.index-2 .price-box span.price {
-	color: #000;
-}
-
-
-/*-----------------------
-10.6 latest news area
--------------------------*/
-
-body.index-2 .latest-news-area .left-title-area h2.left-title a {
-	color: #3a3d42;
-}
-
-body.index-2 .latest-news-row .left-title-area h2.left-title {
-	margin-bottom: 0;
-}
-
-
-/*-----------------------
-10.7 client area
--------------------------*/
-
-body.index-2 .single-client:hover {
-	border: 1px solid #C1A300;
-}
-
-
-/*-----------------------
-10.8 facality area
--------------------------*/
-
-body.index-2 .single-facality:hover,
-body.index-2 .flow-us-link li a:hover {
-	border-color: #C1A300;
-}
-
-
-/*-----------------------
-10.9 main content full column
--------------------------*/
-
-body.index-2 .main-content-section-full-column .single-product-item {
-	padding-bottom: 30px;
-	overflow: hidden;
-}
-
-body.index-2 .main-content-section-full-column .onehalf-add-shope {
-	margin-top: 20px;
-}
-
-
-/*-----------------------
 11. About page
 -------------------------*/
 
@@ -3010,29 +2555,19 @@ h2.about-page-title {
 		}
 
 			.single-account-info ul li a {
-				border-color: #cacaca #b7b7b7 #9a9a9a;
+				border: 1px solid #a1a1a1;
 				border-image: none;
-				border-radius: 4px;
-				border-style: solid;
-				border-width: 1px;
-				background: #f7f7f7;
-				background: -moz-linear-gradient(#f7f7f7, #ededed);
-				background: -webkit-linear-gradient(#f7f7f7, #ededed);
-				background: -o-linear-gradient(#f7f7f7, #ededed);
-				background: -ms-linear-gradient(#f7f7f7, #ededed);
-				/*For IE10*/
-				background: linear-gradient(#f7f7f7, #ededed);
-				filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#f7f7f7', endColorstr='#ededed');
+				border-radius: 5px;
+				background: linear-gradient(#4391f3, #006b9e85);
 				/*For IE7-8-9*/
 				background-size: 100% auto;
-				color: #555454;
+				color: #fff;
 				display: block;
 				font-weight: 600;
 				font-size: 16px;
 				line-height: 20px;
 				font-family: 'Open Sans', sans-serif;
 				overflow: hidden;
-				text-shadow: 0 1px white;
 				text-transform: uppercase;
 			}
 
@@ -3040,13 +2575,13 @@ h2.about-page-title {
 					border: 1px solid #fff;
 					border-bottom-left-radius: 4px;
 					border-top-left-radius: 4px;
-					color: #fd7e01;
+					color: #fd6a01;
 					float: left;
 					font-size: 25px;
 					line-height: 48px;
 					overflow: hidden;
 					text-align: center;
-					width: 52px;
+					width: 50px;
 				}
 
 				.single-account-info ul li a span {
@@ -3064,10 +2599,8 @@ h2.about-page-title {
 				}
 
 				.single-account-info ul li a:hover {
-					background: #e7e7e7 none repeat scroll 0 0;
+					background: linear-gradient(#416897, #31ade785);
 					border-color: #9e9e9e #c2c2c2 #c8c8c8;
-					filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#e7e7e7', endColorstr='#e7e7e7');
-					/*For IE7-8-9*/
 				}
 
 .home-link-menu {
@@ -3084,13 +2617,14 @@ h2.about-page-title {
 		}
 
 			.home-link-menu ul li a {
-				background: #ff4f4f none repeat scroll 0 0;
+				background: #337ab7 none repeat scroll 0 0;
 				color: #fff;
 				display: inline-block;
 				font-size: 13px;
 				line-height: 17px;
 				padding: 4px 10px;
 				transition: all 0.3s ease 0s;
+				border-radius: 5px;
 			}
 
 				.home-link-menu ul li a:hover {
@@ -3340,7 +2874,7 @@ ul.gategory-product {
 		padding: 14px 15px 17px;
 	}
 
-		ul.gategory-product li.gategory-product-list div.single-product-item .overlay-content ul li a {
+		ul.gategory-product li.gategory-product-list div.single-product-item .overlay-content a {
 			width: 50px;
 		}
 
@@ -3441,6 +2975,7 @@ ul.gategory-product {
 .short-select-option {
 	float: right;
 	height: 27px;
+	border-left: 1px solid #d6d4d4;
 	width: 190px;
 	margin-left: 6px;
 }
@@ -3454,7 +2989,7 @@ ul.gategory-product {
 		opacity: 1;
 		height: 28px;
 		width: 190px;
-		border: 1px solid #777;
+		border: medium none;
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		outline: medium none;
@@ -4094,15 +3629,12 @@ form.error-ser-form {
 17. Sign in page
 ----------------------*/
 
-.create-new-account {
-}
-
 .primari-box {
 	background: #fbfbfb none repeat scroll 0 0;
 	border: 1px solid #d6d4d4;
 	line-height: 25px;
-	margin: 50px 300px 50px 300px;
-	padding: 14px 18px 13px;
+	/*margin: 50px 300px 50px 300px;
+    padding: 14px 18px 13px;*/
 	text-align: center;
 }
 
@@ -4160,8 +3692,6 @@ form.error-ser-form {
 	}
 
 .main-btn {
-	background: #ff4f4f none repeat scroll 0 0;
-	border: 1px solid #ff4f4f;
 	border-radius: 0;
 	color: #fff;
 	font-size: 17px;

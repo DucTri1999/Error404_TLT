@@ -28,28 +28,31 @@
             </div>
         </div>
         <div class="row">
-            <!-- ACCOUNT-INFO-TEXT START -->
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="account-info">
-                    <div class="single-account-info">
-                        <ul>
-                            <li><a href="checkout-registration.html"><i class="fa fa-user"></i><span>Thông tin tài khoản</span>	</a></li>
-                        </ul>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <!-- ACCOUNT-INFO-TEXT START -->
+                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                    <div class="account-info">
+                        <div class="single-account-info">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-user"></i><span>Thông tin tài khoản</span>	</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="account-info">
-                    <div class="single-account-info">
-                        <ul>
-                            <li><a href="manage-order.html"><i class="fa fa-list-ol"></i><span>Quản lý đơn hàng</span></a></li>
-                        </ul>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                    <div class="account-info">
+                        <div class="single-account-info">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-list-ol"></i><span>Quản lý đơn hàng</span></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                <!-- ACCOUNT-INFO-TEXT END -->
             </div>
-            <!-- ACCOUNT-INFO-TEXT END -->
+
             <!-- TEXT START-->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <!-- PERSONAL-INFOMATION START -->
                 <div class="personal-infomation">
                     <form class="primari-box personal-info-box" id="personalinfo" method="post" action="#">
@@ -66,19 +69,19 @@
                             <div class="form-group primary-form-group p-info-group">
                                 <div class="province">
                                     <label for="province">Tỉnh/Thành<sup>*</sup></label>
-                                    <select class="form control" id="province" none="province" onchange="changeFunc();">
+                                    <select class="form control" id="province" name="province" onchange="selectCity();">
                                         <option value="@Model.ThanhPho" selected>Chọn Tỉnh/Thành</option>
                                     </select>
                                 </div>
                                 <div class="district">
                                     <label for="district">Quận Huyện<sup>*</sup></label>
-                                    <select class="form control" id="district" none="district" onchange="changeFuncDistrict();">
+                                    <select class="form control" id="district" name="district" onchange="selectDistrict();">
                                         <option value="@Model.Quan" selected>Chọn Quận/Huyện</option>
                                     </select>
                                 </div>
                                 <div class="ward">
                                     <label for="ward">Phường/Xã<sup>*</sup></label>
-                                    <select class="form control" id="ward" none="ward" aria-placeholder="Quận Huyện;">
+                                    <select class="form control" id="ward" name="ward" aria-placeholder="Quận Huyện;">
                                         <option value="@Model.Phuong" selected>Chọn Phường/Xã</option>
                                     </select>
                                 </div>
@@ -89,7 +92,7 @@
                             </div>
                             <div class="submit-button p-info-submit-button">
                                 <a href="checkout-registration.html" id="SubmitCreate" class="btn main-btn">
-                                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                    <button type="submit" class="btn btn-primary" id="updateInfo">Cập nhật</button>
                                 </a>
                                 <span class="required-field"><sup>*</sup>Phần bắt buộc</span>
                             </div>
@@ -112,3 +115,76 @@
     </div>
 </section>
 <!-- MAIN-CONTENT-SECTION END -->
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<!-- GET API LOCATION TO AJAX -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var province = document.getElementById("province");
+        window.onload = function () {
+            $.ajax({
+                url: "https://provinces.open-api.vn/api/",
+                method: 'GET',
+                success: function (response) {
+                    var str = '<option value="" selected>Chọn Tỉnh/Thành</option>';
+                    for (var i = 0; i < response.length; i++) {
+                        str = str + "<option class = 'provinceID' data-province='" + response[i].code + "'>" + response[i].name + "</option> "
+                    }
+                    province.innerHTML = str;
+                }
+            });
+        }
+    }, false)
+
+    function selectCity() {
+        var selectedBox = document.getElementById("province")
+        var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-province')
+        var district = document.getElementById('district');
+        $.ajax({
+            url: "https://provinces.open-api.vn/api/p/" + selectedValue + "?depth=2",
+            method: 'GET',
+            success: function (response) {
+                var str = "<option selected>Chọn Quận/Huyện</option>";
+                for (var i = 0; i < response.districts.length; i++) {
+                    if (response.districts[i].province_code == selectedValue) {
+                        str = str + "<option class='districtID' data-district='" + response.districts[i].code + "'>" + response.districts[i].name + "</option>";
+                    }
+
+                }
+                district.innerHTML = str;
+            }
+        });
+
+    };
+
+
+    function selectDistrict() {
+        var selectedBox = document.getElementById("district")
+        var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-district')
+        var ward = document.getElementById('ward');
+        $.ajax({
+            url: "https://provinces.open-api.vn/api/d/" + selectedValue + "?depth=2",
+            method: 'GET',
+            success: function (response) {
+                var str = "<option selected>Chọn Phường/Xã</option>";
+                for (var i = 0; i < response.wards.length; i++) {
+                    str = str + "<option class='wardID' data-ward='" + response.wards[i].code + "'>" + response.wards[i].name + "</option>";
+                }
+                ward.innerHTML = str;
+            }
+        });
+    }
+</script>
+
+<script>
+    $("#updateInfo").click(function () {
+        var name = $("#name").val();
+        var sdt = $("#phonenumber").val();
+        var province = $("#province").val();
+        var district = $("#district").val();
+        var ward = $("#ward").val();
+        var address = $("#address").val();
+    });
+</script>

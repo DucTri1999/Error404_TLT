@@ -21,10 +21,8 @@
                                             <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.img" alt="product-image" /></a>
                                             <a href="#" class="new-mark-box">sale</a>
                                             <div class="overlay-content">
-                                                <div class="cart-action">
-                                                    <div class="takeProductId" style="display:none">@item.MaSP</div>
-                                                    <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
-                                                </div>
+                                                <div class="takeProductId" style="display:none">@item.MaSP</div>
+                                                <button class="add-to-cart" id="addToCart" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
                                             </div>
                                         </div>
                                         <div class="product-info">
