@@ -79,21 +79,18 @@
 
 <script>
     $(".btn_Edit").click(function () {
-        var DCID = document.getElementById("edit_productId").value;
-        alert(DCID);
         var TenDC = document.getElementById("edit_productName").value;
-
         var MoTa = document.getElementById("edit_productMota").value;
-
         var Giam = document.getElementById("edit_productGiam").value;
+
         $.ajax({
             url: '@Url.Action("upDiscount", "DiscountManager")',
             type: 'POST',
             data: {
-                DCID='@Model.DCID',
-                TenDC=TenDC,
-                MoTa=MoTa,
-                Giam=Giam
+                DCID: '@Model.DCID',
+                TenDC : TenDC,
+                MoTa : MoTa,
+                Giam : Giam
             },
             success: function (result) {
                 location.reload();

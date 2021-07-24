@@ -28,7 +28,7 @@
                 <label>Mã Discount</label>
             </th>
             <td>
-                <input type="text" name="ProductsId" id="add_productId" placeholder="mã discount...">
+                <input type="text" name="ProductPrice" id="add_productId" placeholder="mã discount...">
             </td>
         </tr>
         <tr>
@@ -68,17 +68,18 @@
         var TenDC = document.getElementById("add_productName").value;
         var MoTa = document.getElementById("add_productMota").value;
         var Giam = document.getElementById("add_productGiam").value;
-        alert(DCID);
+
+        alert(DCID + TenDC + MoTa +Giam);
 
         //ajax-start
-        @*$.ajax({
-            url: '@Url.Action("addGiamGia", "DiscountManager")',
+        $.ajax({
+            url: '@Url.Action("addDC", "DiscountManager")',
             type: 'POST',
             data: {
-                DCID = DCID,
-                TenDC = TenDC,
-                MoTa = MoTa,
-                Giam = Giam
+                DCID : DCID,
+                TenDC : TenDC,
+                MoTa : MoTa,
+                Giam : Giam
             },
             success: function () {
                 location.reload();
@@ -86,36 +87,8 @@
             error: function () {
                 alert("fail");
             },
-        });*@
+        });
         //ajax-end
     });
-
-
-    //$(document).ready(function () {
-    //    $(".btn_Add").click(function () {
-    //        var DCID = document.getElementById("add_productId").value;
-    //        var TenDC = document.getElementById("add_productName").value;
-    //        var MoTa = document.getElementById("add_productMota").value;
-    //        var Giam = document.getElementById("add_productGiam").value;
-    //        alert(DCID);
-
-            @*$.ajax({
-                url: '@Url.Action("addGiamGia", "DiscountManager")',
-                type: 'POST',
-                data: {
-                    DCID = DCID,
-                    TenDC = TenDC,
-                    MoTa = MoTa,
-                    Giam = Giam
-                },
-                success: function () {
-                    location.reload();
-                },
-                error: function () {
-                    alert("fail");
-                },
-            });*@
-    //    });
-    //});
 </script>
 

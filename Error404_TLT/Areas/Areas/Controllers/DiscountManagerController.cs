@@ -59,7 +59,7 @@ namespace Error404_TLT.Areas.Areas.Controllers
         }
 
         [HttpPost]
-        public void addGiamGia(string DCID, string TenDC, string MoTa, int Giam)
+        public void addDC(string DCID, string TenDC, string MoTa, int Giam)
         {
             DB.addDC(DCID, TenDC, MoTa, Giam);
         }
