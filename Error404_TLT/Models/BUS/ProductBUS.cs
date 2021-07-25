@@ -65,7 +65,7 @@ namespace Error404_TLT.Models.BUS
                 MaSP = id,
                 SL = 1,
             };
-            db.Cart.AddOrUpdate(c);
+            db.Cart.Add(c);
             db.SaveChanges();
         }
 
@@ -78,7 +78,7 @@ namespace Error404_TLT.Models.BUS
                 MaSP = id,
                 SL = sl,
             };
-            db.Cart.AddOrUpdate(c);
+            db.Cart.Add(c);
             db.SaveChanges();
         }
 

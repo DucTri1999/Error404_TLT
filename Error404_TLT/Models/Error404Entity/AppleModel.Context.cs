@@ -34,6 +34,7 @@ namespace Error404_TLT.Models.Error404Entity
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Rate> Rate { get; set; }
         public virtual DbSet<SanPham> SanPham { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
     }
 }

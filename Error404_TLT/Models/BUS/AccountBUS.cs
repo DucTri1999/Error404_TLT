@@ -90,11 +90,14 @@ namespace Error404_TLT.Models.BUS
         }
 
 
-        public void changeInfo(string sdt, string fullname, string address, string user)
+        public void changeInfo(string sdt, string fullname, string address, string ThanhPho, string Quan, string Phuong, string user)
         {
             KhachHang a = db.KhachHang.Where(p => p.SDT == sdt).SingleOrDefault();
             a.FullName = fullname;
             a.Address = address;
+            a.ThanhPho = ThanhPho;
+            a.Quan = Quan;
+            a.Phuong = Phuong;
             a.User = user;
             db.SaveChanges();
         }

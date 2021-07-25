@@ -1,11 +1,20 @@
-﻿
-@model IEnumerable<Error404_TLT.Models.ViewsModel.ProductOfCartModel>
-@{
+﻿@model IEnumerable<Error404_TLT.Models.ViewsModel.ProductOfCartModel>
+@{ 
     ViewBag.Title = "CheckOut";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
+@{ 
+    Error404_TLT.Controllers.ProductController productController = new Error404_TLT.Controllers.ProductController();
+    Error404_TLT.Models.BUS.AccountBUS accountBUS = new Error404_TLT.Models.BUS.AccountBUS();
+    string user = "";
+    if (Session["user"] != null)
+    {
+        user = Session["user"].ToString();
+    }
+}
 
+<link href="~/Assets/css/checkout.css" rel="stylesheet" />
 <div class="content">
     <div class="wrap">
         <div class="sidebar">
@@ -24,8 +33,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{ var d = 0;}
                                     @foreach (var item in Model)
                                     {
+                                        @d += 1;
                                         <!-- SẢN PHẨM START -->
                                         <tr class="product">
                                             <td class="product-img">
@@ -41,26 +52,25 @@
 
                                             </td>
                                             <td class="product-quantity visually-hidden">@item.ProductAmount</td>
+                                            @{ var temp = @item.ProductPrice * @item.ProductAmount;}
                                             <td class="product-price">
-                                                <span class="order-summary-emphasis">$ @item.ProductPrice</span>
+                                                <span class="order-summary-emphasis">$ @temp</span>
                                             </td>
                                         </tr>
                                         <!-- SẢN PHẨM END -->
-                                    }
-
+                                     }
                                 </tbody>
                             </table>
                         </div>
 
                         <div class="order-summary-section order-summary-section-discount">
                             <form id="form_discount_add" accept-charset="UTF-8" method="post">
-                                <input name="utf8" type="hidden" value="✓">
                                 <div class="fieldset">
                                     <div class="field">
                                         <div class="field-input-btn-wrapper">
                                             <div class="field-input-wrapper">
                                                 <label class="field-label" for="discount-code">Mã giảm giá</label>
-                                                <input placeholder="Mã giảm giá" class="field-input" data-discount-field="true" autocomplete="off" autocapitalize="off" spellcheck="false" size="30" type="text" id="discount-code" name="discount-code" value="" />
+                                                <input placeholder="Mã giảm giá" class="field-input" data-discount-field="true" type="text" id="discount-code" name="discount-code" value="" />
                                             </div>
                                             <button type="submit" class="field-input-btn btn btn-default btn-disabled">
                                                 <span class="btn-content">Sử dụng</span>
@@ -71,11 +81,9 @@
                                 </div>
                             </form>
                         </div>
-                        @{ 
-                            var sum = @Model.Sum(a => a.ProductPrice * a.ProductAmount);
-                        }
                         <div class="order-summary-section order-summary-section-total-lines payment-lines">
                             <table class="total-line-table">
+                                @{ var total = Model.Sum(t => t.ProductPrice * t.ProductAmount); }
                                 <thead>
                                     <tr>
                                         <th scope="col"><span class="visually-hidden">Mô tả</span></th>
@@ -86,7 +94,7 @@
                                     <tr class="total-line total-line-subtotal">
                                         <td class="total-line-name">Tạm tính</td>
                                         <td class="total-line-price">
-                                            <span class="order-summary-emphasis">$ @sum</span>
+                                            <span class="order-summary-emphasis">$ @total</span>
                                         </td>
                                     </tr>
 
@@ -104,7 +112,7 @@
                                             <span class="payment-due-label-total">Tổng cộng</span>
                                         </td>
                                         <td class="total-line-name payment-due">
-                                            <span class="payment-due-price">$ @sum</span>
+                                            <span class="payment-due-price">$ @total</span>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -115,119 +123,17 @@
             </div>
         </div>
         <div class="main">
-            <div class="main-header">
-                <a href="#" class="logo-hd">
-                    <h1 class="logo-text">Error404 Store</h1>
-                </a>
-
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="cart.html">Giỏ hàng</a>
-                    </li>
-                    <li class="breadcrumb-item breadcrumb-item-current">Thông tin giao hàng</li>
-                </ul>
-            </div>
             <div class="main-content">
-
-                <div class="step">
-                    <div class="step-sections " step="1">
-                        <div class="section">
-                            <div class="section-header">
-                                <h2 class="section-title">Thông tin giao hàng</h2>
-                            </div>
-                            <div class="section-content section-customer-information no-mb">
-                                <input name="utf8" type="hidden" value="✓">
-                                <div class="inventory_location_data">
-                                    <input name="customer_shipping_country" type="hidden" value="241" />
-                                    <input name="customer_shipping_province" type="hidden" value="50" />
-                                    <input name="customer_shipping_district" type="hidden" value="485" />
-                                    <input name="customer_shipping_ward" type="hidden" value="27595" />
-                                </div>
-                                <div class="fieldset">
-                                    <div class="field field-show-name">
-                                        <div class="field-input-wrapper">
-                                            <label class="field-label" for="billing_address_full_name">Họ và tên</label>
-                                            <input placeholder="Họ và tên" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_full_name" name="billing_address[full_name]" value="Thanh Long Nguyen" />
-                                        </div>
-                                    </div>
-                                    <div class="field field-required field-third  field-show-floating-label">
-                                        <div class="field-input-wrapper">
-                                            <label class="field-label" for="billing_address_phone">Số điện thoại</label>
-                                            <input placeholder="Số điện thoại" autocapitalize="off" spellcheck="false" class="field-input" size="30" maxlength="15" type="tel" id="billing_address_phone" name="billing_address[phone]" value="334052502" />
-                                        </div>
-                                    </div>
-                                    <div class="field   field-show-floating-label">
-                                        <div class="field-input-wrapper">
-                                            <label class="field-label" for="billing_address_address1">Địa chỉ</label>
-                                            <input placeholder="Địa chỉ" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_address1" name="billing_address[address1]" value="D6/22G Khu pho 4 Tan Tuc" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="section-content">
-                                <div class="fieldset">
-                                    <form id="form_update_location" class="clearfix order-checkout__loading" accept-charset="UTF-8" method="post">
-                                        <div class="field field-show-floating-label  field-third ">
-                                            <div class="field-input-wrapper field-input-wrapper-select">
-                                                <label class="field-label" for="customer_shipping_province"> Tỉnh / thành </label>
-                                                <select class="field-input" id="province" none="province" onchange="changeFunc();">
-                                                    <option value="" selected>Chọn Tỉnh/Thành</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="field field-show-floating-label  field-third ">
-                                            <div class="field-input-wrapper field-input-wrapper-select">
-                                                <label class="field-label" for="customer_shipping_district">Quận / huyện</label>
-                                                <select class="field-input" id="district" none="district" onchange="changeFuncDistrict();">
-                                                    <option value="" selected>Chọn Quận/Huyện</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="field field-show-floating-label field-third">
-                                            <div class="field-input-wrapper field-input-wrapper-select">
-                                                <label class="field-label" for="customer_shipping_ward">Phường / xã</label>
-                                                <select class="field-input" id="ward" none="ward" aria-placeholder="Quận Huyện;">
-                                                    <option value="" selected>Chọn Phường/Xã</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Tao 1 partial view thong tin -->
+                @{ 
+                    var loadCheckoutCustomer = Html.Partial("Checkout_Customer", accountBUS.account(user.ToString()));
+                    loadCheckoutCustomer = new MvcHtmlString(loadCheckoutCustomer.ToString()); 
+                }
+                @loadCheckoutCustomer
             </div>
             <div class="main-content">
                 <div class="step">
                     <div class="step-sections">
-                        <div id="section-shipping-rate" class="section">
-                            <div class="section-header">
-                                <h2 class="section-title">Phương thức vận chuyển</h2>
-                            </div>
-                            <div class="section-content">
-                                <div class="content-box">
-                                    <div class="content-box-row">
-                                        <div class="radio-wrapper">
-                                            <label class="radio-label" for="shipping">
-                                                <div class="radio-input">
-                                                    <input id="shipping" name="shipping" class="input-radio" type="radio" value="1" checked />
-                                                </div>
-                                                <span class="radio-label-primary">Giao hàng tận nơi</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio-wrapper">
-                                            <label class="radio-label" for="shipping">
-                                                <div class="radio-input">
-                                                    <input id="shipping" name="shipping" class="input-radio" type="radio" value="2" />
-                                                </div>
-                                                <span class="radio-label-primary">Nhận hàng tại cửa hàng</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div id="section-payment-method" class="section">
                             <div class="section-header">
                                 <h2 class="section-title">Phương thức thanh toán</h2>
@@ -235,33 +141,30 @@
                             <div class="section-content">
                                 <div class="content-box">
                                     <div class="radio-wrapper content-box-row">
-                                        <label class="radio-label" for="payment_method_id_1002013488">
+                                        <label class="radio-label">
                                             <div class="radio-input">
-                                                <input id="payment_method_id_1002013488" class="input-radio"
-                                                       name="payment_method_id" type="radio" value="1002013488"
-                                                       checked />
+                                                <input id="payment_method" class="input-radio" name="payment_method" type="radio" checked />
                                             </div>
                                             <span class="radio-label-primary">Thanh toán khi giao hàng (COD)</span>
                                         </label>
                                     </div>
-                                    <div class="radio-wrapper content-box-row content-box-row-secondary " for="payment_method_id_1002013488">
+                                    <div class="radio-wrapper content-box-row content-box-row-secondary ">
                                         <div class="blank-slate">
                                             Để hỗ trợ tốt cho khách trong việc nhận hàng mà bị THIẾU SAI HÀNG, thì quý khách vui lòng quay lại video lúc nhận hàng. Xin cảm ơn
                                         </div>
                                     </div>
                                     <div class="radio-wrapper content-box-row">
-                                        <label class="radio-label" for="payment_method_id_1002013491">
+                                        <label class="radio-label">
                                             <div class="radio-input">
-                                                <input id="payment_method_id_1002013491" class="input-radio"
-                                                       name="payment_method_id" type="radio" value="1002013491" />
+                                                <input id="payment_method" class="input-radio" name="payment_method" type="radio" />
                                             </div>
                                             <span class="radio-label-primary">Chuyển khoản qua ngân hàng</span>
                                         </label>
                                     </div>
-                                    <div class="radio-wrapper content-box-row content-box-row-secondary " for="payment_method_id_1002013491">
+                                    <div class="radio-wrapper content-box-row content-box-row-secondary ">
                                         <div class="blank-slate">
-                                            > Với đơn hàng thanh toán qua chuyển khoản quý khách vui lòng CHUYỂN KHOẢN NHANH 24/7 và nội dung chuyển khoản CHỈ GHI đúng “HỌ và tên ĐẦY ĐỦ khách hàng”. > Ngay khi nhận được báo “Có” từ Ngân hàng, chúng tôi sẽ tiến hành xác nhận với quý khách và xuất
-                                            hàng giao hàng cho quý khách trong thời gian quy định.
+                                            Techcombank: 0123456789
+                                            <br> Chủ tài khoản: Nguyễn Văn A
                                         </div>
                                     </div>
                                 </div>
@@ -270,27 +173,34 @@
 
                     </div>
                     <div class="step-footer">
-
-
-                        <form id="form_next_step" accept-charset="UTF-8" method="post">
-                            <input name="utf8" type="hidden" value="✓">
-                            <button type="submit" class="step-footer-continue-btn btn">
-                                <span class="btn-content"><a href="index.html" style="color: white;">Hoàn tất đơn hàng</a></span>
-                                <i class="btn-spinner icon icon-button-spinner"></i>
-                            </button>
-                        </form>
-                        <a href="checkout-1.html" class="step-footer-previous-link">
+                        <button type="submit" class="step-footer-continue-btn btn">
+                            <span class="btn-content"><a href="#" style="color: white;" id="create_order">Hoàn tất đơn hàng</a></span>
+                        </button>
+                        <a href="@Url.Action("Cart", "Error404", new { user = Session["user"] })" class="step-footer-previous-link">
                             <svg class="previous-link-icon icon-chevron icon" xmlns="http://www.w3.org/2000/svg" width="6.7" height="11.3" viewBox="0 0 6.7 11.3">
                                 <path d="M6.7 1.1l-1-1.1-4.6 4.6-1.1 1.1 1.1 1 4.6 4.6 1-1-4.6-4.6z"></path>
-                            </svg> Quay lại thông tin giao hàng
+                            </svg> Quay lại giỏ hàng
                         </a>
-
-
                     </div>
                 </div>
-
             </div>
         </div>
+        
     </div>
-
 </div>
+
+
+<script>
+    $("#create_order").click(function () {
+        var user = @user;
+        var KH = @accountBUS.account(user);
+        var total = @total;
+        var quantity = @d;
+        var discountID = $("#discount-code").val();
+        var address = $("#billing_address").val();
+        var province = $("#billing_province").val();
+        var district = $("#billing_district").val();
+        var ward = $("#billing_ward").val();
+
+    })
+</script>

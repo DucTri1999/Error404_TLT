@@ -29,58 +29,81 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <!-- SINGLE-PRODUCT-DESCRIPTION START -->
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
                         <div class="single-product-view">
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane active" id="thumbnail_1">
-                                    <div class="single-product-image">
-                                        <img src="~/Assets/@Model.img" alt="single-product-image">
-                                        <a class="new-mark-box" href="#">new</a>
-                                        <a class="fancybox" href="~/Assets/@Model.img" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-                                    </div>
+                                @if (Model.img != null)
+                                {
+                            <div class="tab-pane active" id="thumbnail_1">
+                                <div class="single-product-image">
+                                    <img src="~/Assets/@Model.img" alt="single-product-image">
+                                    <a class="new-mark-box" href="#">new</a>
+                                    <a class="fancybox" href="~/Assets/@Model.img" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
                                 </div>
-                                <div class="tab-pane" id="thumbnail_2">
-                                    <div class="single-product-image">
-                                        <img src="~/Assets/@Model.img2" alt="single-product-image" />
-                                        <a class="new-mark-box" href="#">new</a>
-                                        <a class="fancybox" href="~/Assets/@Model.img2" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-                                    </div>
+                            </div>}
+                                @if (Model.img2 != null)
+                                {
+                            <div class="tab-pane" id="thumbnail_2">
+                                <div class="single-product-image">
+                                    <img src="~/Assets/@Model.img2" alt="single-product-image" />
+                                    <a class="new-mark-box" href="#">new</a>
+                                    <a class="fancybox" href="~/Assets/@Model.img2" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
                                 </div>
-                                <div class="tab-pane" id="thumbnail_3">
-                                    <div class="single-product-image">
-                                        <img src="~/Assets/@Model.img3" alt="single-product-image" />
-                                        <a class="new-mark-box" href="#">new</a>
-                                        <a class="fancybox" href="~/Assets/@Model.img3" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-                                    </div>
+                            </div>}
+                                @if (Model.img3 != null)
+                                {
+                            <div class="tab-pane" id="thumbnail_3">
+                                <div class="single-product-image">
+                                    <img src="~/Assets/@Model.img3" alt="single-product-image" />
+                                    <a class="new-mark-box" href="#">new</a>
+                                    <a class="fancybox" href="~/Assets/@Model.img3" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
                                 </div>
-                                <div class="tab-pane" id="thumbnail_4">
-                                    <div class="single-product-image">
-                                        <img src="~/Assets/@Model.img4" alt="single-product-image" />
-                                        <a class="new-mark-box" href="#">new</a>
-                                        <a class="fancybox" href="~/Assets/@Model.img4" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-                                    </div>
+                            </div>}
+                                @if (Model.img4 != null)
+                                {
+                            <div class="tab-pane" id="thumbnail_4">
+                                <div class="single-product-image">
+                                    <img src="~/Assets/@Model.img4" alt="single-product-image" />
+                                    <a class="new-mark-box" href="#">new</a>
+                                    <a class="fancybox" href="~/Assets/@Model.img4" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
                                 </div>
+                            </div>
+                                }
+
+                                
+                                
+                                
                             </div>
                         </div>
                         <div class="select-product">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs select-product-tab bxslider">
-                                <li class="active">
-                                    <a href="#thumbnail_1" data-toggle="tab"><img src="~/Assets/@Model.img" alt="pro-thumbnail" /></a>
-                                </li>
-                                <li>
-                                    <a href="#thumbnail_2" data-toggle="tab"><img src="~/Assets/@Model.img2" alt="pro-thumbnail" /></a>
-                                </li>
-                                <li>
-                                    <a href="#thumbnail_3" data-toggle="tab"><img src="~/Assets/@Model.img3" alt="pro-thumbnail" /></a>
-                                </li>
-                                <li>
-                                    <a href="#thumbnail_4" data-toggle="tab"><img src="~/Assets/@Model.img4" alt="pro-thumbnail" /></a>
-                                </li>
+                                @if (Model.img != null)
+                                {
+                                    <li class="active">
+                                        <a href="#thumbnail_1" data-toggle="tab"><img src="~/Assets/@Model.img" alt="pro-thumbnail" /></a>
+                                    </li>
+                                }
+                                @if (Model.img2 != null)
+                                {
+                                    <li>
+                                        <a href="#thumbnail_2" data-toggle="tab"><img src="~/Assets/@Model.img2" alt="pro-thumbnail" /></a>
+                                    </li>
+                                }@if (Model.img3 != null)
+                                {
+                                    <li>
+                                        <a href="#thumbnail_3" data-toggle="tab"><img src="~/Assets/@Model.img3" alt="pro-thumbnail" /></a>
+                                    </li>
+                                }@if (Model.img4 != null)
+                                {
+                                    <li>
+                                        <a href="#thumbnail_4" data-toggle="tab"><img src="~/Assets/@Model.img4" alt="pro-thumbnail" /></a>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -205,39 +228,7 @@
             <!-- RIGHT SIDE BAR START -->
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <!-- SINGLE SIDE BAR START -->
-                <div class="single-product-right-sidebar">
-                    <h2 class="left-title">Viewed products</h2>
-                    <ul>
-                        <li>
-                            <a href="#"><img src="~/Assets/img/product/sidebar_product/2.jpg" alt="" /></a>
-                            <div class="r-sidebar-pro-content">
-                                <h5><a href="#">Faded Short ...</a></h5>
-                                <p>Faded short sleeves t-shirt with high...</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#"><img src="~/Assets/img/product/sidebar_product/4.jpg" alt="" /></a>
-                            <div class="r-sidebar-pro-content">
-                                <h5><a href="#">Printed Chif ..</a></h5>
-                                <p>Printed chiffon knee length dress...</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#"><img src="~/Assets/img/product/sidebar_product/6.jpg" alt="" /></a>
-                            <div class="r-sidebar-pro-content">
-                                <h5><a href="#">Printed Sum ...</a></h5>
-                                <p>Long printed dress with thin...</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#"><img src="~/Assets/img/product/sidebar_product/1.jpg" alt="" /></a>
-                            <div class="r-sidebar-pro-content">
-                                <h5><a href="#">Printed Dress </a></h5>
-                                <p>100% cotton double printed dress....</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                
                 <!-- SINGLE SIDE BAR END -->
             </div>
             <!-- SINGLE SIDE BAR END -->

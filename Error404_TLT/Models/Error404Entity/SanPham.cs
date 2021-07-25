@@ -36,7 +36,6 @@ namespace Error404_TLT.Models.Error404Entity
         public string MoreInfo { get; set; }
         public Nullable<int> Views { get; set; }
         public Nullable<int> LoaiHang { get; set; }
-        public Nullable<System.DateTime> DataAdd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Cart { get; set; }

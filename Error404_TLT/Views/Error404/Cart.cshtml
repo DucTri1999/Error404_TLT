@@ -23,8 +23,7 @@
                 <h2 class="page-title">
                     Giỏ hàng
                     <span class="shop-pro-item">
-                        Có
-                        <span class="num-products"></span> sản phẩm trong giỏ hàng
+                        Có<span class="num-products"></span>sản phẩm trong giỏ hàng
                     </span>
                 </h2>
                 <!-- SHOPPING-CART SUMMARY END -->
@@ -98,7 +97,7 @@
                         <tfoot>
                             <tr class="cart-total-price">
                                 <td class="cart_voucher" colspan="2" rowspan="4"></td>
-                                <td class="text-right" colspan="3">Total products (tax excl.)</td>
+                                <td class="text-right" colspan="3">Total products</td>
                                 <td id="total_product" class="price" colspan="1">     </td>
                             </tr>
                             <tr>
@@ -106,7 +105,7 @@
                                 <td id="total_shipping" class="price" colspan="1">$0.00</td>
                             </tr>
                             <tr>
-                                <td class="text-right" colspan="3">Total vouchers (tax excl.)</td>
+                                <td class="text-right" colspan="3">Total vouchers</td>
                                 <td id="voucher" class="price" colspan="1">$0.00</td>
                             </tr>
                             <tr>
@@ -129,7 +128,7 @@
                 <!-- RETURNE-CONTINUE-SHOP START -->
                 <div class="returne-continue-shop">
                     <a href="@Url.Action("Home", "Error404")" class="continueshoping"><i class="fa fa-chevron-left"></i>Tiếp tục mua sắm</a>
-                    <a href="checkout-address.html" class="procedtoCheckOut">Tiến hành đặt hàng</a>
+                    <a href="@Url.Action("CheckOut", "Error404", new { user = user })" class="procedtoCheckOut">Tiến hành đặt hàng</a>
                 </div>
                 <!-- RETURNE-CONTINUE-SHOP END -->
             </div>
@@ -157,7 +156,6 @@
                 sl: quantity,
             },
             success: function () {
-                alert("Sửa sản phẩm thành công.")
             },
             error: function () {
                 alert('Click Slow! Please');
@@ -165,6 +163,7 @@
         });
         
     });
+
 
 
     // Xóa sản phẩm trong cart

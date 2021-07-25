@@ -201,15 +201,6 @@
                                 </div>
                             </div>
                             <!-- SHOORT-BY END -->
-                            <!-- VIEW-SYSTEAM START -->
-                            <div class="view-systeam">
-                                <label for="perPage">View:</label>
-                                <ul>
-                                    <li class="active"><a href="shop-gird.html"><i class="fa fa-th-large"></i></a><br />Grid</li>
-                                    <li><a href="shop-list.html"><i class="fa fa-th-list"></i></a><br />List</li>
-                                </ul>
-                            </div>
-                            <!-- VIEW-SYSTEAM END -->
                         </div>
                     </div>
                 </div>
@@ -226,10 +217,8 @@
                                             <a href="@Url.Action("Details", "Error404", new { id=item.MaSP })"><img src="~/Assets/@item.img" alt="product-image" /></a>
                                             <a href="@Url.Action("Details", "Error404", new { id=item.MaSP })" class="new-mark-box">new</a>
                                             <div class="overlay-content">
-                                                <div class="cart-action">
-                                                    <div class="takeProductId" style="display:none">@item.MaSP</div>
-                                                    <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
-                                                </div>
+                                                <div class="takeProductId" style="display:none">@item.MaSP</div>
+                                                <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-info">

@@ -1,0 +1,128 @@
+﻿@model Error404_TLT.Models.Error404Entity.KhachHang
+@{ 
+    string user = "";
+    if (Session["user"] != null)
+    {
+        user = Session["user"].ToString();
+    } 
+}
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title">Thông tin giao hàng</h2>
+    </div>
+    <div class="section-content section-customer-information no-mb">
+        <div class="fieldset">
+            <div class="field field-show-name">
+                <div class="field-input-wrapper">
+                    <label class="field-label" for="billing_fullname">Họ và tên</label>
+                    <input placeholder="Họ và tên" class="field-input" type="text" id="billing_fullname" name="billing_fullname" value="@Model.FullName" />
+                </div>
+            </div>
+            <div class="field field-required field-third  field-show-floating-label">
+                <div class="field-input-wrapper">
+                    <label class="field-label" for="billing_phone">Số điện thoại</label>
+                    <input placeholder="Số điện thoại" class="field-input" maxlength="10" type="tel" id="billing_phone" name="billing_phone" value="@Model.SDT" />
+                </div>
+            </div>
+            <div class="field   field-show-floating-label">
+                <div class="field-input-wrapper">
+                    <label class="field-label" for="billing_address">Địa chỉ</label>
+                    <input placeholder="Địa chỉ" class="field-input" type="text" id="billing_address" name="billing_address" value="@Model.Address" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-content">
+        <div class="fieldset">
+            <form id="form_update_location" class="clearfix order-checkout__loading" accept-charset="UTF-8" method="post">
+                <div class="field field-show-floating-label  field-third ">
+                    <div class="field-input-wrapper field-input-wrapper-select">
+                        <label class="field-label" for="customer_shipping_province"> Tỉnh / thành </label>
+                        <select class="field-input" id="billing_province" name="billing_province" onchange="selectCity();">
+                            <option value="@Model.ThanhPho" selected>@Model.ThanhPho</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field field-show-floating-label  field-third ">
+                    <div class="field-input-wrapper field-input-wrapper-select">
+                        <label class="field-label" for="customer_shipping_district">Quận / huyện</label>
+                        <select class="field-input" id="billing_district" name="billing_district" onchange="selectDistrict();">
+                            <option value="@Model.Quan" selected>@Model.Quan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field field-show-floating-label field-third">
+                    <div class="field-input-wrapper field-input-wrapper-select">
+                        <label class="field-label" for="customer_shipping_ward">Phường / xã</label>
+                        <select class="field-input" id="billing_ward" name="billing_ward" aria-placeholder="Quận Huyện;">
+                            <option value="@Model.Phuong" selected>@Model.Phuong</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- GET API LOCATION TO AJAX -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var billing_province = document.getElementById("billing_province");
+        window.onload = function () {
+            $.ajax({
+                url: "https://provinces.open-api.vn/api/",
+                method: 'GET',
+                success: function (response) {
+                    var str = '<option value="@Model.ThanhPho" selected>@Model.ThanhPho</option>';
+                    for (var i = 0; i < response.length; i++) {
+                        str = str + "<option class = 'provinceID' data-province='" + response[i].code + "'>" + response[i].name + "</option> "
+                    }
+                    billing_province.innerHTML = str;
+                }
+            });
+        }
+    }, false)
+
+    function selectCity() {
+        var selectedBox = document.getElementById("billing_province")
+        var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-province')
+        var billing_district = document.getElementById('billing_district');
+        $.ajax({
+            url: "https://provinces.open-api.vn/api/p/" + selectedValue + "?depth=2",
+            method: 'GET',
+            success: function (response) {
+                var str = "<option selected>Chọn Quận/Huyện</option>";
+                for (var i = 0; i < response.districts.length; i++) {
+                    if (response.districts[i].province_code == selectedValue) {
+                        str = str + "<option class='districtID' data-district='" + response.districts[i].code + "'>" + response.districts[i].name + "</option>";
+                    }
+
+                }
+                billing_district.innerHTML = str;
+            }
+        });
+
+    };
+
+
+    function selectDistrict() {
+        var selectedBox = document.getElementById("billing_district")
+        var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-district')
+        var billing_ward = document.getElementById('billing_ward');
+        $.ajax({
+            url: "https://provinces.open-api.vn/api/d/" + selectedValue + "?depth=2",
+            method: 'GET',
+            success: function (response) {
+                var str = "<option selected>Chọn Phường/Xã</option>";
+                for (var i = 0; i < response.wards.length; i++) {
+                    str = str + "<option class='wardID' data-ward='" + response.wards[i].code + "'>" + response.wards[i].name + "</option>";
+                }
+                billing_ward.innerHTML = str;
+            }
+        });
+    }
+</script>
+
+
