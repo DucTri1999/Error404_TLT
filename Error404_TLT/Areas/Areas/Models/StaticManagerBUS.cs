@@ -24,10 +24,12 @@ namespace Error404_TLT.Areas.Areas.Models
         // Số lượng sản phẩm bán
         public string totalProduct()
         {
-            var result = db.CTOrder.Sum(p => p.SL);
+            var result = db.SanPham.Count();
 
             return result.ToString();
         }
+
+       
         // Số lượng khách hàng
         public string totalCustomer()
         {
