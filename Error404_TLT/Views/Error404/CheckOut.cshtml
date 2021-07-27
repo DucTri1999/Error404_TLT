@@ -33,10 +33,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @{ var d = 0;}
+                                    @{ var d = Model.Count();}
                                     @foreach (var item in Model)
                                     {
-                                        @d += 1;
                                         <!-- SẢN PHẨM START -->
                                         <tr class="product">
                                             <td class="product-img">
@@ -141,12 +140,12 @@
                             <div class="section-content">
                                 <div class="content-box">
                                     <div class="radio-wrapper content-box-row">
-                                        <label class="radio-label">
-                                            <div class="radio-input">
+                                        <div class="radio-input">
+                                            <label class="radio-label">
                                                 <input id="payment_method" class="input-radio" name="payment_method" type="radio" checked />
-                                            </div>
-                                            <span class="radio-label-primary">Thanh toán khi giao hàng (COD)</span>
-                                        </label>
+                                                <span class="radio-label-primary">Thanh toán khi giao hàng (COD)</span>
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="radio-wrapper content-box-row content-box-row-secondary ">
                                         <div class="blank-slate">
@@ -154,12 +153,12 @@
                                         </div>
                                     </div>
                                     <div class="radio-wrapper content-box-row">
-                                        <label class="radio-label">
-                                            <div class="radio-input">
+                                        <div class="radio-input">
+                                            <label class="radio-label">
                                                 <input id="payment_method" class="input-radio" name="payment_method" type="radio" />
-                                            </div>
-                                            <span class="radio-label-primary">Chuyển khoản qua ngân hàng</span>
-                                        </label>
+                                                <span class="radio-label-primary">Chuyển khoản qua ngân hàng</span>
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="radio-wrapper content-box-row content-box-row-secondary ">
                                         <div class="blank-slate">
@@ -170,22 +169,20 @@
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="step-footer">
-                        <button type="submit" class="step-footer-continue-btn btn">
-                            <span class="btn-content"><a href="#" style="color: white;" id="create_order">Hoàn tất đơn hàng</a></span>
-                        </button>
-                        <a href="@Url.Action("Cart", "Error404", new { user = Session["user"] })" class="step-footer-previous-link">
-                            <svg class="previous-link-icon icon-chevron icon" xmlns="http://www.w3.org/2000/svg" width="6.7" height="11.3" viewBox="0 0 6.7 11.3">
-                                <path d="M6.7 1.1l-1-1.1-4.6 4.6-1.1 1.1 1.1 1 4.6 4.6 1-1-4.6-4.6z"></path>
-                            </svg> Quay lại giỏ hàng
-                        </a>
+                        <div class="step-footer">
+                            <button type="submit" class="step-footer-continue-btn btn">
+                                <span class="btn-content"><a href="#" style="color: white;" id="create_order">Hoàn tất đơn hàng</a></span>
+                            </button>
+                            <a href="@Url.Action("Cart", "Error404", new { user = Session["user"] })" class="step-footer-previous-link">
+                                <svg class="previous-link-icon icon-chevron icon" xmlns="http://www.w3.org/2000/svg" width="6.7" height="11.3" viewBox="0 0 6.7 11.3">
+                                    <path d="M6.7 1.1l-1-1.1-4.6 4.6-1.1 1.1 1.1 1 4.6 4.6 1-1-4.6-4.6z"></path>
+                                </svg> Quay lại giỏ hàng
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
 

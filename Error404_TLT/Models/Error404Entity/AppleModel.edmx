@@ -27,7 +27,7 @@
             <PropertyRef Name="MaDH" />
             <PropertyRef Name="MaSP" />
           </Key>
-          <Property Name="MaDH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaDH" Type="int" Nullable="false" />
           <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
@@ -76,7 +76,7 @@
           <Key>
             <PropertyRef Name="MaDH" />
           </Key>
-          <Property Name="MaDH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaDH" Type="int" Nullable="false" />
           <Property Name="TongDH" Type="int" />
           <Property Name="TongSP" Type="int" />
           <Property Name="TongDC" Type="int" />
@@ -84,6 +84,9 @@
           <Property Name="User" Type="varchar" MaxLength="50" />
           <Property Name="DCID" Type="varchar" MaxLength="10" />
           <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ThanhPho" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phuong" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Rate">
           <Key>
@@ -113,6 +116,7 @@
           <Property Name="MoreInfo" Type="nvarchar(max)" />
           <Property Name="Views" Type="int" />
           <Property Name="LoaiHang" Type="int" />
+          <Property Name="DataAdd" Type="date" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -131,6 +135,12 @@
           <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Pass" Type="varchar" MaxLength="20" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Apple.dbo.TaiKhoanAdmin' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TaiKhoanAdmin">
+          <Property Name="User" Type="varchar" MaxLength="50" />
+          <Property Name="Pass" Type="varchar" MaxLength="20" />
+        </EntityType>-->
         <Association Name="FK_Cart_TaiKhoan">
           <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
@@ -374,7 +384,7 @@
             <PropertyRef Name="MaDH" />
             <PropertyRef Name="MaSP" />
           </Key>
-          <Property Name="MaDH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaDH" Type="Int32" Nullable="false" />
           <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -431,7 +441,7 @@
           <Key>
             <PropertyRef Name="MaDH" />
           </Key>
-          <Property Name="MaDH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaDH" Type="Int32" Nullable="false" />
           <Property Name="TongDH" Type="Int32" />
           <Property Name="TongSP" Type="Int32" />
           <Property Name="TongDC" Type="Int32" />
@@ -439,6 +449,9 @@
           <Property Name="User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DCID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThanhPho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CTOrder" Relationship="Self.Relationship6" FromRole="Order" ToRole="CTOrder" />
           <NavigationProperty Name="Discount" Relationship="Self.Relationship25" FromRole="Order" ToRole="Discount" />
           <NavigationProperty Name="TaiKhoan" Relationship="Self.FK_Order_TaiKhoan" FromRole="Order" ToRole="TaiKhoan" />
@@ -473,6 +486,7 @@
           <Property Name="MoreInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Views" Type="Int32" />
           <Property Name="LoaiHang" Type="Int32" />
+          <Property Name="DataAdd" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Cart" Relationship="Self.Relationship16" FromRole="SanPham" ToRole="Cart" />
           <NavigationProperty Name="CTOrder" Relationship="Self.Relationship7" FromRole="SanPham" ToRole="CTOrder" />
           <NavigationProperty Name="LoaiSP" Relationship="Self.Relationship5" FromRole="SanPham" ToRole="LoaiSP" />
@@ -776,6 +790,9 @@
                 <ScalarProperty Name="User" ColumnName="User" />
                 <ScalarProperty Name="DCID" ColumnName="DCID" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ThanhPho" ColumnName="ThanhPho" />
+                <ScalarProperty Name="Quan" ColumnName="Quan" />
+                <ScalarProperty Name="Phuong" ColumnName="Phuong" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -807,6 +824,7 @@
                 <ScalarProperty Name="MoreInfo" ColumnName="MoreInfo" />
                 <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="LoaiHang" ColumnName="LoaiHang" />
+                <ScalarProperty Name="DataAdd" ColumnName="DataAdd" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
