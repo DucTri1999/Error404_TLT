@@ -80,7 +80,7 @@
                         <div class="fllow-us-area">
                             <h2>KẾT NỐI VỚI CHÚNG TÔI</h2>
                             <ul class="flow-us-link">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/error404.TLT"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-rss"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -120,7 +120,7 @@
                                                 <i class="fa fa-envelope-o"></i>
                                             </div>
                                             <div class="info-text">
-                                                <p>Mail: <a href="mailto:longnt25@ptd.edu.vn">longnt25@ptd.edu.vn</a></p>
+                                                <p>Mail: <a href="mailto:long20002000ht@gmail.com">long20002000ht@gmail.com</a></p>
                                             </div>
                                         </li>
                                     </ul>
@@ -130,8 +130,8 @@
                             <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
                                 <!-- GOOGLE-MAP-AREA START -->
                                 <div class="google-map-area">
-                                    <div class="google-map">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1251208107665!2d106.71229765033395!3d10.801727892266628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a500e8c3d5%3A0xedfca63e47b5afb8!2zNDc1YSDEkGnhu4duIEJpw6puIFBo4bunLCBQaMaw4budbmcgMjUsIELDrG5oIFRo4bqhbmgsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCA3MDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2ssg!4v1624870821765!5m2!1svi!2ssg" width="200" height="250" style="border:3px;" allowfullscreen="" loading="lazy"></iframe>
+                                    <div class="google-map" id="googleMap">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1251208107665!2d106.71229765033395!3d10.801727892266628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a500e8c3d5%3A0xedfca63e47b5afb8!2zNDc1YSDEkGnhu4duIEJpw6puIFBo4bunLCBQaMaw4budbmcgMjUsIELDrG5oIFRo4bqhbmgsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCA3MDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2ssg!4v1624870821765!5m2!1svi!2ssg" width="320" height="250"></iframe>
                                     </div>
                                 </div>
                                 <!-- GOOGLE-MAP-AREA END -->
@@ -147,10 +147,11 @@
                                     <div class="single-f-widget">
                                         <h2>Danh mục</h2>
                                         <ul>
-                                            <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>iPhone </a></li>
-                                            <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>iPad</a></li>
-                                            <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Macbook</a></li>
-                                            <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Phụ Kiện</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>iPhone </a></li>
+                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>iPad</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Macbook</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Apple Watch</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Phụ Kiện</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -238,7 +239,7 @@
 </script>
 
 <!-- Google Map js -->
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRQ-TlrBqOcfBbNXnaVe_qkMAKrzJmWqI&callback=initMap&libraries=&v=weekly" async></script>
 <script>
     function initialize() {
         var mapOptions = {
@@ -248,13 +249,8 @@
         };
         var map = new google.maps.Map(document.getElementById('googleMap'),
             mapOptions);
-        var marker = new google.maps.Marker({
-            position: map.getCenter(),
-            map: map
-        });
-
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
+    function initMap() {}
 </script>
 <!-- main js -->
 <script src="~/Assets/js/main.js"></script>

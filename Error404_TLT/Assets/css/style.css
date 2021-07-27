@@ -924,7 +924,6 @@ h1.title-logo {
 }
 
 .cat-search {
-	background: #fff url("img/caret.png") no-repeat scroll 92% 45%;
 	border: medium none;
 	color: #464646;
 	cursor: pointer;
@@ -2165,7 +2164,7 @@ div.client-carousel .owl-item img {
 	background: #ff4f4f none repeat scroll 0 0;
 	display: block;
 	margin-top: 50px;
-	padding: 20px;
+	padding: 20px 20px 50px 20px;
 }
 
 	.newsletter-area h2 {
