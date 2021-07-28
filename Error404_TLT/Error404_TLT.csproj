@@ -153,53 +153,50 @@
     </Compile>
     <Compile Include="Models\BUS\AccountBUS.cs" />
     <Compile Include="Models\BUS\ProductBUS.cs" />
-    <Compile Include="Models\Error404Entity\AppleModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppleModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Error404Entity\AppleModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Error404Entity\AppleModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppleModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Error404Entity\Cart.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\CTOrder.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\DanhMuc.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\Discount.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\KhachHang.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\LoaiSP.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Error404Entity\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Error404Entity\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Error404Entity\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\Order.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\Rate.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\SanPham.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Error404Entity\sysdiagrams.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\TaiKhoan.cs">
-      <DependentUpon>AppleModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewsModel\CustomerViewModel.cs" />
     <Compile Include="Models\ViewsModel\ProductOfCartModel.cs" />
@@ -400,27 +397,15 @@
     <Content Include="Assets\img\1200x100.png" />
     <Content Include="Assets\img\480x255-airpods_2.png" />
     <Content Include="Assets\img\7ed2383388.jpeg" />
-    <Content Include="Assets\img\ajax-loader.gif" />
-    <Content Include="Assets\img\bank.png" />
-    <Content Include="Assets\img\bankwire.png" />
     <Content Include="Assets\img\baohanh-bg.jpg" />
     <Content Include="Assets\img\brand\1.png" />
     <Content Include="Assets\img\brand\2.png" />
     <Content Include="Assets\img\brand\3.png" />
     <Content Include="Assets\img\brand\4.png" />
     <Content Include="Assets\img\brand\5.png" />
-    <Content Include="Assets\img\bs-after-q.png" />
-    <Content Include="Assets\img\bs-before-q.png" />
-    <Content Include="Assets\img\caret.png" />
-    <Content Include="Assets\img\category-header.jpg" />
-    <Content Include="Assets\img\cheque.png" />
     <Content Include="Assets\img\chuong-trinh-apple-watch-2020-didongviet-480x255.jpg" />
     <Content Include="Assets\img\chuong-trinh-ipad-2020-didongviet-480x255.jpg" />
-    <Content Include="Assets\img\controls.png" />
-    <Content Include="Assets\img\delivery-method.jpg" />
     <Content Include="Assets\img\favicon.ico" />
-    <Content Include="Assets\img\favicon.png" />
-    <Content Include="Assets\img\grabbing.png" />
     <Content Include="Assets\img\homepagecat\airpod.jpg" />
     <Content Include="Assets\img\homepagecat\airtag.jpg" />
     <Content Include="Assets\img\homepagecat\apple.svg" />
@@ -429,71 +414,71 @@
     <Content Include="Assets\img\homepagecat\iphone12.svg" />
     <Content Include="Assets\img\homepagecat\macbook.svg" />
     <Content Include="Assets\img\iphone12-blue.jpg" />
-    <Content Include="Assets\img\latest-news\1.jpg" />
-    <Content Include="Assets\img\latest-news\2.jpg" />
-    <Content Include="Assets\img\latest-news\3.jpg" />
-    <Content Include="Assets\img\latest-news\4.jpg" />
-    <Content Include="Assets\img\latest-news\5.jpg" />
-    <Content Include="Assets\img\latest-news\6.jpg" />
-    <Content Include="Assets\img\layout2\1.png" />
-    <Content Include="Assets\img\layout2\2.png" />
-    <Content Include="Assets\img\layout2\3.png" />
-    <Content Include="Assets\img\layout2\4.png" />
-    <Content Include="Assets\img\layout2\5.png" />
-    <Content Include="Assets\img\layout2\6.png" />
-    <Content Include="Assets\img\layout2\7.png" />
-    <Content Include="Assets\img\logo.png" />
     <Content Include="Assets\img\logo1.png" />
-    <Content Include="Assets\img\Master-Card-icon.png" />
-    <Content Include="Assets\img\order-step-a.png" />
-    <Content Include="Assets\img\order-step-current.png" />
-    <Content Include="Assets\img\order-step-done-last.html" />
-    <Content Include="Assets\img\order-step-done.html" />
-    <Content Include="Assets\img\payment.png" />
-    <Content Include="Assets\img\paypal-icon.png" />
-    <Content Include="Assets\img\product\2106549.jpg" />
-    <Content Include="Assets\img\product\ajax-loader.gif" />
-    <Content Include="Assets\img\product\bank.png" />
-    <Content Include="Assets\img\product\bankwire.png" />
+    <Content Include="Assets\img\product\APC\airpods-charge-case-201910 - Copy %282%29.png" />
+    <Content Include="Assets\img\product\APC\airpods-charge-case-201910 - Copy %283%29.png" />
+    <Content Include="Assets\img\product\APC\airpods-charge-case-201910 - Copy.png" />
+    <Content Include="Assets\img\product\APC\airpods-charge-case-201910.png" />
+    <Content Include="Assets\img\product\APW\airpods-wireless-charge-case-201910.png" />
+    <Content Include="Assets\img\product\AT\airtag-double-select-202104.jpg" />
+    <Content Include="Assets\img\product\AT\apple-airtag-leather-key-ring.jpg" />
+    <Content Include="Assets\img\product\AT\apple-airtag-loop-1.jpg" />
+    <Content Include="Assets\img\product\AT\apple-airtag-loop-mau-cam.jpg" />
+    <Content Include="Assets\img\product\AT\apple-airtag-loop-mau-trang.jpg" />
+    <Content Include="Assets\img\product\AT\apple-airtag-loop-xanh-navy.jpg" />
+    <Content Include="Assets\img\product\AW6\apple-watch-series-6-40mm-4g-vien-nhom-xam-day-cao-su-full-vat_3_1.jpg" />
+    <Content Include="Assets\img\product\AW6\apple-watch-series-6-40mm-gps-vien-nhom-bac-day-cao-su-full-vat_3.jpg" />
+    <Content Include="Assets\img\product\AW6\apple-watch-series-6-40mm-gps-vien-nhom-vang-day-cao-su-full-vat_3.jpg" />
+    <Content Include="Assets\img\product\AW6\product.png" />
+    <Content Include="Assets\img\product\AWSE\apple-watch-se.png" />
+    <Content Include="Assets\img\product\AWSE\watch-se-40mm-_gps_xam.jpg" />
+    <Content Include="Assets\img\product\AWSE\watch-se-44mm-_gps.jpg" />
+    <Content Include="Assets\img\product\AWSE\watch-se-44mm-_gps_white.jpg" />
     <Content Include="Assets\img\product\baohanh-bg.jpg" />
-    <Content Include="Assets\img\product\bkg_product_tab.jpg" />
-    <Content Include="Assets\img\product\brand\1.png" />
-    <Content Include="Assets\img\product\brand\2.png" />
-    <Content Include="Assets\img\product\brand\3.png" />
-    <Content Include="Assets\img\product\brand\4.png" />
-    <Content Include="Assets\img\product\brand\5.png" />
-    <Content Include="Assets\img\product\bs-after-q.png" />
-    <Content Include="Assets\img\product\bs-before-q.png" />
-    <Content Include="Assets\img\product\caret.png" />
-    <Content Include="Assets\img\product\cart-image1.jpg" />
-    <Content Include="Assets\img\product\cart-image2.jpg" />
-    <Content Include="Assets\img\product\cart-image3.jpg" />
-    <Content Include="Assets\img\product\category-header.jpg" />
-    <Content Include="Assets\img\product\cheque.png" />
-    <Content Include="Assets\img\product\cms11.jpg" />
-    <Content Include="Assets\img\product\cms21.jpg" />
-    <Content Include="Assets\img\product\cms22.jpg" />
-    <Content Include="Assets\img\product\controls.png" />
-    <Content Include="Assets\img\product\delivery-method.jpg" />
-    <Content Include="Assets\img\product\favicon.png" />
-    <Content Include="Assets\img\product\grabbing.png" />
-    <Content Include="Assets\img\product\IPAD\ipadAir\ipad-air-select-202009.jpg" />
-    <Content Include="Assets\img\product\IPAD\ipadAir\ipad-air-select-wifi-blue-202009.png" />
-    <Content Include="Assets\img\product\IPAD\ipadAir\ipad-air-select-wifi-gold-202009.png" />
-    <Content Include="Assets\img\product\IPAD\ipadAir\ipad-air-select-wifi-green-202009.png" />
-    <Content Include="Assets\img\product\IPAD\ipadAir\ipad-air-select-wifi-silver-202009.png" />
-    <Content Include="Assets\img\product\IPAD\ipadAir\ipad-air-select-wifi-spacegray-202009.png" />
-    <Content Include="Assets\img\product\IPAD\ipadGen\ipad-2020-hero-gold-wifi-select.png" />
-    <Content Include="Assets\img\product\IPAD\ipadGen\ipad-2020-hero-landing.jpg" />
-    <Content Include="Assets\img\product\IPAD\ipadGen\ipad-2020-hero-silver-wifi-select.png" />
-    <Content Include="Assets\img\product\IPAD\ipadGen\ipad-2020-hero-space-wifi-select.png" />
-    <Content Include="Assets\img\product\IPAD\ipadMini\ipad-mini-select-201911.jpg" />
-    <Content Include="Assets\img\product\IPAD\ipadMini\ipad-mini-select-wifi-gold-201911.png" />
-    <Content Include="Assets\img\product\IPAD\ipadMini\ipad-mini-select-wifi-silver-201911.png" />
-    <Content Include="Assets\img\product\IPAD\ipadMini\ipad-mini-select-wifi-spacegray-201911.png" />
-    <Content Include="Assets\img\product\IPAD\ipadPro\ipad-pro-12-11-select-202104.jpg" />
-    <Content Include="Assets\img\product\IPAD\ipadPro\ipad-pro-12-select-cell-silver-202104.jpg" />
-    <Content Include="Assets\img\product\IPAD\ipadPro\ipad-pro-12-select-cell-spacegray-202104.jpg" />
+    <Content Include="Assets\img\product\IMACM\mac-mini-hero-202011.jpg" />
+    <Content Include="Assets\img\product\IMAC\imac-24-blue-selection-hero-202104.jpg" />
+    <Content Include="Assets\img\product\IMAC\imac-24-green-selection-hero-202104.jpg" />
+    <Content Include="Assets\img\product\IMAC\imac-24-pink-selection-hero-202104.jpg" />
+    <Content Include="Assets\img\product\IMAC\imac-24-silver-selection-hero-202104.jpg" />
+    <Content Include="Assets\img\product\IMAC\imac-27-selection-hero-202008.jpg" />
+    <Content Include="Assets\img\product\IP11\iphone11-black-select-2019.png" />
+    <Content Include="Assets\img\product\IP11\iphone11-green-select-2019.png" />
+    <Content Include="Assets\img\product\IP11\iphone11-purple-select-2019.png" />
+    <Content Include="Assets\img\product\IP11\iphone11-red-select-2019.png" />
+    <Content Include="Assets\img\product\IP11\iphone11-select-2019-family.jpg" />
+    <Content Include="Assets\img\product\IP11\iphone11-white-select-2019.png" />
+    <Content Include="Assets\img\product\IP11\iphone11-yellow-select-2019.png" />
+    <Content Include="Assets\img\product\IP12M\iphone-12-mini-black-select-2020.png" />
+    <Content Include="Assets\img\product\IP12M\iphone-12-mini-blue-select-2020.png" />
+    <Content Include="Assets\img\product\IP12M\iphone-12-mini-green-select-2020.png" />
+    <Content Include="Assets\img\product\IP12M\iphone-12-mini-purple-select-2021.png" />
+    <Content Include="Assets\img\product\IP12M\iphone-12-mini-red-select-2020.png" />
+    <Content Include="Assets\img\product\IP12M\iphone-12-mini-select-2021.jpg" />
+    <Content Include="Assets\img\product\IP12M\iphone-12-mini-white-select-2020.png" />
+    <Content Include="Assets\img\product\IP12\iphone-12-black-select-2020.png" />
+    <Content Include="Assets\img\product\IP12\iphone-12-blue-select-2020.png" />
+    <Content Include="Assets\img\product\IP12\iphone-12-green-select-2020.png" />
+    <Content Include="Assets\img\product\IP12\iphone-12-purple-select-2021.png" />
+    <Content Include="Assets\img\product\IP12\iphone-12-red-select-2020.png" />
+    <Content Include="Assets\img\product\IP12\iphone-12-select-2021.jpg" />
+    <Content Include="Assets\img\product\IP12\iphone-12-white-select-2020.png" />
+    <Content Include="Assets\img\product\IPADA\ipad-air-select-202009.jpg" />
+    <Content Include="Assets\img\product\IPADA\ipad-air-select-wifi-blue-202009.png" />
+    <Content Include="Assets\img\product\IPADA\ipad-air-select-wifi-gold-202009.png" />
+    <Content Include="Assets\img\product\IPADA\ipad-air-select-wifi-green-202009.png" />
+    <Content Include="Assets\img\product\IPADA\ipad-air-select-wifi-silver-202009.png" />
+    <Content Include="Assets\img\product\IPADA\ipad-air-select-wifi-spacegray-202009.png" />
+    <Content Include="Assets\img\product\IPADG\ipad-2020-hero-gold-wifi-select.png" />
+    <Content Include="Assets\img\product\IPADG\ipad-2020-hero-landing.jpg" />
+    <Content Include="Assets\img\product\IPADG\ipad-2020-hero-silver-wifi-select.png" />
+    <Content Include="Assets\img\product\IPADG\ipad-2020-hero-space-wifi-select.png" />
+    <Content Include="Assets\img\product\IPADM\ipad-mini-select-201911.jpg" />
+    <Content Include="Assets\img\product\IPADM\ipad-mini-select-wifi-gold-201911.png" />
+    <Content Include="Assets\img\product\IPADM\ipad-mini-select-wifi-silver-201911.png" />
+    <Content Include="Assets\img\product\IPADM\ipad-mini-select-wifi-spacegray-201911.png" />
+    <Content Include="Assets\img\product\IPADP\ipad-pro-12-11-select-202104.jpg" />
+    <Content Include="Assets\img\product\IPADP\ipad-pro-12-select-cell-silver-202104.jpg" />
+    <Content Include="Assets\img\product\IPADP\ipad-pro-12-select-cell-spacegray-202104.jpg" />
     <Content Include="Assets\img\product\iphone-12-pro-max.jpg" />
     <Content Include="Assets\img\product\iphone-12-pro-va-iphone-12-pro-max-ra-mat-xung-danh-iphone-cao-cap-nhat-6.jpg" />
     <Content Include="Assets\img\product\iphone12-blue.jpg" />
@@ -503,48 +488,13 @@
     <Content Include="Assets\img\product\iphone12.jpg" />
     <Content Include="Assets\img\product\iphone12pro-1.jpg" />
     <Content Include="Assets\img\product\iphone12pro.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphone11\iphone11-black-select-2019.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone11\iphone11-green-select-2019.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone11\iphone11-purple-select-2019.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone11\iphone11-red-select-2019.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone11\iphone11-select-2019-family.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphone11\iphone11-white-select-2019.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone11\iphone11-yellow-select-2019.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12Mini\iphone-12-mini-black-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12Mini\iphone-12-mini-blue-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12Mini\iphone-12-mini-green-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12Mini\iphone-12-mini-purple-select-2021.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12Mini\iphone-12-mini-red-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12Mini\iphone-12-mini-select-2021.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12Mini\iphone-12-mini-white-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12\iphone-12-black-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12\iphone-12-blue-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12\iphone-12-green-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12\iphone-12-purple-select-2021.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12\iphone-12-red-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12\iphone-12-select-2021.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphone12\iphone12\iphone-12-white-select-2020.png" />
-    <Content Include="Assets\img\product\IPHONE\iphoneXr\iphone-xr-black-select-201809.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphoneXr\iphone-xr-blue-select-201809.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphoneXr\iphone-xr-coral-select-201809.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphoneXr\iphone-xr-red-select-201809.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphoneXr\iphone-xr-select-2019-family.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphoneXr\iphone-xr-white-select-201809.jpg" />
-    <Content Include="Assets\img\product\IPHONE\iphoneXr\iphone-xr-yellow-select-201809.jpg" />
-    <Content Include="Assets\img\product\latest-news\1.jpg" />
-    <Content Include="Assets\img\product\latest-news\2.jpg" />
-    <Content Include="Assets\img\product\latest-news\3.jpg" />
-    <Content Include="Assets\img\product\latest-news\4.jpg" />
-    <Content Include="Assets\img\product\latest-news\5.jpg" />
-    <Content Include="Assets\img\product\latest-news\6.jpg" />
-    <Content Include="Assets\img\product\layout2\1.png" />
-    <Content Include="Assets\img\product\layout2\2.png" />
-    <Content Include="Assets\img\product\layout2\3.png" />
-    <Content Include="Assets\img\product\layout2\4.png" />
-    <Content Include="Assets\img\product\layout2\5.png" />
-    <Content Include="Assets\img\product\layout2\6.png" />
-    <Content Include="Assets\img\product\layout2\7.png" />
-    <Content Include="Assets\img\product\logo.png" />
+    <Content Include="Assets\img\product\IPXR\iphone-xr-black-select-201809.jpg" />
+    <Content Include="Assets\img\product\IPXR\iphone-xr-blue-select-201809.jpg" />
+    <Content Include="Assets\img\product\IPXR\iphone-xr-coral-select-201809.jpg" />
+    <Content Include="Assets\img\product\IPXR\iphone-xr-red-select-201809.jpg" />
+    <Content Include="Assets\img\product\IPXR\iphone-xr-select-2019-family.jpg" />
+    <Content Include="Assets\img\product\IPXR\iphone-xr-white-select-201809.jpg" />
+    <Content Include="Assets\img\product\IPXR\iphone-xr-yellow-select-201809.jpg" />
     <Content Include="Assets\img\product\MAC\iMacMini\mac-mini-hero-202011.jpg" />
     <Content Include="Assets\img\product\MAC\iMac\imac-24-blue-selection-hero-202104.jpg" />
     <Content Include="Assets\img\product\MAC\iMac\imac-24-green-selection-hero-202104.jpg" />
@@ -554,39 +504,25 @@
     <Content Include="Assets\img\product\MAC\MacbookAir\macbook-air-space-gray-select-201810.jpg" />
     <Content Include="Assets\img\product\MAC\MacbookPro\mbp-spacegray-select-202011.jpg" />
     <Content Include="Assets\img\product\MAC\MacbookPro\mbp16touch-space-select-201911.jpg" />
-    <Content Include="Assets\img\product\Master-Card-icon.png" />
-    <Content Include="Assets\img\product\one-helf1.jpg" />
-    <Content Include="Assets\img\product\one-helf2.jpg" />
-    <Content Include="Assets\img\product\order-step-a.png" />
-    <Content Include="Assets\img\product\order-step-current.png" />
-    <Content Include="Assets\img\product\order-step-done-last.html" />
-    <Content Include="Assets\img\product\order-step-done.html" />
-    <Content Include="Assets\img\product\payment.png" />
-    <Content Include="Assets\img\product\paypal-icon.png" />
-    <Content Include="Assets\img\product\PhuKien\Airpod\AirPods\AirPodsWireless\airpods-wireless-charge-case-201910.png" />
-    <Content Include="Assets\img\product\PhuKien\Airpod\AirPods\AirPods\airpods-charge-case-201910.png" />
-    <Content Include="Assets\img\product\PhuKien\airTag\airtag-double-select-202104.jpg" />
-    <Content Include="Assets\img\product\PhuKien\airTag\apple-airtag-leather-key-ring.jpg" />
-    <Content Include="Assets\img\product\PhuKien\airTag\apple-airtag-loop-1.jpg" />
-    <Content Include="Assets\img\product\PhuKien\airTag\apple-airtag-loop-mau-cam.jpg" />
-    <Content Include="Assets\img\product\PhuKien\airTag\apple-airtag-loop-mau-trang.jpg" />
-    <Content Include="Assets\img\product\PhuKien\airTag\apple-airtag-loop-xanh-navy.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\cap-sac-apple-watch-2m.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\grid-braided-loop-atlantic-s6.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\grid-braided-loop-charcoal-s6.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\grid-braided-loop-electric-orange-s6.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\grid-braided-loop-inverness-s6.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\grid-braided-loop-pink-s6.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\grid-braided-loop-pistachio-s6.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienAppleWatchChinhHang\grid-braided-loop-pride-s6.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienIpadChinhHang\ban-phim-smart-keyboard-ipad-pro-12.9inch-chinh-hang.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienIpadChinhHang\but-cam-ung-apple-pencil-2-chinh-hang-1.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienIphoneChinhHang\cap-apple-usb-c-lightning-_1m.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienIphoneChinhHang\cap-chuyen-doi-apple-lightning-sang-3.5-mm-chinh-hang.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienIphoneChinhHang\cu-s_c-nhanh-apple-iphone-20w-type-c-chinh-hang.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienMacChinhHang\cap-apple-thunderbolt-cable-2m-md861.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienMacChinhHang\chuot-khong-day-apple-magic-mouse-2_2_3.jpg" />
-    <Content Include="Assets\img\product\PhuKien\phuKienMacChinhHang\cong-chuyen-hyperdrive-slim-usb-c-hub_4.jpg" />
+    <Content Include="Assets\img\product\MBA\macbook-air-space-gray-select-201810.jpg" />
+    <Content Include="Assets\img\product\MBP\mbp-spacegray-select-202011.jpg" />
+    <Content Include="Assets\img\product\MBP\mbp16touch-space-select-201911.jpg" />
+    <Content Include="Assets\img\product\PKAW\cap-sac-apple-watch-2m.jpg" />
+    <Content Include="Assets\img\product\PKAW\grid-braided-loop-atlantic-s6.jpg" />
+    <Content Include="Assets\img\product\PKAW\grid-braided-loop-charcoal-s6.jpg" />
+    <Content Include="Assets\img\product\PKAW\grid-braided-loop-electric-orange-s6.jpg" />
+    <Content Include="Assets\img\product\PKAW\grid-braided-loop-inverness-s6.jpg" />
+    <Content Include="Assets\img\product\PKAW\grid-braided-loop-pink-s6.jpg" />
+    <Content Include="Assets\img\product\PKAW\grid-braided-loop-pistachio-s6.jpg" />
+    <Content Include="Assets\img\product\PKAW\grid-braided-loop-pride-s6.jpg" />
+    <Content Include="Assets\img\product\PKIPAD\ban-phim-smart-keyboard-ipad-pro-12.9inch-chinh-hang.jpg" />
+    <Content Include="Assets\img\product\PKIPAD\but-cam-ung-apple-pencil-2-chinh-hang-1.jpg" />
+    <Content Include="Assets\img\product\PKIPHONE\cap-apple-usb-c-lightning-_1m.jpg" />
+    <Content Include="Assets\img\product\PKIPHONE\cap-chuyen-doi-apple-lightning-sang-3.5-mm-chinh-hang.jpg" />
+    <Content Include="Assets\img\product\PKIPHONE\cu-s_c-nhanh-apple-iphone-20w-type-c-chinh-hang.jpg" />
+    <Content Include="Assets\img\product\PKMAC\cap-apple-thunderbolt-cable-2m-md861.jpg" />
+    <Content Include="Assets\img\product\PKMAC\chuot-khong-day-apple-magic-mouse-2_2_3.jpg" />
+    <Content Include="Assets\img\product\PKMAC\cong-chuyen-hyperdrive-slim-usb-c-hub_4.jpg" />
     <Content Include="Assets\img\product\product\bkg_product_tab.jpg" />
     <Content Include="Assets\img\product\product\cart-image1.jpg" />
     <Content Include="Assets\img\product\product\cart-image2.jpg" />
@@ -610,34 +546,6 @@
     <Content Include="Assets\img\product\product\shope-add2.jpg" />
     <Content Include="Assets\img\product\product\shope-add22.jpg" />
     <Content Include="Assets\img\product\product\sidebar_product\iphone12-blue.jpg" />
-    <Content Include="Assets\img\product\sale\1.jpg" />
-    <Content Include="Assets\img\product\sale\10.jpg" />
-    <Content Include="Assets\img\product\sale\11.jpg" />
-    <Content Include="Assets\img\product\sale\12.jpg" />
-    <Content Include="Assets\img\product\sale\13.jpg" />
-    <Content Include="Assets\img\product\sale\2.jpg" />
-    <Content Include="Assets\img\product\sale\3.jpg" />
-    <Content Include="Assets\img\product\sale\4.jpg" />
-    <Content Include="Assets\img\product\sale\5.jpg" />
-    <Content Include="Assets\img\product\sale\6.jpg" />
-    <Content Include="Assets\img\product\sale\7.jpg" />
-    <Content Include="Assets\img\product\sale\8.jpg" />
-    <Content Include="Assets\img\product\sale\9.jpg" />
-    <Content Include="Assets\img\product\sale\iphone12-blue.jpg" />
-    <Content Include="Assets\img\product\san-pham-apple.jpg" />
-    <Content Include="Assets\img\product\shope-add1.jpg" />
-    <Content Include="Assets\img\product\shope-add12.jpg" />
-    <Content Include="Assets\img\product\shope-add2.jpg" />
-    <Content Include="Assets\img\product\shope-add22.jpg" />
-    <Content Include="Assets\img\product\shopping-image.jpg" />
-    <Content Include="Assets\img\product\shopping-image2.jpg" />
-    <Content Include="Assets\img\product\sidebar_product\1.jpg" />
-    <Content Include="Assets\img\product\sidebar_product\2.jpg" />
-    <Content Include="Assets\img\product\sidebar_product\3.jpg" />
-    <Content Include="Assets\img\product\sidebar_product\4.jpg" />
-    <Content Include="Assets\img\product\sidebar_product\5.jpg" />
-    <Content Include="Assets\img\product\sidebar_product\6.jpg" />
-    <Content Include="Assets\img\product\sidebar_product\iphone12-blue.jpg" />
     <Content Include="Assets\img\product\slider\bao-hanh.jpg" />
     <Content Include="Assets\img\product\slider\iMac.jpg" />
     <Content Include="Assets\img\product\slider\iPadPro.jpg" />
@@ -645,32 +553,10 @@
     <Content Include="Assets\img\product\slider\MacbookAir.jpg" />
     <Content Include="Assets\img\product\slider\pc-4.jpg" />
     <Content Include="Assets\img\product\slider\phukien.jpg" />
-    <Content Include="Assets\img\product\sprite.png" />
-    <Content Include="Assets\img\product\testimon-after.gif" />
-    <Content Include="Assets\img\product\Watch\AW6\apple-watch-series-6-40mm-4g-vien-nhom-xam-day-cao-su-full-vat_3_1.jpg" />
-    <Content Include="Assets\img\product\Watch\AW6\apple-watch-series-6-40mm-gps-vien-nhom-bac-day-cao-su-full-vat_3.jpg" />
-    <Content Include="Assets\img\product\Watch\AW6\apple-watch-series-6-40mm-gps-vien-nhom-vang-day-cao-su-full-vat_3.jpg" />
-    <Content Include="Assets\img\product\Watch\AW6\product.png" />
-    <Content Include="Assets\img\product\Watch\AWSE\apple-watch-se.png" />
-    <Content Include="Assets\img\product\Watch\AWSE\watch-se-40mm-_gps_xam.jpg" />
-    <Content Include="Assets\img\product\Watch\AWSE\watch-se-44mm-_gps.jpg" />
-    <Content Include="Assets\img\product\Watch\AWSE\watch-se-44mm-_gps_white.jpg" />
-    <Content Include="Assets\img\product\wishlist\faded-short-sleeves-tshirt.jpg" />
-    <Content Include="Assets\img\product\wishlist\printed-chiffon-dress.jpg" />
-    <Content Include="Assets\img\product\wishlist\printed-dress.jpg" />
-    <Content Include="Assets\img\product\wishlist\printed-summer-dress.jpg" />
-    <Content Include="Assets\img\shopping-image.jpg" />
-    <Content Include="Assets\img\shopping-image2.jpg" />
     <Content Include="Assets\img\slider\pc-.jpg" />
     <Content Include="Assets\img\slider\pc-1.jpg" />
     <Content Include="Assets\img\slider\pc-2-1.jpg" />
     <Content Include="Assets\img\slider\pc-ip11-1.jpg" />
-    <Content Include="Assets\img\sprite.png" />
-    <Content Include="Assets\img\testimon-after.gif" />
-    <Content Include="Assets\img\wishlist\faded-short-sleeves-tshirt.jpg" />
-    <Content Include="Assets\img\wishlist\printed-chiffon-dress.jpg" />
-    <Content Include="Assets\img\wishlist\printed-dress.jpg" />
-    <Content Include="Assets\img\wishlist\printed-summer-dress.jpg" />
     <Content Include="Assets\js\bootstrap-paginator.min.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
     <Content Include="Assets\js\cart.js" />
@@ -698,15 +584,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Error404Entity\AppleModel.Context.tt">
+    <Content Include="Models\Error404Entity\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AppleModel.edmx</DependentUpon>
-      <LastGenOutput>AppleModel.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Error404Entity\AppleModel.tt">
+    <Content Include="Models\Error404Entity\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AppleModel.edmx</DependentUpon>
-      <LastGenOutput>AppleModel.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -720,7 +606,6 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\fonts\glyphicons-halflings-regulard41d.eot" />
-    <Content Include="Assets\img\product\MôTaSơSơ.docx" />
     <Content Include="Areas\Areas\AdminAssets\bootstrap\dist\.DS_Store" />
     <Content Include="Areas\Areas\AdminAssets\bootstrap\dist\css\bootstrap-grid.css.map" />
     <Content Include="Areas\Areas\AdminAssets\bootstrap\dist\css\bootstrap-grid.min.css.map" />
@@ -993,12 +878,12 @@
     <Content Include="Areas\Areas\Views\Shared\MainLayoutAdmin.cshtml" />
     <Content Include="Areas\Areas\Views\Statistic\All.cshtml" />
     <Content Include="Areas\Areas\Views\web.config" />
-    <EntityDeploy Include="Models\Error404Entity\AppleModel.edmx">
+    <EntityDeploy Include="Models\Error404Entity\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AppleModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Error404Entity\AppleModel.edmx.diagram">
-      <DependentUpon>AppleModel.edmx</DependentUpon>
+    <Content Include="Models\Error404Entity\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

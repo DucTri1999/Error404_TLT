@@ -29,7 +29,7 @@ namespace Error404_TLT.Areas.Areas.Controllers
         }
 
         [HttpPost]
-        public ActionResult CTOrder(int id)
+        public ActionResult CTOrder(string id)
         {
             var result = OB.ChiTietOrder(id);
 

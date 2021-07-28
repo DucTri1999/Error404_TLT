@@ -23,7 +23,7 @@ namespace Error404_TLT.Areas.Areas.Models
             return result.ToList();
         }
 
-        public CTOrder ChiTietOrder(int id)
+        public CTOrder ChiTietOrder(string id)
         {
             var result = db.CTOrder.Where(p => p.MaDH == id).FirstOrDefault();
 

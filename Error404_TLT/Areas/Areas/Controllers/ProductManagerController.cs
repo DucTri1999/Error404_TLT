@@ -59,6 +59,11 @@ namespace Error404_TLT.Areas.Areas.Controllers
             return PS.loadLoaiSP();
         }
 
+        public string DanhMuc(string MaLSP)
+        {
+            return PS.DanhMuc(MaLSP);
+        }
+
         [HttpPost]
         public void upSanPham(string MaSP, string MaLSP, string img, string img2, string img3, string img4, string TenSP, int DonGia, int GiaKM, int SLTon, string description, string moreInfo, int Views, int LoaiHang)
         {

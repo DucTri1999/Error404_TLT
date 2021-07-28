@@ -40,6 +40,12 @@ namespace Error404_TLT.Areas.Areas.Models
             return db.LoaiSP;
         }
 
+        public string DanhMuc(string MaLSP)
+        {
+            var result = db.LoaiSP.Where(t => t.MaLSP == MaLSP).Select(c => c.MaDM).FirstOrDefault();
+            return result;
+        }
+
         public void editSanPham(string MaSP, string MaLSP, string img, string img2, string img3, string img4, string TenSP, int DonGia, int GiaKM, int SLTon, string Description, string moreInfo,int Views, int LoaiHang)
         {
             var dateadd = db.SanPham.Where(t => t.MaSP == MaSP).Select(c => c.DataAdd).FirstOrDefault();
