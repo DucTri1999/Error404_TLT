@@ -14,7 +14,7 @@ namespace Error404_TLT.Models.Error404Entity
     
     public partial class CTOrder
     {
-        public int MaDH { get; set; }
+        public string MaDH { get; set; }
         public string MaSP { get; set; }
         public Nullable<int> SL { get; set; }
     
