@@ -16,11 +16,7 @@ namespace Error404_TLT.Models.Error404Entity
     {
         public int MaDH { get; set; }
         public string MaSP { get; set; }
-        public string TenSP { get; set; }
-        public string Description { get; set; }
         public Nullable<int> SL { get; set; }
-        public Nullable<int> GiaBan { get; set; }
-        public Nullable<int> Tong { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual SanPham SanPham { get; set; }

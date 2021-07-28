@@ -48,5 +48,10 @@ namespace Error404_TLT.Controllers
             productBUS.change_Cart(id, user, sl);
         }
 
+        public void insertOrder(string user, int total, string province, string district, string ward, string address)
+        {
+            productBUS.insertOrder(user, total, province, district, ward, address);
+        }
+
     }
 }

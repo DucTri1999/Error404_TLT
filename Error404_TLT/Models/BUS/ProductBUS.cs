@@ -65,7 +65,7 @@ namespace Error404_TLT.Models.BUS
                 MaSP = id,
                 SL = 1,
             };
-            db.Cart.Add(c);
+            db.Cart.AddOrUpdate(c);
             db.SaveChanges();
         }
 
@@ -78,7 +78,7 @@ namespace Error404_TLT.Models.BUS
                 MaSP = id,
                 SL = sl,
             };
-            db.Cart.Add(c);
+            db.Cart.AddOrUpdate(c);
             db.SaveChanges();
         }
 
@@ -143,6 +143,44 @@ namespace Error404_TLT.Models.BUS
             Cart c = db.Cart.Where(p => p.MaSP == id && p.User == user).SingleOrDefault();
             db.Cart.Remove(c);
             db.SaveChanges();
+        }
+
+        //Tạo order
+        public void insertOrder(string user, int total, string province, string district, string ward, string address)
+        {
+            DateTime time = DateTime.Now;
+
+            Order order = new Order
+            {
+                User = user,
+                TongDH = total,
+                ThanhPho = province,
+                Quan = district,
+                Phuong = ward,
+                Address = address,
+                NgayDatHang = time
+            };
+            db.Order.Add(order);
+            db.SaveChanges();
+
+            int id = db.Order.Where(p => p.User == user).OrderByDescending(y => y.NgayDatHang).Select(t => t.MaDH).FirstOrDefault();
+            IEnumerable<Cart> c = db.Cart.Where(p => p.User == user);
+
+            foreach (var item in c)
+            {
+                CTOrder ct = new CTOrder
+                {
+                    MaDH = id,
+                    MaSP = item.MaSP,
+                    SL = item.SL,
+                };
+                db.CTOrder.Add(ct);
+                SanPham p = db.SanPham.Where(t => t.MaSP == item.MaSP).FirstOrDefault();
+                p.SLTon = p.SLTon - item.SL;
+                db.Cart.Remove(item);
+            }
+            db.SaveChanges();
+
         }
     }
 }

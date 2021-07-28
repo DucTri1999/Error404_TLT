@@ -2,12 +2,9 @@
     if (Session["user"] != null)
     {
         user = Session["user"].ToString();
-    } 
- }
-@{ 
-    var productBUS = new Error404_TLT.Models.BUS.ProductBUS();
-    var accountBUS = new Error404_TLT.Models.BUS.AccountBUS();
-}
+    } }
+@{ var productBUS = new Error404_TLT.Models.BUS.ProductBUS();
+                var accountBUS = new Error404_TLT.Models.BUS.AccountBUS(); }
 
 
 
@@ -16,52 +13,42 @@
     <div class="container">
         <div class="row">
             @if (Session["user"] == null)
-            {
-                <!-- HEADER-LEFT-MENU START -->
+            {<!-- HEADER-LEFT-MENU START -->
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="header-left-menu">
                         <div class="welcome-info">
                             Chào <span>khách</span>
                         </div>
                     </div>
-                </div> 
-                <!-- HEADER-LEFT-MENU END --> 
-                <!-- HEADER-RIGHT-MENU START -->
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="header-right-menu">
-                        <nav>
-                            <ul class="list-inline">
-                                <li><a href="#" onclick="document.getElementById('login_form').style.display='block'">Đăng Nhập</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div> 
-                <!-- HEADER-RIGHT-MENU END --> 
-            }
-            else
-            { 
-                <!-- HEADER-LEFT-MENU START -->
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="header-left-menu">
-                        <div class="welcome-info">
-                            Chào <span>@Session["fullname"]</span>
-                        </div>
-                    </div>
-                </div> 
-                <!-- HEADER-LEFT-MENU END --> 
-                <!-- HEADER-RIGHT-MENU START -->
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="header-right-menu">
-                        <nav>
-                            <ul class="list-inline">
-                                <li><a href="@Url.Action("Customer", "Error404", new { user = Session["user"] })">Tài khoản</a></li>
-                                <li><a href="#" onclick="refresh()">Đăng Xuất</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div> 
-                <!-- HEADER-RIGHT-MENU END -->
-            }
+                </div> <!-- HEADER-LEFT-MENU END --> <!-- HEADER-RIGHT-MENU START -->
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="header-right-menu">
+                                                                        <nav>
+                                                                            <ul class="list-inline">
+                                                                                <li><a href="#" onclick="document.getElementById('login_form').style.display='block'">Đăng Nhập</a></li>
+                                                                            </ul>
+                                                                        </nav>
+                                                                    </div>
+                                                                </div> <!-- HEADER-RIGHT-MENU END --> }
+                                                                                            else
+                                                                                            { <!-- HEADER-LEFT-MENU START -->
+                                                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                                                    <div class="header-left-menu">
+                                                                                                        <div class="welcome-info">
+                                                                                                            Chào <span>@Session["fullname"]</span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div> <!-- HEADER-LEFT-MENU END --> <!-- HEADER-RIGHT-MENU START -->
+                                                                                                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                                                                                                    <div class="header-right-menu">
+                                                                                                                                                        <nav>
+                                                                                                                                                            <ul class="list-inline">
+                                                                                                                                                                <li><a href="@Url.Action("Customer", "Error404", new { user = Session["user"] })">Tài khoản</a></li>
+                                                                                                                                                                <li><a href="#" onclick="refresh()">Đăng Xuất</a></li>
+                                                                                                                                                            </ul>
+                                                                                                                                                        </nav>
+                                                                                                                                                    </div>
+                                                                                                                                                </div> <!-- HEADER-RIGHT-MENU END -->            }
         </div>
     </div>
 </div>
@@ -121,8 +108,7 @@
     <div class="container">
         <div class="row">
             @if (Session["user"] == null)
-            {
-                <!-- SHOPPING-CART START -->
+            {<!-- SHOPPING-CART START -->
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-right shopingcartarea">
                     <div class="shopping-cart-out pull-right">
                         <div class="shopping-cart">
@@ -133,13 +119,10 @@
                             </a>
                         </div>
                     </div>
-                </div>
-                <!-- SHOPPING-CART END -->
-            }     
-            else     
-            {
-                @Html.Partial("_LoadProductCart", productBUS.loadCart(user.ToString()))
-            }
+                </div> <!-- SHOPPING-CART END --> }
+                                            else
+                                            {
+                                @Html.Partial("_LoadProductCart", productBUS.loadCart(user.ToString()))            }
             <!-- MAINMENU START -->
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 no-padding-right menuarea">
                 <div class="mainmenu">
@@ -156,12 +139,12 @@
                                 <div class="drodown-mega-menu">
                                     <div class="right-mega col-xs-6">
                                         <div class="mega-menu-list">
-                                            <a class="mega-menu-title" href="#">Bảo Hành</a>
+                                            <a class="mega-menu-title" href="@Url.Action("BaoHanh", "Error404")">Bảo Hành</a>
                                         </div>
                                     </div>
                                     <div class="right-mega col-xs-6">
                                         <div class="mega-menu-list">
-                                            <a class="mega-menu-title" href="#">Thu Cũ Đổi Mới</a>
+                                            <a class="mega-menu-title" href="@Url.Action("ThuCuDoiMoi", "Error404")">Thu Cũ Đổi Mới</a>
                                         </div>
                                     </div>
                                 </div>
@@ -188,8 +171,8 @@
                             <li>
                                 <a href="#">Dịch Vụ</a>
                                 <ul>
-                                    <li><a href="#">Bảo Hành</a></li>
-                                    <li><a href="#">Thu Cũ Đổi Mới</a></li>
+                                    <li><a href="@Url.Action("BaoHanh", "Error404")">Bảo Hành</a></li>
+                                    <li><a href="@Url.Action("ThuCuDoiMoi", "Error404")">Thu Cũ Đổi Mới</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -201,3 +184,5 @@
     </div>
 </header>
 <!-- MAIN-MENU-AREA END -->
+
+

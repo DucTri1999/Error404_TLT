@@ -14,18 +14,16 @@
                         <!-- NEW-PRODUCT-SINGLE-ITEM START -->
                         @foreach(var item in Model)
                         {
-
-            
                         <div class="item">
                             <div class="new-product">
                                 <div class="single-product-item">
                                     <div class="product-image">
-                                        <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.img" alt="product-image" /></a>
-                                        <a href="#" class="new-mark-box">new</a>
                                         <div class="overlay-content">
                                             <div class="takeProductId" style="display:none">@item.MaSP</div>
-                                            <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                            <a class="add-to-cart" href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
+                                        <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.img" alt="product-image" /></a>
+                                        <a href="#" class="new-mark-box">new</a>
                                     </div>
                                     <div class="product-info">
                                         <div class="customar-comments-box">

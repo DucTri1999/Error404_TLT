@@ -27,6 +27,14 @@ namespace Error404_TLT.Controllers
         {
             return View();
         }
+        public ActionResult BaoHanh()
+        {
+            return View();
+        }
+        public ActionResult ThuCuDoiMoi()
+        {
+            return View();
+        }
 
         //Load sản phẩm theo danh mục(iphone, ipad, macbook, airpod, ...)
         public ActionResult Category(string id, int page = 1, int pageSize = 12)

@@ -1040,6 +1040,8 @@
     <Content Include="Views\Error404\CheckOut.cshtml" />
     <Content Include="Views\Error404\Customer.cshtml" />
     <Content Include="Views\Shared\Checkout_Customer.cshtml" />
+    <Content Include="Views\Error404\BaoHanh.cshtml" />
+    <Content Include="Views\Error404\ThuCuDoiMoi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,15 +22,13 @@ namespace Error404_TLT.Models.Error404Entity
     
         public int MaDH { get; set; }
         public Nullable<int> TongDH { get; set; }
-        public Nullable<int> TongSP { get; set; }
-        public Nullable<int> TongDC { get; set; }
-        public Nullable<int> TongShip { get; set; }
         public string User { get; set; }
         public string DCID { get; set; }
         public string Address { get; set; }
         public string ThanhPho { get; set; }
         public string Quan { get; set; }
         public string Phuong { get; set; }
+        public Nullable<System.DateTime> NgayDatHang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTOrder> CTOrder { get; set; }

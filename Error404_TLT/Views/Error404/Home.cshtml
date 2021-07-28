@@ -173,36 +173,3 @@
 
 
 
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-
-<script>
-    $('.cart-adction .add-to-cart').click(function () {
-        var modal = document.getElementById('login_form');
-        var parent = $(this).parent().parent();
-        var id = $(parent).children(".productId").val();
-        alert(id);
-        var user = '@user';
-        if (user == null || user == "") {
-            modal.style.display = "block";
-        } else {
-            $.ajax({
-                url: '@Url.Action("insertCart", "Product")',
-                type: 'POST',
-                async: false,
-                cache: false,
-                data: {
-                    id: id,
-                    user: user,
-                },
-                success: function (result) {
-                    alert("Thành công");
-                },
-                error: function () {
-                    alert('Fail');
-                }
-            });
-        }
-
-    });
-
-</script>

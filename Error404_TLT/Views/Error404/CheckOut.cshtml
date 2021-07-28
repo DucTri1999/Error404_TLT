@@ -170,8 +170,8 @@
                             </div>
                         </div>
                         <div class="step-footer">
-                            <button type="submit" class="step-footer-continue-btn btn">
-                                <span class="btn-content"><a href="#" style="color: white;" id="create_order">Hoàn tất đơn hàng</a></span>
+                            <button type="submit" class="step-footer-continue-btn btn" id="create_order">
+                                <span class="btn-content"><a href="#" style="color: white;">Hoàn tất đơn hàng</a></span>
                             </button>
                             <a href="@Url.Action("Cart", "Error404", new { user = Session["user"] })" class="step-footer-previous-link">
                                 <svg class="previous-link-icon icon-chevron icon" xmlns="http://www.w3.org/2000/svg" width="6.7" height="11.3" viewBox="0 0 6.7 11.3">
@@ -190,14 +190,36 @@
 <script>
     $("#create_order").click(function () {
         var user = @user;
-        var KH = @accountBUS.account(user);
         var total = @total;
-        var quantity = @d;
-        var discountID = $("#discount-code").val();
         var address = $("#billing_address").val();
         var province = $("#billing_province").val();
         var district = $("#billing_district").val();
         var ward = $("#billing_ward").val();
+
+        $.ajax({
+            url: '@Url.Action("insertOrder", "Product")',
+            type: "POST",
+            data: {
+                user: user,
+                total: total,
+                province: province,
+                district: district,
+                ward: ward,
+                address: address,
+            },
+            success: function (result) {
+                if (result != 'True') {
+                    alert(result);
+                }
+                else {
+                    alert("Chi tiết đơn hàng đã được gửi vào email của bạn!");
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert("fail");
+            }
+        });
 
     })
 </script>
