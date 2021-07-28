@@ -18,7 +18,6 @@ namespace Error404_TLT.Models.Error404Entity
         public TaiKhoan()
         {
             this.Cart = new HashSet<Cart>();
-            this.KhachHang = new HashSet<KhachHang>();
             this.Order = new HashSet<Order>();
             this.Rate = new HashSet<Rate>();
             this.Discount = new HashSet<Discount>();
@@ -29,8 +28,7 @@ namespace Error404_TLT.Models.Error404Entity
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Cart { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang> KhachHang { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

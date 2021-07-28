@@ -153,50 +153,53 @@
     </Compile>
     <Compile Include="Models\BUS\AccountBUS.cs" />
     <Compile Include="Models\BUS\ProductBUS.cs" />
+    <Compile Include="Models\Error404Entity\AppleModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppleModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Error404Entity\AppleModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Error404Entity\AppleModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppleModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Error404Entity\Cart.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\CTOrder.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\DanhMuc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\Discount.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\KhachHang.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\LoaiSP.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Error404Entity\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Error404Entity\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Error404Entity\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\Rate.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\SanPham.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Error404Entity\sysdiagrams.cs">
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error404Entity\TaiKhoan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewsModel\CustomerViewModel.cs" />
     <Compile Include="Models\ViewsModel\ProductOfCartModel.cs" />
@@ -584,15 +587,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Error404Entity\Model1.Context.tt">
+    <Content Include="Models\Error404Entity\AppleModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>AppleModel.edmx</DependentUpon>
+      <LastGenOutput>AppleModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Error404Entity\Model1.tt">
+    <Content Include="Models\Error404Entity\AppleModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>AppleModel.edmx</DependentUpon>
+      <LastGenOutput>AppleModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -878,12 +881,12 @@
     <Content Include="Areas\Areas\Views\Shared\MainLayoutAdmin.cshtml" />
     <Content Include="Areas\Areas\Views\Statistic\All.cshtml" />
     <Content Include="Areas\Areas\Views\web.config" />
-    <EntityDeploy Include="Models\Error404Entity\Model1.edmx">
+    <EntityDeploy Include="Models\Error404Entity\AppleModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>AppleModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Error404Entity\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\Error404Entity\AppleModel.edmx.diagram">
+      <DependentUpon>AppleModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

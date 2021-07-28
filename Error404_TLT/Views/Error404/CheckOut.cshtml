@@ -189,7 +189,7 @@
 
 <script>
     $("#create_order").click(function () {
-        var user = @user;
+        var user = '@user';
         var total = @total;
         var address = $("#billing_address").val();
         var province = $("#billing_province").val();
@@ -208,13 +208,8 @@
                 address: address,
             },
             success: function (result) {
-                if (result != 'True') {
-                    alert(result);
-                }
-                else {
-                    alert("Chi tiết đơn hàng đã được gửi vào email của bạn!");
-                    location.reload();
-                }
+                alert("Chi tiết đơn hàng đã được gửi vào email của bạn!");
+                location.href = "@Url.Action("Home", "Error404")";
             },
             error: function () {
                 alert("fail");

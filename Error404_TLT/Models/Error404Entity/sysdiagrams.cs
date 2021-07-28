@@ -12,13 +12,12 @@ namespace Error404_TLT.Models.Error404Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class CTOrder
+    public partial class sysdiagrams
     {
-        public int MaDH { get; set; }
-        public string MaSP { get; set; }
-        public Nullable<int> SL { get; set; }
-    
-        public virtual Order Order { get; set; }
-        public virtual SanPham SanPham { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
