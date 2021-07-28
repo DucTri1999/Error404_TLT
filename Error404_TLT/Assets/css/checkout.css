@@ -236,7 +236,6 @@ select {
 
       .radio-wrapper .radio-label .radio-label-primary,
       .checkbox-wrapper .checkbox-label .checkbox-label-primary {
-          display: table-cell;
           width: 100%;
       }
 

@@ -232,6 +232,10 @@
             });
         } else {
             alert("Số điện thoại không đúng định dạng.")
+            setTimeout(function () {
+                inputPhone_signup.focus();
+            }, 0);
+            return false;
         }
     }
 </script>
@@ -245,6 +249,10 @@
 
         if (Pass.length < 8) {
             alert("Password dưới 8 ký tự. Mời nhập lại.")
+            setTimeout(function () {
+                inputPass.focus();
+            }, 0);
+            return false;
         }
     }
 </script>
@@ -259,6 +267,10 @@
 
         if (Pass != ConfirmPass) {
             alert("Password không trùng nhau.");
+            setTimeout(function () {
+                inputConfirmPass.focus();
+            }, 0);
+            return false;
         }
     }
 </script>

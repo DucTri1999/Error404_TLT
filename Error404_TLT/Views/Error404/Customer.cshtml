@@ -1,6 +1,6 @@
 ﻿@model Error404_TLT.Models.Error404Entity.KhachHang
 @{ 
-    ViewBag.Title = Model.FullName;
+    ViewBag.Title = "Long";
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
@@ -20,7 +20,7 @@
                 <!-- BSTORE-BREADCRUMB START -->
                 <div class="bstore-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">@Html.ActionLink("Trang chủ", "Home", "Error404")</li>
+                        <li class="breadcrumb-item">@Html.ActionLink("Trang chủ", "Home", "Error404")</li><!--chạy đê-->
                         <li class="breadcrumb-item active" aria-current="page">Tài Khoản</li>
                     </ol>
                 </div>
@@ -196,10 +196,10 @@
                     ThanhPho: province,
                     Quan: district,
                     Phuong: ward,
-                    user: '@user',
                 },
                 success: function () {
                     alert("Cập nhật thông tin thành công!");
+                    location.reload();
                 }
             });
         }

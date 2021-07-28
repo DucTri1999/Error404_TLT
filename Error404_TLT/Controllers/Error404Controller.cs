@@ -44,7 +44,6 @@ namespace Error404_TLT.Controllers
             var p = productBUS.ChiTietSP(id);
             return View(p);
         }
-
         //Vào giỏ hàng
         public ActionResult Cart (string user)
         {
@@ -60,8 +59,9 @@ namespace Error404_TLT.Controllers
         }
 
         //Thông tin tài khoản
-        public ActionResult Customer(string user)
+        public ActionResult Customer()
         {
+            var user = Session["user"].ToString();
             var result = accountBUS.account(user);
             return View(result);
         }

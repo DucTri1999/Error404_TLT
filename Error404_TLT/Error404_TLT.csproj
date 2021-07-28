@@ -201,6 +201,7 @@
     <Compile Include="Models\Error404Entity\TaiKhoan.cs">
       <DependentUpon>AppleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewsModel\CustomerViewModel.cs" />
     <Compile Include="Models\ViewsModel\ProductOfCartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

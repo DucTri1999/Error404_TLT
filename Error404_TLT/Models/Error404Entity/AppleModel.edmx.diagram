@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="061f8597ce6d4f5ca52458f7a11859ee" Name="Diagram1">
+      <Diagram DiagramId="f03fdc691dcc4fcaac7ee715b3a44588" Name="Diagram1">
         <EntityTypeShape EntityType="AppleModel.Cart" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="AppleModel.CTOrder" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AppleModel.DanhMuc" Width="1.5" PointX="1.5" PointY="17.25" IsExpanded="true" />

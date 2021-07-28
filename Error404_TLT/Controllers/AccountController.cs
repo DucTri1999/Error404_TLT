@@ -86,12 +86,13 @@ namespace Error404_TLT.Controllers
         }
 
 
-        public void changeInfo(string sdt, string fullname, string address, string ThanhPho, string Quan, string Phuong, string user)
+        public void changeInfo(string sdt, string fullname, string address, string ThanhPho, string Quan, string Phuong)
         {
+            string user = Session["user"].ToString();
             accountBUS.changeInfo(sdt, fullname, address, ThanhPho, Quan, Phuong, user);
 
             Session["fullname"] = fullname;
-            Session["user"] = user;
+            
         }
 
 
