@@ -20,7 +20,7 @@ namespace Error404_TLT.Models.Error404Entity
             this.CTOrder = new HashSet<CTOrder>();
         }
     
-        public int MaDH { get; set; }
+        public string MaDH { get; set; }
         public Nullable<int> TongDH { get; set; }
         public string User { get; set; }
         public string DCID { get; set; }

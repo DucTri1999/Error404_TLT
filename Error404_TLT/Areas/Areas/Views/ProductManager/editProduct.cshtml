@@ -41,7 +41,7 @@
             background: #FF0000;
         }
 </style>
-<div class="modal1-content" style="width: 43%; margin-left: 28.5%">
+<div class="modal1-content" style="width: 43%; margin-left: 28.5%;overflow:scroll;height:600px">
     <table class="cus2">
         <tr>
             <th colspan="2" style="background: rgb(58, 86, 119);">
@@ -286,8 +286,8 @@
 
             create.innerHTML = '<div class="card mb-4 pictureProduct" style="width: 104px; float: left;">' +
                 '<figure class="snip0068 yellow">' +
-                '<input type="text" value="Asset/img/product/' + a + '/' + file.name + '" style="display: none" class="takePath" />' +
-                '<img src="Asset/img/product/' + a + '/' + file.name + '"/>' +
+                '<input type="text" value="img/product/' + a + '/' + file.name + '" style="display: none" class="takePath" />' +
+                '<img src="img/product/' + a + '/' + file.name + '"/>' +
                 '<figcaption> ' +
                 '<div>' +
                 '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
