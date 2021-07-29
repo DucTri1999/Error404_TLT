@@ -401,11 +401,6 @@
     <Content Include="Assets\img\480x255-airpods_2.png" />
     <Content Include="Assets\img\7ed2383388.jpeg" />
     <Content Include="Assets\img\baohanh-bg.jpg" />
-    <Content Include="Assets\img\brand\1.png" />
-    <Content Include="Assets\img\brand\2.png" />
-    <Content Include="Assets\img\brand\3.png" />
-    <Content Include="Assets\img\brand\4.png" />
-    <Content Include="Assets\img\brand\5.png" />
     <Content Include="Assets\img\chuong-trinh-apple-watch-2020-didongviet-480x255.jpg" />
     <Content Include="Assets\img\chuong-trinh-ipad-2020-didongviet-480x255.jpg" />
     <Content Include="Assets\img\favicon.ico" />
