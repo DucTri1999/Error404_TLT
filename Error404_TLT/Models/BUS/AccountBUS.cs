@@ -1,4 +1,5 @@
 ﻿using Error404_TLT.Models.Error404Entity;
+using Error404_TLT.Models.ViewsModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -74,9 +75,15 @@ namespace Error404_TLT.Models.BUS
             db.SaveChanges();
         }
 
-        public KhachHang account(string user)
+        public CustomerViewModel account(string user)
         {
-            return db.KhachHang.Where(k => k.User == user).FirstOrDefault();
+            var result = from k in db.KhachHang
+                         where k.User == user
+                         select new CustomerViewModel()
+                         {
+                             khachHang = k,
+                         };
+            return result.FirstOrDefault();
         }
 
         public IEnumerable<Rate> rating(string user)

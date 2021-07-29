@@ -1,4 +1,4 @@
-﻿@model Error404_TLT.Models.Error404Entity.KhachHang
+﻿@model Error404_TLT.Models.ViewsModel.CustomerViewModel
 @{ 
     string user = "";
     if (Session["user"] != null)
@@ -15,19 +15,19 @@
             <div class="field field-show-name">
                 <div class="field-input-wrapper">
                     <label class="field-label" for="billing_fullname">Họ và tên</label>
-                    <input placeholder="Họ và tên" class="field-input" type="text" id="billing_fullname" name="billing_fullname" value="@Model.FullName" />
+                    <input placeholder="Họ và tên" class="field-input" type="text" id="billing_fullname" name="billing_fullname" value="@Model.khachHang.FullName" />
                 </div>
             </div>
             <div class="field field-required field-third  field-show-floating-label">
                 <div class="field-input-wrapper">
                     <label class="field-label" for="billing_phone">Số điện thoại</label>
-                    <input placeholder="Số điện thoại" class="field-input" maxlength="10" type="tel" id="billing_phone" name="billing_phone" value="@Model.SDT" />
+                    <input placeholder="Số điện thoại" class="field-input" maxlength="10" type="tel" id="billing_phone" name="billing_phone" value="@Model.khachHang.SDT" />
                 </div>
             </div>
             <div class="field   field-show-floating-label">
                 <div class="field-input-wrapper">
                     <label class="field-label" for="billing_address">Địa chỉ</label>
-                    <input placeholder="Địa chỉ" class="field-input" type="text" id="billing_address" name="billing_address" value="@Model.Address" />
+                    <input placeholder="Địa chỉ" class="field-input" type="text" id="billing_address" name="billing_address" value="@Model.khachHang.Address" />
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                     <div class="field-input-wrapper field-input-wrapper-select">
                         <label class="field-label" for="customer_shipping_province"> Tỉnh / thành </label>
                         <select class="field-input" id="billing_province" name="billing_province" onchange="selectCity();">
-                            <option value="@Model.ThanhPho" selected>@Model.ThanhPho</option>
+                            <option value="@Model.khachHang.ThanhPho" selected>@Model.khachHang.ThanhPho</option>
                         </select>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <div class="field-input-wrapper field-input-wrapper-select">
                         <label class="field-label" for="customer_shipping_district">Quận / huyện</label>
                         <select class="field-input" id="billing_district" name="billing_district" onchange="selectDistrict();">
-                            <option value="@Model.Quan" selected>@Model.Quan</option>
+                            <option value="@Model.khachHang.Quan" selected>@Model.khachHang.Quan</option>
                         </select>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                     <div class="field-input-wrapper field-input-wrapper-select">
                         <label class="field-label" for="customer_shipping_ward">Phường / xã</label>
                         <select class="field-input" id="billing_ward" name="billing_ward" aria-placeholder="Quận Huyện;">
-                            <option value="@Model.Phuong" selected>@Model.Phuong</option>
+                            <option value="@Model.khachHang.Phuong" selected>@Model.khachHang.Phuong</option>
                         </select>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 url: "https://provinces.open-api.vn/api/",
                 method: 'GET',
                 success: function (response) {
-                    var str = '<option value="@Model.ThanhPho" selected>@Model.ThanhPho</option>';
+                    var str = '<option value="@Model.khachHang.ThanhPho" selected>@Model.khachHang.ThanhPho</option>';
                     for (var i = 0; i < response.length; i++) {
                         str = str + "<option class = 'provinceID' data-province='" + response[i].code + "'>" + response[i].name + "</option> "
                     }
