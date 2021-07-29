@@ -493,15 +493,6 @@
     <Content Include="Assets\img\product\IPXR\iphone-xr-select-2019-family.jpg" />
     <Content Include="Assets\img\product\IPXR\iphone-xr-white-select-201809.jpg" />
     <Content Include="Assets\img\product\IPXR\iphone-xr-yellow-select-201809.jpg" />
-    <Content Include="Assets\img\product\MAC\iMacMini\mac-mini-hero-202011.jpg" />
-    <Content Include="Assets\img\product\MAC\iMac\imac-24-blue-selection-hero-202104.jpg" />
-    <Content Include="Assets\img\product\MAC\iMac\imac-24-green-selection-hero-202104.jpg" />
-    <Content Include="Assets\img\product\MAC\iMac\imac-24-pink-selection-hero-202104.jpg" />
-    <Content Include="Assets\img\product\MAC\iMac\imac-24-silver-selection-hero-202104.jpg" />
-    <Content Include="Assets\img\product\MAC\iMac\imac-27-selection-hero-202008.jpg" />
-    <Content Include="Assets\img\product\MAC\MacbookAir\macbook-air-space-gray-select-201810.jpg" />
-    <Content Include="Assets\img\product\MAC\MacbookPro\mbp-spacegray-select-202011.jpg" />
-    <Content Include="Assets\img\product\MAC\MacbookPro\mbp16touch-space-select-201911.jpg" />
     <Content Include="Assets\img\product\MBA\macbook-air-space-gray-select-201810.jpg" />
     <Content Include="Assets\img\product\MBP\mbp-spacegray-select-202011.jpg" />
     <Content Include="Assets\img\product\MBP\mbp16touch-space-select-201911.jpg" />
@@ -883,6 +874,9 @@
     <Content Include="Models\Error404Entity\AppleModel.edmx.diagram">
       <DependentUpon>AppleModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
