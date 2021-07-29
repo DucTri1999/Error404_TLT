@@ -43,9 +43,9 @@ namespace Error404_TLT.Controllers
             return false;
         }
 
-        public void changePass(string user, string pass_new)
+        public void changePass(string user, string new_pass)
         {
-            accountBUS.changePass(user, pass_new);
+            accountBUS.changePass(user, new_pass);
         }
 
         [HttpPost]
@@ -69,12 +69,18 @@ namespace Error404_TLT.Controllers
             return result;
         }
 
-        [HttpPost]
-        public bool Signup(string user, string pass, string fullname, string sdt)
+        public bool checkEmail(string email)
         {
-            if (checkUser(user) || checkSDT(sdt))
+            var result = accountBUS.checkEmail(email);
+            return result;
+        }
+
+        [HttpPost]
+        public bool Signup(string user, string pass, string fullname, string sdt, string email)
+        {
+            if (checkUser(user) || checkSDT(sdt) || checkEmail(email))
                 return false;
-            accountBUS.Signin(user, pass, fullname, sdt);
+            accountBUS.Signin(user, pass, fullname, sdt, email);
             return true;
         }
 
@@ -86,10 +92,10 @@ namespace Error404_TLT.Controllers
         }
 
 
-        public void changeInfo(string sdt, string fullname, string address, string ThanhPho, string Quan, string Phuong)
+        public void changeInfo(string sdt, string fullname, string address, string ThanhPho, string Quan, string Phuong, string email)
         {
             string user = Session["user"].ToString();
-            accountBUS.changeInfo(sdt, fullname, address, ThanhPho, Quan, Phuong, user);
+            accountBUS.changeInfo(sdt, fullname, address, ThanhPho, Quan, Phuong, email, user);
 
             Session["fullname"] = fullname;
             

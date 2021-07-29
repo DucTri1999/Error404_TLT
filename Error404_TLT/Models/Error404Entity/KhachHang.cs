@@ -21,6 +21,7 @@ namespace Error404_TLT.Models.Error404Entity
         public string ThanhPho { get; set; }
         public string Quan { get; set; }
         public string Phuong { get; set; }
+        public string Email { get; set; }
     
         public virtual TaiKhoan TaiKhoan { get; set; }
     }

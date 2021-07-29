@@ -53,8 +53,18 @@ namespace Error404_TLT.Models.BUS
             return true;
         }
 
+        public bool checkEmail(string email)
+        {
+            var result = db.KhachHang.Where(k => k.Email == email).SingleOrDefault();
+            if (result == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         //đăng ký
-        public void Signin(string user, string pass, string fullname, string sdt)
+        public void Signin(string user, string pass, string fullname, string sdt, string email)
         {
             KhachHang kh = new KhachHang()
             {
@@ -62,6 +72,7 @@ namespace Error404_TLT.Models.BUS
                 FullName = fullname,
                 Address = "",
                 User = user,
+                Email = email,
             };
             db.KhachHang.AddOrUpdate(kh);
             
@@ -86,18 +97,13 @@ namespace Error404_TLT.Models.BUS
             return result.FirstOrDefault();
         }
 
-        public IEnumerable<Rate> rating(string user)
-        {
-            return db.Rate.Where(p => p.User == user);
-        }
-
         public IEnumerable<Order> loadBill(string user)
         {
             return db.Order.Where(p => p.User == user);
         }
 
 
-        public void changeInfo(string sdt, string fullname, string address, string ThanhPho, string Quan, string Phuong, string user)
+        public void changeInfo(string sdt, string fullname, string address, string ThanhPho, string Quan, string Phuong, string email, string user)
         {
             KhachHang a = db.KhachHang.Where(p => p.User == user).FirstOrDefault();
             a.SDT = sdt;
@@ -106,6 +112,7 @@ namespace Error404_TLT.Models.BUS
             a.ThanhPho = ThanhPho;
             a.Quan = Quan;
             a.Phuong = Phuong;
+            a.Email = email;
             db.SaveChanges();
         }
 
@@ -117,14 +124,5 @@ namespace Error404_TLT.Models.BUS
             db.SaveChanges();
         }
 
-        public string checkUserAdmin(string user, string pass)
-        {
-            string result = "";
-            if (pass == "admin")
-            {
-                result = user;
-            }
-            return result;
-        }
     }
 }

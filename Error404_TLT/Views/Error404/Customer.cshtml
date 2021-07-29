@@ -68,6 +68,10 @@
                                 <input type="text" value="@Model.khachHang.SDT" name="phonenumber" id="phonenumber" class="form-control input-feild" placeholder="Nhập số điện thoại">
                             </div>
                             <div class="form-group primary-form-group p-info-group">
+                                <label for="email">Email<sup>*</sup></label>
+                                <input type="text" value="@Model.khachHang.Email" name="email" id="email" class="form-control input-feild" placeholder="Nhập email">
+                            </div>
+                            <div class="form-group primary-form-group p-info-group">
                                 <div class="province">
                                     <label for="province">Tỉnh/Thành<sup>*</sup></label>
                                     <select class="form control" id="province" name="province" onchange="selectCity();">
@@ -251,6 +255,7 @@
         var district = $("#district").val();
         var ward = $("#ward").val();
         var address = $("#address").val();
+        var email = $("#email").val();
 
         if (name != "" && sdt != "" && sdt.length == 10) {
             $.ajax({
@@ -263,10 +268,14 @@
                     ThanhPho: province,
                     Quan: district,
                     Phuong: ward,
+                    email: email,
                 },
                 success: function () {
                     alert("Cập nhật thông tin thành công!");
                     location.reload();
+                },
+                error: function () {
+                    alert("fail");
                 }
             });
         }

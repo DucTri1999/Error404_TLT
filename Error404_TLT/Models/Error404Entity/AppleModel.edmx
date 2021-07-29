@@ -51,13 +51,14 @@
           <Key>
             <PropertyRef Name="User" />
           </Key>
-          <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
           <Property Name="FullName" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ThanhPho" Type="nvarchar" MaxLength="50" />
           <Property Name="Quan" Type="nvarchar" MaxLength="50" />
           <Property Name="Phuong" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LoaiSP">
           <Key>
@@ -406,13 +407,14 @@ warning 6013: The table/view 'AppleStore.dbo.TaiKhoanAdmin' does not have a prim
           <Key>
             <PropertyRef Name="User" />
           </Key>
-          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ThanhPho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Quan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TaiKhoan" Relationship="Self.Relationship11" FromRole="KhachHang" ToRole="TaiKhoan" />
         </EntityType>
         <EntityType Name="LoaiSP">
@@ -749,6 +751,7 @@ warning 6013: The table/view 'AppleStore.dbo.TaiKhoanAdmin' does not have a prim
                 <ScalarProperty Name="ThanhPho" ColumnName="ThanhPho" />
                 <ScalarProperty Name="Quan" ColumnName="Quan" />
                 <ScalarProperty Name="Phuong" ColumnName="Phuong" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
