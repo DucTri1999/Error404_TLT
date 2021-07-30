@@ -23,11 +23,11 @@ namespace Error404_TLT.Areas.Areas.Models
             return result.ToList();
         }
 
-        public CTOrder ChiTietOrder(int id)
+        public IEnumerable<CTOrder> ChiTietOrder(int id)
         {
-            var result = db.CTOrder.Where(p => p.MaDH == id).FirstOrDefault();
+            var result = db.CTOrder.Where(p => p.MaDH == id);
 
-            return result;
+            return result.ToList();
         }
 
         public IEnumerable<SanPham> loadSanPham()
