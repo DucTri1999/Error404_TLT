@@ -35,11 +35,13 @@
                         <tr style="text-align: center; ">
                             <th style="font-size:15px;">Mã Đơn Hàng</th>
                             <th style="font-size:15px;">Tổng Đơn Hàng</th>
-                            <th style="font-size:15px;">Tổng Ship</th>
-                            <th style="font-size:15px;">Tổng Sản Phẩm</th>
-                            <th style="font-size:15px;">Tổng Discount</th>
-                            <th style="font-size:15px;">Email</th>
-                            <th style="font-size:15px;">Discount ID</th>
+                            <th style="font-size:15px;">User</th>
+                            <th style="font-size:15px;">Mã Discount</th>
+                            <th style="font-size:15px;">Thành Phố</th>
+                            <th style="font-size:15px;">Quận</th>
+                            <th style="font-size:15px;">Phường</th>
+                            <th style="font-size:15px;">Địa Chỉ</th>
+                            <th style="font-size:15px;">Ngày Đặt Hàng</th>
                         </tr>
                     </thead>
                     @{
@@ -52,16 +54,17 @@
                     <tbody>
                         @foreach (var item in listOrder)
                         {
-                            <tr style="text-align: center;font-size: 13px;">
-                                <td class="click_Product productId">@item.MaDH</td>
-                                <td class="click_Product">@item.TongDH</td>
-                                <td class="click_Product">@item.TongShip</td>
-                                <td class="click_Product">@item.TongSP</td>
-                                <td class="click_Product">@item.TongDC</td>
-                                <td class="click_Product">@item.User</td>
-                                <td class="click_Product">@item.DCID</td>
-                                <td class="click_Product">@item.Address</td>
-                            </tr>
+                        <tr style="text-align: center;font-size: 13px;">
+                            <td class="click_Product productId">@item.MaDH</td>
+                            <td class="click_Product">@item.TongDH</td>
+                            <td class="click_Product">@item.User</td>
+                            <td class="click_Product">@item.DCID</td>
+                            <td class="click_Product">@item.ThanhPho</td>
+                            <td class="click_Product">@item.Quan</td>
+                            <td class="click_Product">@item.Phuong</td>
+                            <td class="click_Product">@item.Address</td>
+                            <td class="click_Product">@item.NgayDatHang</td>
+                        </tr>
                         }
 
                     </tbody>
@@ -79,7 +82,6 @@
         $(".click_Product").click(function () {
             var parent = $(this).parent();
             var id = $(parent).children(".productId").text();
-            alert(id);
             $.ajax({
                 url: '@Url.Action("CTOrder", "OrderManager")',
                 type: 'POST',
