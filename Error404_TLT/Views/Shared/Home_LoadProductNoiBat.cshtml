@@ -17,7 +17,7 @@
                             <div class="single-product-item">
                                 <div class="product-image">
                                     <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.img" alt="product-image" /></a>
-                                    <a href="#" class="new-mark-box">new</a>
+                                    <a href="#" class="new-mark-box">Giá tốt</a>
                                     <div class="overlay-content">
                                         <div class="takeProductId" style="display:none">@item.MaSP</div>
                                         <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
@@ -35,12 +35,15 @@
                                     </div>
                                     <a href="single-product.html">@item.TenSP</a>
                                     <div class="price-box">
-                                        <span class="price">$ @item.DonGia</span>
-                                    </div>
+                                        <div style="color:red">
+                                            @{ var price = String.Format("{0:0,0 VND}", item.DonGia);}
+                                            @price
+                                        </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- SINGLE-PRODUCT-ITEM END -->
+                    </div>                   
+                     <!-- SINGLE-PRODUCT-ITEM END -->
                     }
                 </div>
                 <!-- FEARTURED-CAROUSEL END -->

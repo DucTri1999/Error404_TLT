@@ -4,6 +4,8 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -53,7 +55,7 @@ namespace Error404_TLT.Controllers
             return View(p);
         }
         //Vào giỏ hàng
-        public ActionResult Cart (string user)
+        public ActionResult Cart(string user)
         {
             var result = productBUS.loadProductCart(user);
             return View(result);
@@ -65,13 +67,14 @@ namespace Error404_TLT.Controllers
             var result = productBUS.loadProductCheckout(user);
             return View(result);
         }
-
         //Thông tin tài khoản
+               
         public ActionResult Customer()
         {
             var user = Session["user"].ToString();
             var result = accountBUS.account(user);
             return View(result);
         }
+
     }
 }

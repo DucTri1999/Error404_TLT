@@ -23,7 +23,7 @@
                                             <a class="add-to-cart" href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                         <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})"><img src="~/Assets/@item.img" alt="product-image" /></a>
-                                        <a href="#" class="new-mark-box">new</a>
+                                        <a href="#" class="new-mark-box">Sản phẩm mới</a>
                                     </div>
                                     <div class="product-info">
                                         <div class="customar-comments-box">
@@ -37,13 +37,15 @@
                                         </div>
                                         <a href="single-product.html">@item.TenSP</a>
                                         <div class="price-box">
-                                            <span class="price">$ @item.DonGia</span>
+                                        <div style="color:red">
+                                           @{ var price = String.Format("{0:0,0 VND}", item.DonGia);}@price
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        }
+                    </div> 
+                       }
                         <!-- NEW-PRODUCT-SINGLE-ITEM END -->
                     </div>
                     <!-- NEW-PRO-CAROUSEL END -->

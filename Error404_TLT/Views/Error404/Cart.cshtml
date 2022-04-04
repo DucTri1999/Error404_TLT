@@ -4,6 +4,8 @@
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{double total = 0;}
+
 
 @{
     Error404_TLT.Controllers.ProductController productController = new Error404_TLT.Controllers.ProductController();
@@ -51,8 +53,8 @@
                                 <th class="cart-description" style="text-align: center;">Mô tả</th>
                                 <th class="cart-unit text-right" style="text-align: center;">Giá</th>
                                 <th class="cart_quantity text-center" style="text-align: center;">Số lượng</th>
-                                <th class="cart-delete">&nbsp;</th>
                                 <th class="cart-total text-right" style="text-align: center;">Tổng tiền</th>
+                                <th class="cart-delete text-right" style="text-align: center;">Xóa</th>
                             </tr>
                         </thead>
                         <!-- TABLE HEADER END -->
@@ -73,19 +75,21 @@
                                     </td>
                                     <td class="cart-unit">
                                         <ul class="price text-right">
-                                            <li class="price">$@item.ProductPrice</li>
+                                            <li class="price">@{ var price = String.Format("{0:0,0 VND}", item.ProductPrice);}@price</li>
                                         </ul>
                                     </td>
                                     <td class="cart_quantity text-center">
-                                        <div class="cart-plus-minus-button">
-                                            <input class="cart-plus-minus" type="text" name="qtybutton" value="@item.ProductAmount" min="1">
-                                        </div>
+                                        <input type="text" name="qtybutton" value="@item.ProductAmount" maxlength="1" size="1" />
+                                    </td>
+
+                                    <td class="cart-total">
+                                        @{double money = (double)(item.ProductPrice * item.ProductAmount);}
+                                        @{ var newmoney = String.Format("{0:0,0 VND}", money);}
+                                        @{ total = total + (double)(item.ProductPrice * item.ProductAmount);}
+                                        @newmoney
                                     </td>
                                     <td class="cart-delete text-center">
                                         <a href="#" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                    <td class="cart-total">
-                                        <span class="price"></span>
                                     </td>
                                 </tr>
                                 <!-- SINGLE CART_ITEM END -->
@@ -95,25 +99,20 @@
                         <!-- TABLE BODY END -->
                         <!-- TABLE FOOTER START -->
                         <tfoot>
-                            <tr class="cart-total-price">
-                                <td class="cart_voucher" colspan="2" rowspan="4"></td>
-                                <td class="text-right" colspan="3">Total products</td>
-                                <td id="total_product" class="price" colspan="1">     </td>
+                            <tr>
                             </tr>
                             <tr>
-                                <td class="text-right" colspan="3">Total shipping</td>
-                                <td id="total_shipping" class="price" colspan="1">$0.00</td>
                             </tr>
                             <tr>
-                                <td class="text-right" colspan="3">Total vouchers</td>
-                                <td id="voucher" class="price" colspan="1">$0.00</td>
                             </tr>
                             <tr>
-                                <td class="total-price-container text-right" colspan="3">
-                                    <span>Total</span>
+                                <td class="total-price-container text-right" colspan="5">
+                                    <span>Tổng</span>
                                 </td>
                                 <td id="total-price-container" class="price" colspan="1">
-                                    <span id="total-price">    </span>
+                                    <!--  <span id="total-price"> </span>  -->
+                                    @{ var totalmoney = String.Format("{0:0,0 VND}", total);}
+                                    <strong>@totalmoney</strong>
                                 </td>
                             </tr>
                         </tfoot>
@@ -161,7 +160,7 @@
                 alert('Click Slow! Please');
             }
         });
-        
+
     });
 
 

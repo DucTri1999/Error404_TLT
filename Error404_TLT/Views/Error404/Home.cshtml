@@ -24,6 +24,8 @@
                             <div id="wrapper">
                                 <div class="slider-wrapper">
                                     <div id="mainSlider" class="nivoSlider">
+                                        <a href="@Url.Action("Category", "Error404", new { id = "IP" })"><img src="~/Assets/img/slider/pc-ip13.jpg"></a>
+                                        <a href="@Url.Action("Category", "Error404", new { id = "MAC" })"><img src="~/Assets/img/slider/pc-macpro.jpg" alt="main slider"></a>
                                         <a href="@Url.Action("Category", "Error404", new { id = "IPAD" })"><img src="~/Assets/img/slider/pc-.jpg" alt="main slider"></a>
                                         <a href="@Url.Action("Category", "Error404", new { id = "IP" })"><img src="~/Assets/img/slider/pc-1.jpg" alt="main slider"></a>
                                         <a href="@Url.Action("Category", "Error404", new { id = "MAC" })"><img src="~/Assets/img/slider/pc-2-1.jpg" alt="main slider"></a>
@@ -37,49 +39,66 @@
                             <div class="homepage-cat">
                                 <div class="box">
                                     <a class="cat-iphone" href="@Url.Action("Category", "Error404", new { id = "IP" })">
+                                        <i><img src="~/Assets/img/homepagecat/iPhone_13_series.png" alt=""></i>
+                                        <span>
+                                            iPhone 13 Pro Max<br>
+                                            Từ 32 triệu
+                                        </span>
+                                    </a>      
+                                    <a class="cat-iphone" href="@Url.Action("Category", "Error404", new { id = "IP" })">
                                         <i><img src="~/Assets/img/homepagecat/iphone12.svg" alt=""></i>
-                                        <span>iPhone 12<br>Pro Max</span>
+                                        <span>
+                                            iPhone 12 Pro Max<br>
+                                            Từ 28 triệu
+                                        </span>
+                                    </a>
+                                    <a class="cat-ipad" href="@Url.Action("Category", "Error404", new { id = "IPAD" })">
+                                        <i><img src="~/Assets/img/homepagecat/iPad-Pro-2020.png" alt=""></i>
+                                        <span>
+                                            Ipad Pro<br>
+                                            Từ 21 triệu
+                                        </span>
                                     </a>
                                     <a class="cat-mac" href="@Url.Action("Category", "Error404", new { id = "MAC" })">
                                         <i><img src="~/Assets/img/homepagecat/macbook.svg" alt=""></i>
                                         <span>
                                             Macbook M1 2020<br>
-                                            from 19**$
+                                            Từ 25 triệu
                                         </span>
                                     </a>
                                     <a class="cat-pkapple" href="">
                                         <i><img src="~/Assets/img/homepagecat/apple.svg" alt=""></i>
                                         <span>
-                                            Apple<br>
-                                            Accessories
+                                            Apple Accessories<br>
+                                            Từ 1 triệu
                                         </span>
                                     </a>
                                     <a class="cat-aw" href="@Url.Action("Category", "Error404", new { id = "AW" })">
                                         <i><img src="~/Assets/img/homepagecat/aw.svg" alt=""></i>
                                         <span>
                                             Apple Watch S6<br>
-                                            from 5**$
+                                            Từ 8 triệu
                                         </span>
                                     </a>
                                     <a class="cat-ipad" href="@Url.Action("Category", "Error404", new { id = "IPAD" })">
                                         <i><img src="~/Assets/img/homepagecat/icon_ipad.png" alt=""></i>
                                         <span>
                                             Ipad Gen<br>
-                                            from 6**$
+                                            Từ 14 triệu
                                         </span>
                                     </a>
                                     <a class="cat-airpod" href="@Url.Action("Category", "Error404", new { id = "PK" })">
                                         <i><img src="~/Assets/img/homepagecat/airpod.jpg" alt=""></i>
                                         <span>
                                             Airpods 2<br>
-                                            Flashsale in July
+                                            2tr990k
                                         </span>
                                     </a>
                                     <a class="cat-airtag" href="@Url.Action("Category", "Error404", new { id = "PK" })">
                                         <i><img src="~/Assets/img/homepagecat/airtag.jpg" alt=""></i>
                                         <span>
                                             New Airtag<br>
-                                            Arrives
+                                            Từ 700k
                                         </span>
                                     </a>
                                 </div>
@@ -96,7 +115,7 @@
 
                                     <a href="">
 
-                                        <img alt="Phụ kiện  - AirPods" src="~/Assets/img/480x255-airpods_2.png">
+                                        <img alt="Phụ kiện  - AirPods" src="~/Assets/img/slider/airpods-3-690-300-max (1).png">
                                     </a>
 
                                 </div>
@@ -106,7 +125,7 @@
 
                                     <a href="">
 
-                                        <img alt="" src="~/Assets/img/chuong-trinh-apple-watch-2020-didongviet-480x255.jpg">
+                                        <img alt="" src="~/Assets/img/slider/sale-cuoi-nam-didongviet-768x371-1.jpg">
                                     </a>
 
                                 </div>
@@ -116,7 +135,7 @@
 
                                     <a href="">
 
-                                        <img alt="" src="~/Assets/img/chuong-trinh-ipad-2020-didongviet-480x255.jpg">
+                                        <img alt="" src="~/Assets/img/slider/tri-an-nha-giao-didongviet-1200x628-111.jpg">
                                     </a>
                                 </div>
                             </li>
@@ -145,16 +164,33 @@
         <div class="row">
             <div class="midbanner">
                 <div class="col">
-                    <img src="~/Assets/img/product/AW6/apple-watch-series-6-40mm-4g-vien-nhom-xam-day-cao-su-full-vat_3_1.jpg" alt="">
+                    <img src="~/Assets/img/product/IP13PRM/iphone-13-pro-vs-iphone-13-pro-max-3.jpg" alt="">
                 </div>
                 <div class="col">
-                    <p>Only Available in This Store</p>
-                    <h1>Apple Watch Series 6</h1>
+                    <big style="color:red">Có sẵn hàng tại cửa hàng</></big>
+                    <h1>IPhone 13 PRO/PRO MAX</h1>
                     <small>
-                        Measure your blood oxygen level with a revolutionary sensor and app. Take an ECG anytime, anywhere. See your fitness metrics at a glance with the enhanced Always-On Retina display. With Apple Watch Series 6 on your wrist, a healthier, more active, more connected life is within reach.
+                        iPhone 12 ra mắt cách đây chưa lâu,thì những tin đồn mới nhất về iPhone 13 Pro Max đã khiến bao tín đồ công nghệ ngóng chờ.Cụm camera được nâng cấp,màu sắc mới,đặc biệt là màn hình 120Hz với phần notch được làm nhỏ gọn hơn chính là những điểm làm cho thu hút mọi sự chú ý trong năm nay.
                     </small>
                     <div class="button">
-                        <a href="@Url.Action("Category", "Error404", new { id = "AW" })" class="btn">Buy Now &#10132;</a>
+                        <a href="@Url.Action("Category", "Error404", new { id = "IP" })" class="btn">Mua ngay &#10132;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="midbanner">
+                <div class="col">
+                    <img src="~/Assets/img/product/AW7/Apple-Watch-Series-7-4.png" alt="">
+                </div>
+                <div class="col">
+                    <big style="color:red">Có sẵn hàng tại cửa hàng</></big>
+                    <h1>APPLE WATCH SERIES 7</h1>
+                    <small>
+                        Về tính năng của chiếc Apple Watch Seri 7 phải đề cập đến tính năng đo nồng độ oxy trong máu (SpO2) và đây là một tính năng rất hữu ích khi đang ở thời điểm dịch bệnh COVID-19. Nồng độ oxy trong máu phần nào sẽ giúp bạn nhận biết có bị dương tính hay không.
+                    </small>
+                    <div class="button">
+                        <a href="@Url.Action("Category", "Error404", new { id = "AW" })" class="btn">Mua ngay &#10132;</a>
                     </div>
                 </div>
             </div>
@@ -164,9 +200,9 @@
             productNoiBat = new MvcHtmlString(productNoiBat.ToString());
         }
         @productNoiBat
-        <div class="headerbanner">
-            <a href=""><img src="~/Assets/img/1200x100.png" alt=""></a>
-        </div>
+    <div class="headerbanner">
+        <a href=""><img src="~/Assets/img/slider/2800-800-1920x548.png" alt=""></a>
+    </div>
     </div>
 </section>
 <!-- MAIN-CONTENT-SECTION END -->

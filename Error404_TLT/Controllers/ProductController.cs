@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -51,7 +53,8 @@ namespace Error404_TLT.Controllers
         public void insertOrder(string user, int total, string province, string district, string ward, string address)
         {
             productBUS.insertOrder(user, total, province, district, ward, address);
+            
         }
-
+        
     }
 }

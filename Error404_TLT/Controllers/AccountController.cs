@@ -43,9 +43,9 @@ namespace Error404_TLT.Controllers
             return false;
         }
 
-        public void changePass(string user, string new_pass)
+        public void changePass(string user, string new_pass, string old_pass)
         {
-            accountBUS.changePass(user, new_pass);
+            accountBUS.changePass(user, new_pass,old_pass);
         }
 
         [HttpPost]

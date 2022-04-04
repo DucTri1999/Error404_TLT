@@ -117,11 +117,16 @@ namespace Error404_TLT.Models.BUS
         }
 
 
-        public void changePass(string user, string pass_new)
+        public void changePass(string user, string pass_new,string pass_old)
         {
             TaiKhoan a = db.TaiKhoan.Where(p => p.User == user).FirstOrDefault();
-            a.Pass = pass_new;
-            db.SaveChanges();
+            if (a.Pass == pass_old)
+            {
+                // a.Pass = pass_old;
+                a.Pass = pass_new;
+                db.SaveChanges();
+            }
+
         }
 
     }

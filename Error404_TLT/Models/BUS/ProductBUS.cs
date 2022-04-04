@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 
 namespace Error404_TLT.Models.BUS
@@ -162,10 +164,10 @@ namespace Error404_TLT.Models.BUS
             };
             db.Order.Add(order);
             db.SaveChanges();
-
             int id = db.Order.Where(p => p.User == user).OrderByDescending(y => y.NgayDatHang).Select(t => t.MaDH).FirstOrDefault();
             IEnumerable<Cart> c = db.Cart.Where(p => p.User == user);
-
+            string message = "";
+            float sum = 0;
             foreach (var item in c)
             {
                 CTOrder ct = new CTOrder
@@ -174,13 +176,57 @@ namespace Error404_TLT.Models.BUS
                     MaSP = item.MaSP,
                     SL = item.SL,
                 };
+     
                 db.CTOrder.Add(ct);
                 SanPham p = db.SanPham.Where(t => t.MaSP == item.MaSP).FirstOrDefault();
                 p.SLTon = p.SLTon - item.SL;
+                message += "<br> Tên Khách Hàng :" + user;
+                message += "<br> Tên Sản Phẩm :" + item.SanPham.TenSP;
+                message += "<br> Giá Sản Phẩm :" + String.Format("{0:0,0 VND}", item.SanPham.DonGia);
+                message += "<br> Số Lượng :" + item.SL;
+                message += "<br> Địa Chỉ  : " + address; message += "<br> Phường/Xã :" + ward; message += "<br> Quận/Huyện :" + district; message += "<br> Tỉnh/Thành :" + province;
+                message += "<br> Ngày Đặt Hàng  : " + time;
+                sum += (float)(item.SanPham.DonGia);
                 db.Cart.Remove(item);
             }
+            message += "<br> => Tổng Tiền:" + String.Format("{0:0,0 VND}", sum);
+            SendContactEmail("chauleductin1999@gmail.com", "Một đơn hàng đã được gửi đến cho bạn", message);
             db.SaveChanges();
 
         }
+        public void SendContactEmail(string mailkh, string subject, string message)
+        {
+            // Your hard-coded email values (where the email will be sent from), this could be
+            // define in a config file, etc.
+            var email = "chauleductin1999@gmail.com";
+            var password = "0932007274";
+
+            // Your target (you may want to ensure that you have a property within your form so that you know
+            // who to send the email to
+            string address = mailkh;
+
+            // Builds a message and necessary credentials (example using Gmail)
+            var loginInfo = new NetworkCredential(email, password);
+            var msg = new MailMessage();
+            var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            // This email will be sent from you
+            msg.From = new MailAddress(email);
+            // Your target email address
+            msg.To.Add(new MailAddress(address));
+            msg.Subject = subject;
+
+            // Build the body of your email using the Body property of your message
+            msg.Body = message;
+            msg.IsBodyHtml = true;
+
+            // Wires up and send the email
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = loginInfo;
+            smtpClient.Send(msg);
+        }
+
+
+
     }
 }

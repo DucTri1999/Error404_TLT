@@ -24,20 +24,18 @@
                                 <span class="so-luong">@item.SL</span>
                                 <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})" class="pro-cat">@item.SanPham.TenSP</a>
                             </span>
-                            <p class="giaSP">$@item.SanPham.DonGia</p>
+                            <p class="giaSP">
+                                <div style="color:red">
+                                @{ var price = String.Format("{0:0,0 VND}", item.SanPham.DonGia);}@price</div></p>
                         </div>
-                    </div> 
+                    </div>
                     <!--SHIPPING ITEM END-->
                 }
 
                 <div class="shipping-total-bill">
                     <div class="cart-prices">
-                        <span class="shipping-cost">Free Shipping</span>
-                        <span>Shipping</span>
-                    </div>
-                    <div class="total-shipping-prices">
-                        <span class="shipping-total"></span>
-                        <span>Total</span>
+                        <span class="shipping-cost">Miễn phí giao hàng</span>
+                        <span> </span>
                     </div>
                 </div>
                 <div class="shipping-checkout-btn">

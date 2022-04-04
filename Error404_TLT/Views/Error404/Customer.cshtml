@@ -108,10 +108,10 @@
                     <table class="tabledg" style="width: 100%; margin-top: 0px">
                         <tr id="table_bill">
                             <th>
-                                <p class="tablea">ID</p>
+                                <p class="tablea">MãDH</p>
                             </th>
                             <th>
-                                <p class="tablea">Ngày đặt hàng</p>
+                                <p class="tablea">Ngày đặt hàng </p>
                             </th>
                             <th>
                                 <p class="tablea">Sản phẩm</p>
@@ -146,7 +146,7 @@
                                     <p class="tableb">@listProduct</p>
                                 </td>
                                 <td>
-                                    <p class="tableb">$ @item.TongDH</p>
+                                    <p class="tableb">@{ var price = String.Format("{0:0,0 VND}", item.TongDH);}@price</p>        
                                 </td>
                             </tr>
                         }

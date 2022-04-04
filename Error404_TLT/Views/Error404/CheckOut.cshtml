@@ -53,7 +53,7 @@
                                             <td class="product-quantity visually-hidden">@item.ProductAmount</td>
                                             @{ var temp = @item.ProductPrice * @item.ProductAmount;}
                                             <td class="product-price">
-                                                <span class="order-summary-emphasis">$ @temp</span>
+                                                <span class="order-summary-emphasis">@{var newwprice = String.Format("{0:0,0 VND}",@temp);}@newwprice</span>
                                             </td>
                                         </tr>
                                         <!-- SẢN PHẨM END -->
@@ -93,7 +93,7 @@
                                     <tr class="total-line total-line-subtotal">
                                         <td class="total-line-name">Tạm tính</td>
                                         <td class="total-line-price">
-                                            <span class="order-summary-emphasis">$ @total</span>
+                                            <span class="order-summary-emphasis">@{ var newprice = String.Format("{0:0,0 VND}",@total);}@newprice</span>
                                         </td>
                                     </tr>
 
@@ -111,7 +111,8 @@
                                             <span class="payment-due-label-total">Tổng cộng</span>
                                         </td>
                                         <td class="total-line-name payment-due">
-                                            <span class="payment-due-price">$ @total</span>
+                                            <span class="payment-due-price">@{ var price = String.Format("{0:0,0 VND}",@total);}@price
+                                        </span>        
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -162,8 +163,8 @@
                                     </div>
                                     <div class="radio-wrapper content-box-row content-box-row-secondary ">
                                         <div class="blank-slate">
-                                            Techcombank: 0123456789
-                                            <br> Chủ tài khoản: Nguyễn Văn A
+                                            Sacombank: 060263510413
+                                            <br> Chủ tài khoản: CHAU LE DUC TRI
                                         </div>
                                     </div>
                                 </div>

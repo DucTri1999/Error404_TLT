@@ -31,7 +31,7 @@
                                     </div>
                                     <a href="@Url.Action("Details", "Error404", new { id = item.MaSP})">@item.TenSP</a>
                                     <div class="price-box">
-                                        <span class="price">$ @item.DonGia</span>
+                                        <span class="price">@{ var price = String.Format("{0:0,0 VND}", item.DonGia);}@price</span>
                                     </div>
                                 </div>
                             </div>

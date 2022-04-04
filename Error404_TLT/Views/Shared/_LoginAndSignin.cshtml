@@ -51,7 +51,7 @@
                 <h1 class="login_content" style="font-weight: bold;">ĐĂNG NHẬP</h1>
             </div>
 
-            <label for="uname"><b>Username</b></label>
+            <label for="uname"><b>Tài khoản</b></label>
             <input class="login-user" id="user_login" type="text" placeholder="Nhập tài khoản" name="uname" required>
 
             <label for="psw"><b>Mật khẩu</b></label>
@@ -92,8 +92,8 @@
             <div class="text-center">
                 <h1 class="login_content" style="font-weight: bold;">ĐĂNG KÝ</h1>
             </div>
-            <label for="user"><b>Username</b></label>
-            <input class="login-user" id="signin-user" type="text" placeholder="Nhập user" name="user" required>
+            <label for="user"><b>Tài khoản</b></label>
+            <input class="login-user" id="signin-user" type="text" placeholder="Nhập tài khoản" name="user" required>
 
             <label for="pass"><b>Mật khẩu</b></label>
             <input class="login-pass" id="signin-pass" type="password" placeholder="Nhập mật khẩu" name="pass" required>
@@ -122,8 +122,11 @@
             <div class="text-center">
                 <h1 class="login_content" style="font-weight: bold;">LẤY LẠI MẬT KHẨU</h1>
 
-                <label for="user-record"><b>User</b></label>
-                <input id="user-record" class="login-user" type="text" placeholder="Nhập user" name="user-record" required>
+                <label for="user-record"><b>Tài khoản</b></label>
+                <input id="user-record" class="login-user" type="text" placeholder="Nhập tài khoản" name="user-record" required>
+
+                <label for="old_pass"><b>Mật khẩu cũ</b></label>
+                <input id="old_pass" class="login-pass" type="password" placeholder="Nhập mật khẩu cũ" name="psw" required>
 
                 <label for="new_pass"><b>Mật khẩu mới</b></label>
                 <input id="new_pass" class="login-pass" type="password" placeholder="Nhập mật khẩu mới" name="psw" required>
@@ -133,7 +136,7 @@
 
                 <button class="btn_reset" type="submit" onclick="window.location.href=@Url.Action("Index", "Home")">Cập nhật</button>
             </div>
-
+            
         </div>
     </form>
 </div>
@@ -233,6 +236,10 @@
             if (fullname == "") {
                 alert("Họ tên không được để trống.");
             }
+            if (email == "") {
+                alert("email phải đúng định dạng.");
+            }
+
         }
     });
 </script>
@@ -332,24 +339,27 @@
 <script>
     $(".btn_reset").click(function () {
         var user = $("#user-record").val();
+        var pass1 = $("#old_pass").val();
         var pass = $('#new_pass').val();
-
-        if (user != "" && pass != "") {
+        if (  user != "" && pass != ""){
             $.ajax({
                 url: '@Url.Action("changePass", "Account")',
                 type: 'POST',
                 data: {
                     user: user,
+                    old_pass:pass1,
                     new_pass: pass,
+
                 },
                 success: function (result) {
-                    alert("Tai khoan dc doi thanh cong!")
+                    alert("Tài khoản đã được đổi thành công")
                     location.reload();
                 },
 
             });
 
-        }else {
+        } else {
+            alert("Nhập đúng mật khẩu cũ")
             alert("Tài khoản hoặc mật khẩu không được để trống!");
         }
     });

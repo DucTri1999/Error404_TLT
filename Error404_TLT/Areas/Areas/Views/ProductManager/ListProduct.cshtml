@@ -87,8 +87,8 @@
                                     <img src="~/Assets/@item.img4" style="width: 50px; height: 50px; object-fit:contain" />
                                 </td>
                                 <td class="click_Product">@item.TenSP</td>
-                                <td class="click_Product">@item.DonGia</td>
-                                <td class="click_Product">@item.GiaKM</td>
+                                <td class="click_Product">@{var price = String.Format("{0:0,0 VND}",@item.DonGia);}@price</td>
+                                <td class="click_Product">@{var newprice = String.Format("{0:0,0 VND}",item.GiaKM);}@newprice</td>
                                 <td class="click_Product">@item.SLTon</td>
                                 <td class="click_Product">@item.Description</td>
                                 <td class="click_Product">@item.MoreInfo</td>

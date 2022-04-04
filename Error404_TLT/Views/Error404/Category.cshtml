@@ -77,6 +77,11 @@
                             <div class="filter-content collapse" id="cate_iphone">
                                 <div class="card-body">
                                     <ul class="list-menu">
+                                        <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone 13PRM </a></li>
+                                        <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone 13PR </a></li>
+                                        <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone 13 </a></li>
+                                        <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone 12PRM </a></li>
+                                        <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone 12PR </a></li>
                                         <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone 12 </a></li>
                                         <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone 11 </a></li>
                                         <li><a href="@Url.Action("Category", "Error404", new { id = "IP" })" data-abc="true">iPhone X </a></li>
@@ -136,12 +141,13 @@
                             <header class="card-header">
                                 <a href="#" data-toggle="collapse" data-target="#cate-watch" data-abc="true" aria-expanded="false" class="collapsed">
                                     <i class="icon-control fa fa-chevron-down"></i>
-                                    <span class="sidebar-title">WATCH</span>
+                                    <span class="sidebar-title">APPLE WATCH</span>
                                 </a>
                             </header>
                             <div class="filter-content collapse" id="cate-watch">
                                 <div class="card-body">
                                     <ul class="list-menu">
+                                        <li><a href="@Url.Action("Category", "Error404", new { id = "AW" })" data-abc="true">Apple Watch Series 7 </a></li>
                                         <li><a href="@Url.Action("Category", "Error404", new { id = "AW" })" data-abc="true">Apple Watch Series 6 </a></li>
                                         <li><a href="@Url.Action("Category", "Error404", new { id = "AW" })" data-abc="true">Apple Watch Series SE </a></li>
                                     </ul>
@@ -215,7 +221,7 @@
                                     <div class="single-product-item">
                                         <div class="product-image">
                                             <a href="@Url.Action("Details", "Error404", new { id=item.MaSP })"><img src="~/Assets/@item.img" alt="product-image" /></a>
-                                            <a href="@Url.Action("Details", "Error404", new { id=item.MaSP })" class="new-mark-box">new</a>
+                                            <a href="@Url.Action("Details", "Error404", new { id=item.MaSP })" class="new-mark-box">Sản phẩm mới</a>
                                             <div class="overlay-content">
                                                 <div class="takeProductId" style="display:none">@item.MaSP</div>
                                                 <a class="add-to-cart" href="" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
@@ -230,11 +236,11 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-half-empty"></i>
                                                 </div>
-
+                                            
                                             </div>
                                             <a href="@Url.Action("Details", "Error404",new { id=item.MaSP })">@item.TenSP</a>
                                             <div class="price-box">
-                                                <span class="price">$ @item.DonGia</span>
+                                                <span class="price">@{ var price = String.Format("{0:0,0 VND}", item.DonGia);}@price</span>    
                                             </div>
                                         </div>
                                     </div>
@@ -287,7 +293,7 @@
                     alert("Thành công");
                 },
                 error: function () {
-                    alert('Fail');
+                    alert('Thất bại');
                 }
             });
         }

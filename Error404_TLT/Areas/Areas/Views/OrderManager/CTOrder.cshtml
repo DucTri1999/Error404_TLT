@@ -25,7 +25,7 @@
                 <td>@item.MaDH</td>
                 <td>@item.SanPham.TenSP</td>
                 <td>@item.SL</td>
-                <td>$ @item.SanPham.DonGia</td>
+                <td>@{var price = String.Format("{0:0,0 VND}",@item.SanPham.DonGia);}@price</td>
             </tr>
             }
 

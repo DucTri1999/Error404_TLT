@@ -13,7 +13,7 @@
     <div class="page-breadcrumb bg-white">
         <div class="row align-items-center">
             <h2 style="padding-top:15px">
-                DANH SÁCH DISCOUNT
+                DANH SÁCH GIẢM
             </h2>
 
         </div>
@@ -32,13 +32,13 @@
         <div class="row">
             <div class="col-md-12 container white-box">
                 <div class="add_Discount">
-                    <a href="#">Thêm Discount</a>
+                    <a href="#">Thêm Sản Phẩm Giảm</a>
                 </div>
                 <table id="example" class="table  table-bordered table-hover" style="width:100%">
                     <thead>
                         <tr style="text-align: center; ">
-                            <th style="font-size:15px;">Mã Discount</th>
-                            <th style="font-size:15px;">Tên Discount</th>
+                            <th style="font-size:15px;">Mã Giảm</th>
+                            <th style="font-size:15px;">Tên Sản Phẩm Giảm</th>
                             <th style="font-size:15px;">Mô Tả</th>
                             <th style="font-size:15px;">Giảm</th>
                             <th style="font-size:15px;" class="edit_Discount">
@@ -67,7 +67,7 @@
                                 <td class="click_Product productId">@item.DCID</td>
                                 <td class="click_Product">@item.TenDC</td>
                                 <td class="click_Product">@item.MoTa</td>
-                                <td class="click_Product">@item.Giam</td>
+                                <td class="click_Product">@{var price = String.Format("{0:0,0 VND}",@item.Giam);}@price</td>
                                 <td class="edit_Discount">
                                     <i class="fas fa-edit" style="color: red;"></i>
                                 </td>
